@@ -18,11 +18,11 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText}
-           text-white pointer-events-none`}>Hi, I'm <span 
+           text-white pointer-events-none drop-shadow-[0_3px_2px_rgba(0,0,0,1.0)]`}>Hi, I'm <span 
            className="text-[#315eff] pointer-events-none">
             Frank</span></h1>
             <p className={`${styles.heroSubText} mt-2
-            text-white-100 pointer-events-none`}>
+            text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)]`}>
               I Develop 3D Scenes using Assets and WebGL libraries, <br 
               className="sm:block hidden pointer-events-none" />
               User Interfaces, and variable Web Applications.
