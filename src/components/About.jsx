@@ -10,7 +10,7 @@ import { SectionWrapper } from '../hoc';
 const ServiceCard = ({index, title, icon }) => {
   return (
     <Tilt className="xs:w-[250px] w-full" tiltReverse="true" 
-    glareEnable="true" glareOpacity="0.9" glareColor="#ffffff" glarePosition="top"
+    glareEnable="true" glareMaxOpacity="0.3" glareColor="#ffffff" glarePosition="top"
     glareBorderRadius="25px">
       <motion.div
         variants={fadeIn("right", "spring", 0.5 * index, 0.75)}
