@@ -172,7 +172,7 @@ import {
   const testimonials = [
     {
       testimonial:
-        "I thought it was impossible to make a website as beautiful as our product, but Rick proved me wrong.",
+        "I thought it was going to be a headache to make a website as beautiful as our product, but Frank came through.",
       name: "Sara Lee",
       designation: "CFO",
       company: "Acme Co",
@@ -180,7 +180,7 @@ import {
     },
     {
       testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Rick does.",
+        "I've never met a web developer who truly cares about their clients' success like Frank does.",
       name: "Chris Brown",
       designation: "COO",
       company: "DEF Corp",
@@ -188,7 +188,7 @@ import {
     },
     {
       testimonial:
-        "After Rick optimized our website, our traffic increased by 50%. We can't thank them enough!",
+        "After Frank optimized our website, our traffic increased by 28%. We can't thank him enough!",
       name: "Lisa Wang",
       designation: "CTO",
       company: "456 Enterprises",
@@ -198,43 +198,51 @@ import {
   
   const projects = [
     {
-      name: "Car Rent",
+      name: "Dynamic TCG Visualizer",
       description:
-        "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation.",
+        `Web-based platform that allows users to search sets and pieces to the popular TCG 'Magic the Gathering.' \xa0 Real-time search results using the Scryfall API are displayed with a Custom Visualizer Display.`,
       tags: [
         {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "mongodb",
+          name: "Javascript",
           color: "green-text-gradient",
         },
         {
-          name: "tailwind",
+          name: "Three.js",
           color: "pink-text-gradient",
+        },
+        {
+          name: "Scryfall API",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "HTML & css",
+          color: "orange-text-gradient",
         },
       ],
       image: carrent,
       source_code_link: "https://github.com/",
-      live_link: "",
+      live_link: "https://thefrank86.github.io/Card_Visualizer/index.html",
     },
     {
-      name: "Job IT",
+      name: "Tech Team Up",
       description:
-        "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Web application with Mobile in mind that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
       tags: [
         {
-          name: "react",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "restapi",
+          name: "React Native",
           color: "green-text-gradient",
         },
         {
-          name: "scss",
+          name: "JavaScript & jsXML",
           color: "pink-text-gradient",
+        },
+        {
+          name: "JSearch API",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Axios",
+          color: "orange-text-gradient",
         },
       ],
       image: jobit,
@@ -242,21 +250,25 @@ import {
       live_link: "",
     },
     {
-      name: "Trip Guide",
+      name: "Portfolio Website",
       description:
-        "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+        "You're Here!  This is a showcase of my programming journey with live projects developed using modern techniques and a Bit of my personality. \xa0 Several different frameworks have been used to update this portfolio, including HTML, Django, and React.",
       tags: [
         {
-          name: "nextjs",
-          color: "blue-text-gradient",
-        },
-        {
-          name: "supabase",
+          name: "ReactJS",
           color: "green-text-gradient",
         },
         {
-          name: "css",
+          name: "JavaScript XML",
           color: "pink-text-gradient",
+        },
+        {
+          name: "Three.js",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "css",
+          color: "orange-text-gradient",
         },
       ],
       image: tripguide,

@@ -216,23 +216,23 @@
   animation: rotateAnimation 1 linear;
 }
 
-.tech div:nth-of-type(4n) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7.5s linear 1.2s; animation-iteration-count: infinite, infinite; } 
-.tech div:nth-of-type(4n + 1) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5s linear 1.2s; animation-iteration-count: infinite, infinite; } 
-.tech div:nth-of-type(4n + 2) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7s linear 1.2s; animation-iteration-count: infinite, infinite; } 
-.tech div:nth-of-type(4n + 3) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5.5s linear 1.2s; animation-iteration-count: infinite, infinite; } 
+.tech div:nth-of-type(4n) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7.5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
+.tech div:nth-of-type(4n + 1) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
+.tech div:nth-of-type(4n + 2) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7s linear 1.8s; animation-iteration-count: infinite, infinite; } 
+.tech div:nth-of-type(4n + 3) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5.5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
 
 @keyframes float {
   0% {
     transform: translatey(0px) rotate(0deg);
   }
   25% {
-    transform: translatey(-5px) rotate(-3deg);
+    transform: translatey(-7px) rotate(-3deg);
   }
   50% {
     transform: translatey(0px) rotate(0deg);
   }
   75% {
-    transform: translatey(-5px) rotate(3deg);
+    transform: translatey(-7px) rotate(3deg);
   }
   100% {
     transform: translatey(0px) rotate(0deg);
