@@ -212,7 +212,7 @@
   transition: all ease-in-out;
 }
 
-.tech div:nth-of-type(n) img:hover {
+.tech div:nth-of-type(n) img:hover, .tech div:nth-of-type(n) img:active {
   animation: rotateAnimation 1 linear;
 }
 

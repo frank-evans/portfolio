@@ -1,7 +1,7 @@
 import { BallCanvas } from './canvas';
 import { SectionWrapper } from '../hoc';
 import { technologies } from '../constants';
-import style from '../index.css';
+import style from '../index.css?inline';
 
 const Tech = () => {
   return (
