@@ -21,11 +21,21 @@ import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.png";
+import python from "./tech/Python.png";
+import gitHub from "./tech/GitHub.png";
+import framerMotion from "./tech/FramerMotion.png";
+import django from "./tech/Django.png";
+import gimp from "./tech/gimp.png";
+import c from "./tech/c.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import adon from "./company/adon.png";
+import humorElse from "./company/humorElse.png";
+import stackOverflow from './company/stackOverflow.png';
+import wholeFoods from "./company/wholeFoods.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -63,4 +73,14 @@ export {
   jobit,
   tripguide,
   cardsite,
+  python,
+  gitHub,
+  framerMotion,
+  django,
+  gimp,
+  c,
+  adon,
+  humorElse,
+  stackOverflow,
+  wholeFoods,
 };
