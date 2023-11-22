@@ -148,7 +148,7 @@ import {
       company_name: "Humor or Else",
       icon: humorElse,
       iconBg: "#FFFFFF",
-      date: "Jan 2022 - Jan 2023",
+      date: "December 2021 - January 2023",
       points: [
         "Developed custom content, products, and marketing for independent business.",
         "Content included writing and video for niche humor market including gaming and stand-up.",
@@ -158,10 +158,10 @@ import {
     },
     {
       title: "HVAC Technician",
-      company_name: "Adon Complete (smaller family owned)",
+      company_name: "Adon Complete",
       icon: adon,
       iconBg: "#FFFFFF",
-      date: "Jan 2020 - November 2021",
+      date: "January 2020 - November 2021",
       points: [
         "Field technician responding to all service inquiries including diagnostics, repairs, estimates, and sales.",
         "Install/project lead of teams up to 10 on many installs/projects.",
@@ -187,27 +187,27 @@ import {
   const testimonials = [
     {
       testimonial:
-        "I thought it was going to be a headache to make a website as beautiful as our product, but Frank came through.",
-      name: "Sara Lee",
-      designation: "CFO",
-      company: "Acme Co",
-      image: "https://randomuser.me/api/portraits/women/4.jpg",
+        "Projects are usually pretty smooth or a big headache.  Frank's communication and attention to detail ensured our project went smoothly, it was nice working with him.",
+      name: "Alex R.",
+      designation: "Graphic Artist",
+      company: "Independent",
+      image: "https://randomuser.me/api/portraits/men/35.jpg",
     },
     {
       testimonial:
-        "I've never met a web developer who truly cares about their clients' success like Frank does.",
-      name: "Chris Brown",
-      designation: "COO",
-      company: "DEF Corp",
-      image: "https://randomuser.me/api/portraits/men/5.jpg",
+        "Frank always takes care of clients.  He is one of my favorite people to work with.",
+      name: "Clarence M.",
+      designation: "Lead Technician",
+      company: "Adon Complete",
+      image: "https://randomuser.me/api/portraits/men/21.jpg",
     },
     {
       testimonial:
-        "After Frank optimized our website, our traffic increased by 28%. We can't thank him enough!",
-      name: "Lisa Wang",
-      designation: "CTO",
-      company: "456 Enterprises",
-      image: "https://randomuser.me/api/portraits/women/6.jpg",
+        "I needed some help outside our normal scope of work.  When I was having trouble finding a solution, Frank took it upon himself to get involved and helped me find a good solution.",
+      name: "Scott S.",
+      designation: "Member",
+      company: "Whole Foods",
+      image: "https://randomuser.me/api/portraits/men/68.jpg",
     },
   ];
   
