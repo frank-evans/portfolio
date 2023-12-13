@@ -30,6 +30,7 @@ import {
     django,
     gimp,
     c,
+    sqlite,
     adon,
     humorElse,
     stackOverflow,
@@ -57,12 +58,12 @@ import {
       icon: web,
     },
     {
-      title: "React Native Developer",
-      icon: mobile,
+      title: "Full Stack Developer",
+      icon: backend,
     },
     {
-      title: "Frontend Developer",
-      icon: backend,
+      title: "React Native Developer",
+      icon: mobile,
     },
     {
       title: "Content Creator",
@@ -112,8 +113,12 @@ import {
       icon: tailwind,
     },
     {
-      name: "Framer Motion",
-      icon: framerMotion,
+      name: "SQLite",
+      icon: sqlite,
+    },
+    {
+      name: "Gimp",
+      icon: gimp,
     },
     {
       name: "git",
@@ -122,10 +127,6 @@ import {
     {
       name: "git Hub",
       icon: gitHub,
-    },
-    {
-      name: "Gimp",
-      icon: gimp,
     },
   ];
   
@@ -137,7 +138,7 @@ import {
       iconBg: "#FFFFFF",
       date: "April 2022 - Present",
       points: [
-        "Started by completing Harvard's infamous CS50 course, and continued on with many others by Harvard, Stanford, and more.",
+        "Started by completing Harvard's infamous CS50 course, and continued on with many other Computer Science courses by Harvard, Stanford, and more.",
         "Developing and maintaining web applications using Django, React.js, and other related technologies depicted below.",
         "Participating in code reviews and implementing constructive feedback from senior developers.",
         "Implementing responsive design and ensuring cross-browser compatibility.",
@@ -174,7 +175,7 @@ import {
       company_name: "Whole Foods",
       icon: wholeFoods,
       iconBg: "#FFFFFF",
-      date: "2016 - September 2019",
+      date: "February 2017 - October 2019",
       points: [
         "Grocery department supervisor of teams up to 8.",
         "Daily communication with Team Manager on performance, schedule, rollouts, feedback, and issues.",

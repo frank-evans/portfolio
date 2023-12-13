@@ -27,6 +27,7 @@ import framerMotion from "./tech/FramerMotion.png";
 import django from "./tech/Django.png";
 import gimp from "./tech/gimp.png";
 import c from "./tech/c.png";
+import sqlite from "./tech/sqlite.png";
 
 import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
@@ -79,6 +80,7 @@ export {
   django,
   gimp,
   c,
+  sqlite,
   adon,
   humorElse,
   stackOverflow,

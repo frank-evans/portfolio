@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import { Suspense, useMemo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Preload, useGLTF } from '@react-three/drei';
 
@@ -8,15 +8,27 @@ const Earth = () => {
   const earth = useGLTF('./planet/scene.gltf');
   //const earth = useGLTF("./planet/earth.glb");
 
+  const lightIntensity = useMemo(() => 8.15, []);
+  const lightPosition = useMemo(() => [0, 0, 0], []);
+  const groundColor = useMemo(() => 'black', []);
+
   return (
+    <mesh>
+      <hemisphereLight intensity={lightIntensity}
+        position={lightPosition}
+        groundColor={groundColor} />
+      <primitive object={earth.scene} />
+    </mesh>
+  );
+  /* return (
       <mesh>
         <hemisphereLight intensity={8.15}
           position={[0, 0, 0]}
           groundColor='black' />
         {/* <pointLight intensity={8} 
           position={[0, -0.8, 0]}
-        />  */}
-        <primitive 
+        />  }*/
+        /* <primitive 
           object={earth.scene}
           //scale={isMobile ? 0.7 : 0.75}
           scale={2.0}
@@ -26,7 +38,7 @@ const Earth = () => {
           rotation={[0, 0, 0]}
         />
       </mesh>
-  );
+  );  */
 };
 
 const EarthCanvas = () => {
@@ -59,4 +71,5 @@ const EarthCanvas = () => {
   );
 };
 
+/* export default React.memo(EarthCanvas); */
 export default EarthCanvas;
