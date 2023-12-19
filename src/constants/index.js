@@ -158,7 +158,7 @@ import {
       ],
     },
     {
-      title: "HVAC Technician",
+      title: "HVAC Technician/Lead",
       company_name: "Adon Complete",
       icon: adon,
       iconBg: "#FFFFFF",

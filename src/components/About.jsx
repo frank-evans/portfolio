@@ -52,7 +52,7 @@ const About = () => {
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
         I'm a skilled developer with experience in Javascript, Python, C, and 
-        expertise in frameworks like React, React Native, jQuery, Three.js, and Django.
+        expertise in technologies like React, React Native, jQuery, Three.js, and Django.
         I'm a quick learner and collaborate well with clients and team members.
         Let's work together to create something great!
       </motion.p>

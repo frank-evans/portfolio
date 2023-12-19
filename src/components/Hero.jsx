@@ -7,12 +7,19 @@ const Hero = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       {/* <ComputersCanvas /> */}
-      <GameCanvas />
+      {/* <GameCanvas /> */}
+      <iframe 
+      className="pt-14"
+      /* src="https://thefrank86.github.io/Card_Visualizer/index.html" */ 
+      src="http://localhost:5173/src/components/canvas/gameContainer/index.html" 
+      width="100%" 
+      height="100%"
+      />
 
       {/* className="max-w-7xl" */}
-      <div className={`${styles.paddingX} absolute
+      <div className={`sm:px-8 px-3 absolute
       inset-0 top-[120px] mx-auto flex
-      flex-row items-start gap-5 pointer-events-none`}>
+      flex-row items-start gap-3 pointer-events-none`}>
         <div className="flex flex-col justify-center items-center mt-5 pointer-events-none">
           <div className="w-5 h-5 rounded-full bg-[#315eff] pointer-events-none" />
           <div className="w-1 sm:h-80 h-40 bg-gradient-to-b from-[#315eff] from-05% pointer-events-none" />
