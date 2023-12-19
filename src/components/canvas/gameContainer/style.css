@@ -83,7 +83,7 @@ canvas {
 }
 .stars {
  background: black url("./static/stars.png") repeat;
- position: absolute;
+ position: fixed;
 	top: 0;
 	bottom: 0;
 	left: 0;
@@ -96,7 +96,7 @@ canvas {
 	height: 100%;
 	background: transparent url("./static/twinkling.png") repeat;
 	background-size: 1000px 1000px;
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     bottom: 0;

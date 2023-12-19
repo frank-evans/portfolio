@@ -268,7 +268,7 @@ import {
     {
       name: "Portfolio Website",
       description:
-        "You're Here!  This is a showcase of my programming journey with live projects developed using modern techniques and a Bit of my personality. \xa0 Several different frameworks have been used to update this portfolio, including HTML, Django, and React.",
+        `You're Here!  This is a showcase of my programming journey with live projects developed using modern techniques and a Bit of my personality. \xa0 Several different frameworks have been used to update this portfolio, including HTML, Django, and React.`,
       tags: [
         {
           name: "ReactJS",
