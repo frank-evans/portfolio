@@ -1,4 +1,15 @@
-let model, mesh;
+import { Sound } from './audio.js';
+
+/* initialize audio */
+const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
+/* const fxExplode = new Sound("./sounds/explode.m4a", 1, 0.2); */
+const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
+
+let modal1 = document.getElementById('modal1');
+let modal2 = document.getElementById('modal2');
+let modal3 = document.getElementById('modal3');
+
+let model, rock, card, app;
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -43,26 +54,56 @@ scene.add( helper );
 // texture loader
 const textureLoader = new THREE.TextureLoader();
 
+// geometry initialization 
+const Geometry = new THREE.PlaneGeometry(8, 8);
+
+// card texture loading              ******************* update img *******************
+// geometry initialization 
+const cardGeometry = new THREE.PlaneGeometry(5, 7);
+const cardTexture = textureLoader.load("./static/black-lotus.png");
+cardTexture.rotation = 0.0;
+const cardMaterial = new THREE.MeshStandardMaterial({
+    //size: 2.0,
+    //color: 0xddc0ff,
+    color: 0x777777,
+    map: cardTexture,
+    //wireframe: true,
+    transparent: true,
+    flatShading : true,
+});
+card = new THREE.Mesh(cardGeometry, cardMaterial);
+scene.add(card);
+card.position.set(-10, 7, -5);
+
+// app texture loading              ******************* update img *******************
+const appTexture = textureLoader.load("./static/app.png");
+appTexture.rotation = 0.0;
+const appMaterial = new THREE.MeshStandardMaterial({
+    //size: 2.0,
+    //color: 0xddc0ff,
+    color: 0x777777,
+    map: appTexture,
+    //wireframe: true,
+    transparent: true,
+});
+app = new THREE.Mesh(cardGeometry, appMaterial);
+scene.add(app);
+app.position.set(0, 10, -5);
+
 // asteroid texture loading
-const rock = textureLoader.load("./static/asteroid2.png");
-rock.rotation = 0.3;
-
-// asteroid 1 initialization 
-const rockGeometry = new THREE.PlaneGeometry(8, 8);
-
+const rockTexture = textureLoader.load("./static/asteroid2.png");
+rockTexture.rotation = 0.3;
 const rockMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
     //color: 0xddc0ff,
     color: 0xffffff,
-    map: rock,
+    map: rockTexture,
     //wireframe: true,
     transparent: true,
 });
-
-mesh = new THREE.Mesh(rockGeometry, rockMaterial);
-scene.add(mesh);
-
-mesh.position.set(-7,7,-5);
+rock = new THREE.Mesh(Geometry, rockMaterial);
+scene.add(rock);
+rock.position.set(12, 7, -5);
 
 // Yuka AI vehicle initialization 
 const vehicle = new YUKA.Vehicle();
@@ -158,6 +199,7 @@ let laserClick = false;
 
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {
@@ -165,6 +207,7 @@ window.addEventListener('mousedown', function() {
                 target.position.set(intersects[i].point.x, intersects[i].point.y, intersects[i].point.z);
         }
         laserClick = true;
+    }
 });
 
 // bullet array
@@ -195,12 +238,24 @@ function animate(t) {
     ship.rotation.x += Math.sin(t / 400) * (toleranceX);  
     ship.rotation.y += Math.sin(t / 400) * (toleranceY);
     ship.position.z += Math.sin(t / 400) * -(toleranceZ);
-    
-    // asteroid 1 default animation
-    mesh.rotation.z += Math.sin(t / 1200) * 0.0003;
-    mesh.position.z += Math.sin(t / 800) * 0.0008;
-    mesh.position.x += Math.sin(t / 1600) * 0.001;
-    mesh.position.y += Math.sin(t / 1400) * 0.001;
+
+    // card default animation
+    card.rotation.z -= Math.sin(t / 1200) * 0.0003;
+    card.position.z += Math.sin(t / 800) * 0.0008;
+    card.position.x -= Math.sin(t / 1600) * 0.001;
+    card.position.y += Math.sin(t / 1400) * 0.001;
+
+    // app default animation
+    app.rotation.z -= Math.sin(t / 1200) * 0.0003;
+    app.position.z -= Math.sin(t / 800) * 0.0008;
+    app.position.x -= Math.sin(t / 1600) * 0.001;
+    app.position.y -= Math.sin(t / 1400) * 0.001;
+
+    // rock default animation
+    rock.rotation.z += Math.sin(t / 1200) * 0.0003;
+    rock.position.z += Math.sin(t / 800) * 0.0008;
+    rock.position.x += Math.sin(t / 1600) * 0.001;
+    rock.position.y += Math.sin(t / 1400) * 0.001;
     
     // laser array updates
     for(let index = 0; index < bullets.length; index += 1){
@@ -215,12 +270,6 @@ function animate(t) {
 
     // ship laser
     if(laserClick && canShoot <= 0){
-        let bullet = new THREE.Mesh(
-            //new THREE.CapsuleGeometry( 0.2, 0.5, 4, 8 ),
-            new THREE.SphereGeometry( 0.1, 1, 4, 8 ),
-            new THREE.MeshBasicMaterial({color:0xff0000}),
-        ); 
-    
         // variables to convert target world space to ship local space
         let posX;
         let posY;
@@ -258,6 +307,19 @@ function animate(t) {
             z = Math.sign(local.position.x);
         }
 
+        let bullet = new THREE.Mesh(
+            //new THREE.CapsuleGeometry( 0.2, 0.5, 4, 8 ),
+            /* new THREE.SphereGeometry( 0.1, 1, 4, 8 ), */
+            new THREE.SphereGeometry( 0.15, 6, 4, 0),
+            /* new THREE.CylinderGeometry( 0.1, 0.1, 1.2, 4, 1, true, 0 , 2 * Math.PI ), */
+            new THREE.MeshBasicMaterial({color:0xff0000}),
+            /* new THREE.MeshBasicMaterial({color:0xFFEF1A}), */
+        ); 
+    
+        /* bullet.applyMatrix4(local.position); */
+        /* bullet.rotateX(180); */
+        /* bullet.rotateY(local.position.y); */
+
         // position lasers to come from ship
         bullet.position.set(
             vehicle.position.x + (local.position.x) * 1.5,
@@ -288,17 +350,41 @@ function animate(t) {
         scene.add(bullet);
         canShoot = 10;
         laserClick = false;
+
+        fxLaser.play();
     }
 
     // this goes in Animate, as laser gets in proximity of button **********************************************************************
     for(let index = 0; index < bullets.length; index += 1){
-        // at planegeometry (8, 8), mesh.x -3.5, +2  mesh.y -1.5, +3.5
-        if (bullets[index].position.x > (mesh.position.x - 2.5) && bullets[index].position.x < (mesh.position.x + 2)){
-            if (bullets[index].position.y > (mesh.position.y - 2.0) && bullets[index].position.y < (mesh.position.y + 2.5)){
+        // card hitbox
+        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5)){
+            if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                  openModal(modal1);
+                 fxExplode.play();
+            }    
+        } 
+        // app hitbox
+        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2)){
+            if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                 openModal(modal2);
+                 fxExplode.play();
+            }    
+        } 
+        // rock hitbox
+        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0)){
+            if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 2.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                 openModal(modal3);
+                 fxExplode.play();
             }    
         } 
     }
+
+    /* if (vehicle.velocity.x > 1.0 || vehicle.velocity.y > 1.0) {
+        fxThrust.play();
+    }
+    else {
+        fxThrust.stop();
+    } */
 
     // timer for laser intervals
     if(canShoot > 0) canShoot -= 1;

@@ -14,7 +14,7 @@
         <script src="./script/yuka.js"></script>
         <!-- script-modal.js needs to be loaded first to access modal variables type="module" -->
         <script src="./script/modal.js" defer></script>
-        <script src="./script/main.js" defer></script>
+        <script src="./script/main.js" type="module" defer></script>
 
         <div class="background-container">
         <div class="stars"></div>
@@ -26,9 +26,6 @@
         
         <div id="overlay"></div>
         
-        <!-- data-modal-target = "#(the named ID of the desired target div)"-->
-        <!-- ************ Buttons to be removed after all functionality complete ******-->
-        <button data-modal-target="#modal1" id="button1">Cards</button>
         <div class="modal" id="modal1">
             <div class="modal-header">
                 <div class="title">Cardsite Project</div>
@@ -52,7 +49,6 @@
             </div>
         </div>
         
-        <button data-modal-target="#modal2" id="button2">App</button>
         <div class="modal" id="modal2">
             <div class="modal-header">
                 <div class="title">App Project</div>
@@ -73,7 +69,6 @@
             </div>
         </div> 
 
-        <button data-modal-target="#modal3" id="button3">Game</button>
         <div class="modal" id="modal3">
             <div class="modal-header">
                 <div class="title">Game Project</div>

@@ -56,30 +56,6 @@
     opacity: 1;
     pointer-events: auto;
 }
-#button1 {
-    position: fixed;
-    right: 50%; 
-    text-align: center;
-    justify-content: center;
-    top: 10%;
-    z-index: 2;
-}
-#button2 {
-    position: fixed;
-    right: 40%; 
-    text-align: center;
-    justify-content: center;
-    top: 10%;
-    z-index: 2;
-}
-#button3 {
-    position: fixed;
-    right: 30%; 
-    text-align: center;
-    justify-content: center;
-    top: 10%;
-    z-index: 2;
-}
 .close-button {
     position: relative;
     right: 0%;
