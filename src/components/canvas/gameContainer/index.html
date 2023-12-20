@@ -9,21 +9,25 @@
         <title>Starship Game</title>
     </head>
     <body>
-        <script src="./script/three.min.js"></script>
-        <script src="./script/GLTFLoader.js"></script>
-        <script src="./script/yuka.js"></script>
-        <!-- script-modal.js needs to be loaded first to access modal variables type="module" -->
-        <script src="./script/modal.js" defer></script>
         <script src="./script/main.js" type="module" defer></script>
 
         <div class="background-container">
         <div class="stars"></div>
         <div class="twinkling"></div>
             
-        <!-- <div id="background-image"></div> -->
+        <div id="game-container">
+            <!-- gif for module transition (explosion) -->
+        <!-- <img id="explosion1" src="./static/explosion.gif">
+        <img id="explosion2" src="./static/explosion.gif">
+        <img id="explosion3" src="./static/explosion.gif"> -->
+        </div>
         
-        <div id="game-container"></div>
+        <!-- <video id="explosion" autoplay loop muted>
+            <source src="./static/.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>  -->
         
+
         <div id="overlay"></div>
         
         <div class="modal" id="modal1">

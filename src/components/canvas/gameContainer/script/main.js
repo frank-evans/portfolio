@@ -1,4 +1,9 @@
 import { Sound } from './audio.js';
+import { openModal } from './modal.js';
+import './three.min.js';
+import './GLTFLoader.js';
+import './yuka.js';
+import './modal.js';
 
 /* initialize audio */
 const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
@@ -9,7 +14,7 @@ let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
 let modal3 = document.getElementById('modal3');
 
-let model, rock, card, app;
+let model, rock, card, app, explode;
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -65,7 +70,7 @@ cardTexture.rotation = 0.0;
 const cardMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
     //color: 0xddc0ff,
-    color: 0x777777,
+    color: 0x666666,
     map: cardTexture,
     //wireframe: true,
     transparent: true,
@@ -81,7 +86,7 @@ appTexture.rotation = 0.0;
 const appMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
     //color: 0xddc0ff,
-    color: 0x777777,
+    color: 0x666666,
     map: appTexture,
     //wireframe: true,
     transparent: true,
@@ -96,7 +101,7 @@ rockTexture.rotation = 0.3;
 const rockMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
     //color: 0xddc0ff,
-    color: 0xffffff,
+    color: 0xdddddd,
     map: rockTexture,
     //wireframe: true,
     transparent: true,
@@ -104,6 +109,20 @@ const rockMaterial = new THREE.MeshStandardMaterial({
 rock = new THREE.Mesh(Geometry, rockMaterial);
 scene.add(rock);
 rock.position.set(12, 7, -5);
+
+// explosion texture loading
+const explodeTexture = textureLoader.load("./static/explosion.gif");
+const explodeMaterial = new THREE.MeshStandardMaterial({
+    //size: 2.0,
+    //color: 0xddc0ff,
+    color: 0xdddddd,
+    map: explodeTexture,
+    //wireframe: true,
+    transparent: true,
+});
+explode = new THREE.Mesh(Geometry, explodeMaterial);
+scene.add(explode);
+explode.position.set(0, 0, -5);
 
 // Yuka AI vehicle initialization 
 const vehicle = new YUKA.Vehicle();

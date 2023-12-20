@@ -1,19 +1,16 @@
 *::after, *::before {
   box-sizing: border-box;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: sans-serif;
   overflow: hidden;
   /* background: url("stars.jpg"); */
 }
-
 .scene,
 canvas {
   position: absolute;
@@ -21,34 +18,9 @@ canvas {
   height: 100%;
   z-index: -1;
 }
-
-#background-image {
-  position: fixed;
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-  /* background-image: url("stars.jpg"); ******************************************************************************************   */ 
-  content: url("static/stars.jpg");
-  align-content: center;
-  width: 110%;
-  height: 110%;
-  top: -5%;
-  left: -5%; 
- 
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: rotate(0deg);
-  z-index: -95;
-  animation: rotateAnimation 15s linear infinite;
+#game-container {
+  min-width: 1000px;
 }
-@keyframes rotateAnimation {
-	0% {transform: rotate(-0.5deg);}
-	50% {transform: rotate(0.5deg);}
-  100% {transform: rotate(-0.5deg);}
-}
-/* performance test ******************************************************************************************   */
 @keyframes move-background {
   from {
 		-webkit-transform: translate3d(0px, 0px, 0px);
@@ -107,4 +79,37 @@ canvas {
   -o-animation:move-background 35s linear infinite;
   -webkit-animation:move-background 35s linear infinite;
   animation:move-background 35s linear infinite;
+}
+#explosion1 {
+  position: absolute;
+  width: 40%;
+  top: 3%;
+  left: 13%;
+
+  opacity: 1;
+  transition: all 0.75s;
+}
+#explosion2 {
+  position: absolute;
+  width: 40%;
+  top: -5%;
+  left: 32%;
+
+  opacity: 1;
+  transition: all 0.75s;
+}
+#explosion3 {
+  position: absolute;
+  width: 40%;
+  top: 0%;
+  left: 50%;
+
+  opacity: 1;
+  transition: all 0.75s;
+}
+.hidden {
+  opacity: 0;
+}
+.show {
+  opacity: 1;
 }
