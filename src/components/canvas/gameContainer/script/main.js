@@ -17,14 +17,15 @@ let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
 let modal3 = document.getElementById('modal3');
 
-let model, rock, card, app, explode;
+let model, rock, card, app;
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
     alpha: true,
 });
 
-renderer.setSize(window.innerWidth, window.innerHeight);
+/* renderer.setSize(window.innerWidth, window.innerHeight); */
+renderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
 
 /* document.body.appendChild(renderer.domElement); */
 // Get a reference to the container element
@@ -39,7 +40,8 @@ const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
     45,
-    window.innerWidth / window.innerHeight,
+    /* window.innerWidth / window.innerHeight, */
+    window.innerWidth / (window.innerWidth * 0.56),
     0.1,
     1000
 );
@@ -61,7 +63,8 @@ scene.add( helper );
 
 // CSS2DRenderer initialization ************************************************
 const labelRenderer = new CSS2DRenderer();
-labelRenderer.setSize(window.innerWidth, window.innerHeight);
+/* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
+labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
 labelRenderer.domElement.style.position = 'absolute';
 labelRenderer.domElement.style.top = '0px';
 labelRenderer.domElement.style.pointerEvents = 'none';
@@ -126,8 +129,10 @@ scene.add(divContainer);
 divContainer.position.set(0, 10, -5);
 
 // Set initial size
-const heightPercentage = 50; // 45% of window height
-img.style.height = (window.innerHeight * heightPercentage / 100) + 'px';
+const widthPercentage = 50; // 45% of window width
+/* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
+img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+/* img.style.height = (window.innerHeight * (window.innerWidth * 0.56) / 100) + 'px'; */
 img.style.display = 'none';
 /* img.style.display = 'initial'; */
 
@@ -135,7 +140,7 @@ img.style.display = 'none';
 const vehicle = new YUKA.Vehicle();
 
 vehicle.scale.set(0.60, 0.60, 0.60);
-vehicle.position.set(0, 0, 0);
+vehicle.position.set(-11, 20, 0);
 
 vehicle.forward.set(0, -1, 0);
 vehicle.up.set(1, 0, 0);
@@ -149,14 +154,17 @@ entityManager.add(vehicle);
 
 const target = new YUKA.GameEntity();
 target.up.set(0, 0, 1);
+target.position.set(0, 0, 0);
 
 entityManager.add(target);
 
 // setting target deceleration and ship bounding box tolerance (target.position, 0.5, 0.3)
-const arriveBehavior = new YUKA.ArriveBehavior(target.position, 0.15, 0.0);
+/* const arriveBehavior = new YUKA.ArriveBehavior(target.position, 0.15 (0.5), 0.0); */
+const arriveBehavior = new YUKA.ArriveBehavior(target.position, 0.3, 0.0);
 
 // adjust weight for fast response without overshooting target (5)
-arriveBehavior.weight = 75;
+/* arriveBehavior.weight = 75; (10) */
+arriveBehavior.weight = 40;
 
 vehicle.steering.add(arriveBehavior);
 
@@ -190,11 +198,12 @@ const mousePosition = new THREE.Vector3();
 
 window.addEventListener('mousemove', function(e) {
     mousePosition.x = (e.clientX / this.window.innerWidth) * 2 - 1;
-    mousePosition.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
+    /* mousePosition.y = -(e.clientY / this.window.innerHeight) * 2 + 1; */
+    mousePosition.y = -(e.clientY / (this.window.innerWidth * 0.56)) * 2 + 1;
     mousePosition.z = 1;
 });
 
-const planeGeo = new THREE.PlaneGeometry(60, 60, 10, 10);
+const planeGeo = new THREE.PlaneGeometry(60, 25, 10, 10);
 const planeMat = new THREE.MeshBasicMaterial({
     visible: false,
     wireframe : true,
@@ -218,8 +227,8 @@ window.addEventListener('mousedown', function() {
         for(let i = 0; i < intersects.length; i++) {
             if(intersects[i].object.name === 'plane') 
                 target.position.set(intersects[i].point.x, intersects[i].point.y, intersects[i].point.z);
+                laserClick = true;
         }
-        laserClick = true;
     }
 });
 
@@ -229,7 +238,7 @@ function respawn(r, y) {
             scene.add(r);
             r.material.opacity = 0.0;
             r.position.y = y;
-        }, 5.0 * 1000);
+        }, 7.0 * 1000);
     } else {
         setTimeout (() => {  
             respawn(r, y);
@@ -384,7 +393,7 @@ function animate(t) {
     // this goes in Animate, as laser gets in proximity of button **********************************************************************
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
-        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(img.style.display == 'initial')){
+        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(img.style.display == 'initial') && card.material.opacity >= 1.0){
             if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 /* divContainer.position.set(card.position.x, card.position.y, -5); */
                 img.src = './static/explosion.gif';
@@ -415,7 +424,7 @@ function animate(t) {
             }    
         } 
         // app hitbox
-        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial')){
+        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial') && app.material.opacity >= 1.0){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 /* divContainer.position.set(app.position.x, app.position.y, -5); */
                 img.src = './static/explosion.gif';
@@ -446,7 +455,7 @@ function animate(t) {
             }    
         } 
         // rock hitbox
-        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial')){
+        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial') && rock.material.opacity >= 1.0){
             if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 2.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 /* divContainer.position.set(rock.position.x, rock.position.y, -5); */
                 img.src = './static/explosion.gif';
@@ -504,11 +513,15 @@ function animate(t) {
 renderer.setAnimationLoop(animate);
 
 window.addEventListener('resize', function() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    /* camera.aspect = window.innerWidth / window.innerHeight; */
+    camera.aspect = window.innerWidth / (window.innerWidth * 0.56);
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+   /*  renderer.setSize(window.innerWidth, window.innerHeight); */
+    renderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
+    /* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
+    labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
 
     // CSS2DRenderer resize (explosion gif)
-    img.style.height = (window.innerHeight * heightPercentage / 100) + 'px';
+    /* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
+    img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
 });
