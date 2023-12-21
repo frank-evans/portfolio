@@ -1,5 +1,7 @@
 import { Sound } from './audio.js';
 import { openModal } from './modal.js';
+import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
+/* import explosion from '../static/explosion.gif'; */
 import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
@@ -7,8 +9,9 @@ import './modal.js';
 
 /* initialize audio */
 const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
-/* const fxExplode = new Sound("./sounds/explode.m4a", 1, 0.2); */
 const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
+/* const fxThrust = new Sound("./sounds/thrust.m4a", 1, 0.05);
+fxThrust.streams[0].loop = true; */
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
@@ -56,23 +59,28 @@ scene.add(directionalLight);
 const helper = new THREE.DirectionalLightHelper( directionalLight, 0.3);
 scene.add( helper );
 
+// CSS2DRenderer initialization ************************************************
+const labelRenderer = new CSS2DRenderer();
+labelRenderer.setSize(window.innerWidth, window.innerHeight);
+labelRenderer.domElement.style.position = 'absolute';
+labelRenderer.domElement.style.top = '0px';
+labelRenderer.domElement.style.pointerEvents = 'none';
+//document.body.appendChild(labelRenderer.domElement);
+container.appendChild(labelRenderer.domElement);
+
 // texture loader
 const textureLoader = new THREE.TextureLoader();
 
-// geometry initialization 
-const Geometry = new THREE.PlaneGeometry(8, 8);
-
-// card texture loading              ******************* update img *******************
+// card texture loading
 // geometry initialization 
 const cardGeometry = new THREE.PlaneGeometry(5, 7);
 const cardTexture = textureLoader.load("./static/black-lotus.png");
 cardTexture.rotation = 0.0;
 const cardMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
-    //color: 0xddc0ff,
+    opacity: 1.0,
     color: 0x666666,
     map: cardTexture,
-    //wireframe: true,
     transparent: true,
     flatShading : true,
 });
@@ -80,15 +88,13 @@ card = new THREE.Mesh(cardGeometry, cardMaterial);
 scene.add(card);
 card.position.set(-10, 7, -5);
 
-// app texture loading              ******************* update img *******************
+// app texture loading
 const appTexture = textureLoader.load("./static/app.png");
 appTexture.rotation = 0.0;
 const appMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
-    //color: 0xddc0ff,
     color: 0x666666,
     map: appTexture,
-    //wireframe: true,
     transparent: true,
 });
 app = new THREE.Mesh(cardGeometry, appMaterial);
@@ -96,42 +102,40 @@ scene.add(app);
 app.position.set(0, 10, -5);
 
 // asteroid texture loading
+// geometry initialization 
+const Geometry = new THREE.PlaneGeometry(8, 8);
 const rockTexture = textureLoader.load("./static/asteroid2.png");
 rockTexture.rotation = 0.3;
 const rockMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
-    //color: 0xddc0ff,
     color: 0xdddddd,
     map: rockTexture,
-    //wireframe: true,
     transparent: true,
 });
 rock = new THREE.Mesh(Geometry, rockMaterial);
 scene.add(rock);
 rock.position.set(12, 7, -5);
 
-// explosion texture loading
-const explodeTexture = textureLoader.load("./static/explosion.gif");
-const explodeMaterial = new THREE.MeshStandardMaterial({
-    //size: 2.0,
-    //color: 0xddc0ff,
-    color: 0xdddddd,
-    map: explodeTexture,
-    //wireframe: true,
-    transparent: true,
-});
-explode = new THREE.Mesh(Geometry, explodeMaterial);
-scene.add(explode);
-explode.position.set(0, 0, -5);
+// CSS2DRenderer initialization for explosion gif (html) *******************************************
+const img = document.createElement('img');
+img.src = './static/explosion.gif';
+const div = document.createElement('div');
+div.appendChild(img);
+const divContainer = new CSS2DObject(div);
+scene.add(divContainer);
+divContainer.position.set(0, 10, -5);
+
+// Set initial size
+const heightPercentage = 50; // 45% of window height
+img.style.height = (window.innerHeight * heightPercentage / 100) + 'px';
+img.style.display = 'none';
+/* img.style.display = 'initial'; */
 
 // Yuka AI vehicle initialization 
 const vehicle = new YUKA.Vehicle();
 
 vehicle.scale.set(0.60, 0.60, 0.60);
 vehicle.position.set(0, 0, 0);
-
-//vehicle.forward.set(0, -1, 0);
-//vehicle.up.set(0, 0, 1);
 
 vehicle.forward.set(0, -1, 0);
 vehicle.up.set(1, 0, 0);
@@ -144,21 +148,17 @@ const entityManager = new YUKA.EntityManager();
 entityManager.add(vehicle);
 
 const target = new YUKA.GameEntity();
-//target.setRenderComponent(targetMesh, sync);
 target.up.set(0, 0, 1);
 
 entityManager.add(target);
 
 // setting target deceleration and ship bounding box tolerance (target.position, 0.5, 0.3)
 const arriveBehavior = new YUKA.ArriveBehavior(target.position, 0.15, 0.0);
-//const arriveBehavior = new YUKA.ArriveBehavior((target.position.x, target.position.y, 0), 0.0, 0.3);
 
 // adjust weight for fast response without overshooting target (5)
 arriveBehavior.weight = 75;
 
 vehicle.steering.add(arriveBehavior);
-
-//target.position.set(0, 0, 1);
 
 vehicle.maxSpeed = 8.0;
 
@@ -188,19 +188,13 @@ loader.load('./ship/Striker.blend03.glb', function(glb) {
 
 const mousePosition = new THREE.Vector3();
 
-let mouseX = 0;
-let mouseY = 0;
-
 window.addEventListener('mousemove', function(e) {
     mousePosition.x = (e.clientX / this.window.innerWidth) * 2 - 1;
     mousePosition.y = -(e.clientY / this.window.innerHeight) * 2 + 1;
     mousePosition.z = 1;
-    //test **********************************************************************
-    mouseX = (e.clientX - window.innerWidth / 2);
-    mouseY = (e.clientY - window.innerHeight / 2);
 });
 
-const planeGeo = new THREE.PlaneGeometry(45, 45, 10, 10);
+const planeGeo = new THREE.PlaneGeometry(60, 60, 10, 10);
 const planeMat = new THREE.MeshBasicMaterial({
     visible: false,
     wireframe : true,
@@ -218,7 +212,7 @@ let laserClick = false;
 
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(img.style.display == 'initial')) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {
@@ -228,6 +222,20 @@ window.addEventListener('mousedown', function() {
         laserClick = true;
     }
 });
+
+function respawn(r, y) {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
+        setTimeout (() => {
+            scene.add(r);
+            r.material.opacity = 0.0;
+            r.position.y = y;
+        }, 5.0 * 1000);
+    } else {
+        setTimeout (() => {  
+            respawn(r, y);
+        }, 1000);
+    }
+}
 
 // bullet array
 let bullets = [];
@@ -259,22 +267,22 @@ function animate(t) {
     ship.position.z += Math.sin(t / 400) * -(toleranceZ);
 
     // card default animation
-    card.rotation.z -= Math.sin(t / 1200) * 0.0003;
+    card.rotation.z -= Math.sin(t / 1800) * 0.0005;
     card.position.z += Math.sin(t / 800) * 0.0008;
-    card.position.x -= Math.sin(t / 1600) * 0.001;
-    card.position.y += Math.sin(t / 1400) * 0.001;
+    card.position.x -= Math.sin(t / 2400) * 0.002;
+    card.position.y += Math.sin(t / 2100) * 0.002;
 
     // app default animation
-    app.rotation.z -= Math.sin(t / 1200) * 0.0003;
+    app.rotation.z -= Math.sin(t / 1200) * 0.0005;
     app.position.z -= Math.sin(t / 800) * 0.0008;
-    app.position.x -= Math.sin(t / 1600) * 0.001;
-    app.position.y -= Math.sin(t / 1400) * 0.001;
+    app.position.x -= Math.sin(t / 1600) * 0.002;
+    app.position.y -= Math.sin(t / 1400) * 0.002;
 
     // rock default animation
-    rock.rotation.z += Math.sin(t / 1200) * 0.0003;
+    rock.rotation.z += Math.sin(t / 1200) * 0.0005;
     rock.position.z += Math.sin(t / 800) * 0.0008;
-    rock.position.x += Math.sin(t / 1600) * 0.001;
-    rock.position.y += Math.sin(t / 1400) * 0.001;
+    rock.position.x += Math.sin(t / 1600) * 0.002;
+    rock.position.y += Math.sin(t / 1400) * 0.002;
     
     // laser array updates
     for(let index = 0; index < bullets.length; index += 1){
@@ -376,40 +384,120 @@ function animate(t) {
     // this goes in Animate, as laser gets in proximity of button **********************************************************************
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
-        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5)){
+        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(img.style.display == 'initial')){
             if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                 openModal(modal1);
-                 fxExplode.play();
+                /* divContainer.position.set(card.position.x, card.position.y, -5); */
+                img.src = './static/explosion.gif';
+                img.style.display = 'initial';
+                divContainer.position.set(-11, 7, -5);
+                fxExplode.play();
+
+                setTimeout(() => {
+                    openModal(modal1);
+                }, 1.0 * 1000); 
+
+                setTimeout(() => {
+                    scene.remove(card);
+                    card.position.y = 300;
+                }, 2.0 * 1000); 
+
+                setTimeout(() => {
+                    img.style.display = 'none';
+                    divContainer.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    /* scene.add(card);
+                    card.material.opacity = 0.0;
+                    card.position.y = 7; */
+                    respawn(card, 7);
+                }, 4.0 * 1000); 
             }    
         } 
         // app hitbox
-        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2)){
+        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial')){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                 openModal(modal2);
-                 fxExplode.play();
+                /* divContainer.position.set(app.position.x, app.position.y, -5); */
+                img.src = './static/explosion.gif';
+                img.style.display = 'initial';
+                divContainer.position.set(0, 10, -5);
+                fxExplode.play();
+
+                setTimeout(() => {
+                    openModal(modal2);
+                }, 1.0 * 1000); 
+
+                setTimeout(() => {
+                    scene.remove(app);
+                    app.position.y = 300;
+                }, 2.0 * 1000); 
+
+                setTimeout(() => {
+                    img.style.display = 'none';
+                    divContainer.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    /* scene.add(app);
+                    app.material.opacity = 0.0;
+                    app.position.y = 10; */
+                    respawn(app, 10);
+                }, 4.0 * 1000);
             }    
         } 
         // rock hitbox
-        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0)){
+        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial')){
             if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 2.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                 openModal(modal3);
-                 fxExplode.play();
+                /* divContainer.position.set(rock.position.x, rock.position.y, -5); */
+                img.src = './static/explosion.gif';
+                img.style.display = 'initial';
+                divContainer.position.set(11, 8, -5);
+                fxExplode.play();
+
+                setTimeout(() => {
+                    openModal(modal3);
+                }, 1.0 * 1000); 
+
+                setTimeout(() => {
+                    scene.remove(rock);
+                    rock.position.y = 300;
+                }, 2.0 * 1000); 
+
+                setTimeout(() => {
+                    img.style.display = 'none';
+                    divContainer.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    /* scene.add(rock);
+                    rock.material.opacity = 0.0;
+                    rock.position.y = 8; */
+                    respawn(rock, 8);
+                }, 4.0 * 1000);
             }    
         } 
     }
 
-    /* if (vehicle.velocity.x > 1.0 || vehicle.velocity.y > 1.0) {
-        fxThrust.play();
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
+        // slowly fade in opacity of card, app, and rock
+        if (card.material.opacity < 1.0) {
+            card.material.opacity += 0.01;
+        }
+        if (app.material.opacity < 1.0) {
+            app.material.opacity += 0.01;
+        }
+        if (rock.material.opacity < 1.0) {
+            rock.material.opacity += 0.01;
+        }
     }
-    else {
-        fxThrust.stop();
-    } */
 
     // timer for laser intervals
     if(canShoot > 0) canShoot -= 1;
 
     entityManager.update(delta);
-    /* } */
+    
+    labelRenderer.render(scene, camera);
+
     renderer.render(scene, camera);
 }
 
@@ -419,4 +507,8 @@ window.addEventListener('resize', function() {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+    labelRenderer.setSize(window.innerWidth, window.innerHeight);
+
+    // CSS2DRenderer resize (explosion gif)
+    img.style.height = (window.innerHeight * heightPercentage / 100) + 'px';
 });
