@@ -10,14 +10,15 @@ import './modal.js';
 /* initialize audio */
 const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
 const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
-/* const fxThrust = new Sound("./sounds/thrust.m4a", 1, 0.05);
-fxThrust.streams[0].loop = true; */
+// separate sound effects for small rocks to avoid clipping
+const fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
+const fxHit2 = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
 let modal3 = document.getElementById('modal3');
 
-let model, rock, card, app;
+let model, rock, card, app, rockSmall, rockSmall2;
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -119,7 +120,28 @@ rock = new THREE.Mesh(Geometry, rockMaterial);
 scene.add(rock);
 rock.position.set(12, 7, -5);
 
-// CSS2DRenderer initialization for explosion gif (html) *******************************************
+// SMALL ROCK TEST ************************************************************************ 
+const Geometry2 = new THREE.PlaneGeometry(3, 3);
+const rockMaterial2 = new THREE.MeshStandardMaterial({
+    color: 0xdddddd,
+    map: rockTexture,
+    transparent: true,
+});
+rockSmall = new THREE.Mesh(Geometry2, rockMaterial2);
+scene.add(rockSmall);
+rockSmall.position.set(12, -5, -5);
+
+// SMALL ROCK 2 TEST ************************************************************************
+const rockMaterial3 = new THREE.MeshStandardMaterial({
+    color: 0xdddddd,
+    map: rockTexture,
+    transparent: true,
+});
+rockSmall2 = new THREE.Mesh(Geometry2, rockMaterial3);
+scene.add(rockSmall2);
+rockSmall2.position.set(-12, -5, -5);
+
+// CSS2DRenderer initialization for explosion gif (html)
 const img = document.createElement('img');
 img.src = './static/explosion.gif';
 const div = document.createElement('div');
@@ -127,7 +149,6 @@ div.appendChild(img);
 const divContainer = new CSS2DObject(div);
 scene.add(divContainer);
 divContainer.position.set(0, 10, -5);
-
 // Set initial size
 const widthPercentage = 50; // 45% of window width
 /* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
@@ -135,6 +156,32 @@ img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
 /* img.style.height = (window.innerHeight * (window.innerWidth * 0.56) / 100) + 'px'; */
 img.style.display = 'none';
 /* img.style.display = 'initial'; */
+
+// CSS2DRenderer initialization for explosionSMALL gif (html) 
+const img2 = document.createElement('img');
+img2.src = './static/lowExplosionShort.gif';
+const div2 = document.createElement('div');
+div2.appendChild(img2);
+const divContainer2 = new CSS2DObject(div2);
+scene.add(divContainer2);
+divContainer2.position.set(0, 10, -5);
+// Set initial size
+const widthPercentage2 = 35; // 45% of window width
+img2.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+img2.style.display = 'none';
+img2.style.opacity = 1.0;
+
+// force different gif loop                          *******************************************
+const img3 = document.createElement('img');
+img3.src = './static/lowExplosionShort.gif?'+ Math.random();
+const div3 = document.createElement('div');
+div3.appendChild(img3);
+const divContainer3 = new CSS2DObject(div3);
+scene.add(divContainer3);
+divContainer3.position.set(0, 10, -5);
+img3.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+img3.style.display = 'none';
+img3.style.opacity = 1.0;
 
 // Yuka AI vehicle initialization 
 const vehicle = new YUKA.Vehicle();
@@ -232,6 +279,12 @@ window.addEventListener('mousedown', function() {
     }
 });
 
+function fade(r) {
+    if (r.style.opacity == 1.0) {
+        r.style.opacity = 0.9;
+    } 
+}
+
 function respawn(r, y) {
     if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
         setTimeout (() => {
@@ -249,7 +302,7 @@ function respawn(r, y) {
 // bullet array
 let bullets = [];
 
-// limit shots per frames ********************** possible add as ship variable
+// limit shots per frames 
 let canShoot = 0;
 
 // sync with AI time (YUKA)
@@ -260,9 +313,6 @@ let m = new THREE.Matrix4();
 let z = 1;
 
 function animate(t) {
-    /* modals = document.querySelectorAll('.modal.active');
-    if (!modals.length) { */
-
     const delta = time.update().getDelta();
 
     // rotation correction at greater distance from center(pivot point, mostly Y) *Yuka logic keeps rotation axis at 0,0,0
@@ -292,7 +342,19 @@ function animate(t) {
     rock.position.z += Math.sin(t / 800) * 0.0008;
     rock.position.x += Math.sin(t / 1600) * 0.002;
     rock.position.y += Math.sin(t / 1400) * 0.002;
+
+    // rockSMALL default animation
+    rockSmall.rotation.z += Math.sin(t / 2400) * 0.001;
+    rockSmall.position.z += Math.sin(t / 1600) * 0.0008;
+    rockSmall.position.x -= Math.sin(t / 3200) * 0.003;
+    rockSmall.position.y += Math.sin(t / 2800) * 0.003;
     
+    // rockSMALL2 default animation
+    rockSmall2.rotation.z -= Math.sin(t / 2400) * 0.001;
+    rockSmall2.position.z += Math.sin(t / 1600) * 0.0008;
+    rockSmall2.position.x += Math.sin(t / 3200) * 0.003;
+    rockSmall2.position.y -= Math.sin(t / 2800) * 0.003;
+
     // laser array updates
     for(let index = 0; index < bullets.length; index += 1){
         if( bullets[index] === undefined) continue;
@@ -324,11 +386,6 @@ function animate(t) {
         } else {
             posY = Math.abs(vehicle.position.y - target.position.y) * -1;
         }
-
-        //if(posX < 0.5 && posX > -0.5 && posY < 0.5 && posY > -0.5){
-        //   bullet.MeshBasicMaterial.transparent = true;
-        //}
-        
 
          //test.position.set(target.position.x, target.position.y, 0);
         local.position.set(posX, posY, 0);
@@ -365,10 +422,6 @@ function animate(t) {
         
         // set laser velocity
         bullet.velocity = new THREE.Vector3(
-            //-Math.sin(vehicle.rotation.y),
-            //0,
-            //Math.cos(vehicle.rotation.y),
-
             (local.position.x) *0.5,
             (local.position.y) *0.5,
             0,
@@ -426,7 +479,6 @@ function animate(t) {
         // app hitbox
         if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial') && app.material.opacity >= 1.0){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                /* divContainer.position.set(app.position.x, app.position.y, -5); */
                 img.src = './static/explosion.gif';
                 img.style.display = 'initial';
                 divContainer.position.set(0, 10, -5);
@@ -447,17 +499,13 @@ function animate(t) {
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    /* scene.add(app);
-                    app.material.opacity = 0.0;
-                    app.position.y = 10; */
                     respawn(app, 10);
                 }, 4.0 * 1000);
             }    
         } 
         // rock hitbox
         if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial') && rock.material.opacity >= 1.0){
-            if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 2.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                /* divContainer.position.set(rock.position.x, rock.position.y, -5); */
+            if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 3.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 img.src = './static/explosion.gif';
                 img.style.display = 'initial';
                 divContainer.position.set(11, 8, -5);
@@ -478,10 +526,65 @@ function animate(t) {
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    /* scene.add(rock);
-                    rock.material.opacity = 0.0;
-                    rock.position.y = 8; */
                     respawn(rock, 8);
+                }, 4.0 * 1000);
+            }    
+        } 
+        // rockSMALL hitbox **************************************************** 
+        if (bullets[index].position.x > (rockSmall.position.x - 3.5) && bullets[index].position.x < (rockSmall.position.x - 1.0) && rockSmall.material.opacity >= 1.0){
+            if (bullets[index].position.y > (rockSmall.position.y - 0.0) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                img2.src = './static/lowExplosionShort.gif';
+                img2.style.display = 'initial';
+                divContainer2.position.set(11.5, -4.5, -5);
+                /* fxHit.stop(); */
+                fxHit.play();
+
+                setTimeout(() => {
+                    scene.remove(rockSmall);
+                    rockSmall.position.y = 300;
+                }, 2.0 * 1000); 
+
+                setTimeout(() => {
+                    fade(img2);
+                }, 2.0 * 1000);
+
+                setTimeout(() => {
+                    img2.style.display = 'none';
+                    img2.style.opacity = 1.0;
+                    divContainer2.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    respawn(rockSmall, -5);
+                }, 4.0 * 1000);
+            }    
+        } 
+        // rockSMALL2 hitbox **************************************************** 
+        if (bullets[index].position.x > (rockSmall2.position.x - 0.5) && bullets[index].position.x < (rockSmall2.position.x + 2.0) && rockSmall2.material.opacity >= 1.0){
+            if (bullets[index].position.y > (rockSmall2.position.y - 1.0) && bullets[index].position.y < (rockSmall2.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                img3.src = './static/lowExplosionShort.gif?'+ Math.random();
+                img3.style.display = 'initial';
+                divContainer3.position.set(-11.5, -4.5, -5);
+                /* fxHit2.stop(); */
+                fxHit2.play();
+
+                setTimeout(() => {
+                    scene.remove(rockSmall2);
+                    rockSmall2.position.y = 300;
+                }, 2.0 * 1000); 
+
+                setTimeout(() => {
+                    fade(img3);
+                }, 2.0 * 1000);
+
+                setTimeout(() => {
+                    img3.style.display = 'none';
+                    img3.style.opacity = 1.0;
+                    divContainer3.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    respawn(rockSmall2, -5);
                 }, 4.0 * 1000);
             }    
         } 
@@ -497,6 +600,18 @@ function animate(t) {
         }
         if (rock.material.opacity < 1.0) {
             rock.material.opacity += 0.01;
+        }
+        if (rockSmall.material.opacity < 1.0) {
+            rockSmall.material.opacity += 0.01;
+        }
+        if (rockSmall2.material.opacity < 1.0) {
+            rockSmall2.material.opacity += 0.01;
+        }
+        if (img2.style.opacity < 1.0) {
+            img2.style.opacity -= 0.01;
+        }
+        if (img3.style.opacity < 1.0) {
+            img3.style.opacity -= 0.01;
         }
     }
 
