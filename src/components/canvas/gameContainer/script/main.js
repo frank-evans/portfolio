@@ -448,7 +448,7 @@ function animate(t) {
         // card hitbox
         if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(img.style.display == 'initial') && card.material.opacity >= 1.0){
             if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = './static/explosion.gif';
+                img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(-11, 7, -5); */
                 divContainer.position.set(card.position.x, card.position.y - 0.5, -5);
@@ -479,7 +479,7 @@ function animate(t) {
         // app hitbox
         if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial') && app.material.opacity >= 1.0){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = './static/explosion.gif';
+                img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(0, 10, -5); */
                 divContainer.position.set(app.position.x, app.position.y, -5);
@@ -507,7 +507,7 @@ function animate(t) {
         // rock hitbox
         if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial') && rock.material.opacity >= 1.0){
             if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 3.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = './static/explosion.gif';
+                img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(11, 8, -5); */
                 divContainer.position.set(rock.position.x, rock.position.y, -5);
@@ -535,7 +535,7 @@ function animate(t) {
         // rockSMALL hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(img2.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall.position.y - 0.5) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img2.src = './static/lowExplosionShort.gif';
+                img2.src = img2.src;
                 img2.style.display = 'initial';
                 /* divContainer2.position.set(11.5, -4.5, -5); */
                 divContainer2.position.set(rockSmall.position.x, rockSmall.position.y, -5);
@@ -564,7 +564,7 @@ function animate(t) {
         // rockSMALL2 hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(img3.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall2.position.y - 0.5) && bullets[index].position.y < (rockSmall2.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img3.src = './static/lowExplosionShort.gif?'+ Math.random();
+                img3.src = img3.src;
                 img3.style.display = 'initial';
                 /* divContainer3.position.set(-11.5, -4.5, -5); */
                 divContainer3.position.set(rockSmall2.position.x, rockSmall2.position.y, -5);
