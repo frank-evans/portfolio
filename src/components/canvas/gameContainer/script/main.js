@@ -534,7 +534,7 @@ function animate(t) {
         } 
         // rockSMALL hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(img2.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall.position.y - 1.5) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall.position.y - 0.5) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 img2.src = './static/lowExplosionShort.gif';
                 img2.style.display = 'initial';
                 /* divContainer2.position.set(11.5, -4.5, -5); */
