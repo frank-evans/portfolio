@@ -1,5 +1,7 @@
+import { musicInit } from './main.js';
+
 // set up sound effects
-function Sound(src, maxStreams = 1, vol = 1.0) {
+export function Sound(src, maxStreams = 1, vol = 1.0) {
     this.streamNum = 0;
     this.streams = [];
     for (var i = 0; i < maxStreams; i++) {
@@ -17,15 +19,37 @@ function Sound(src, maxStreams = 1, vol = 1.0) {
         this.streams[this.streamNum].currentTime = 0;
     }
 }
+export const audioMusic = new Audio("./sounds/audioMusic.mp3");
+    audioMusic.volume = (0.3);
+    audioMusic.autoplay = true;
+    audioMusic.muted = true;
+    audioMusic.loop = true;
 
-// Reference only **************************************************************************
-function update() {
-    // when keydown Up/Down thrust/stop the ship.  ship.thrusting set to true/false.
-    if (ship.thrusting) {
-        fxThrust.play();
-    } else {
-        fxThrust.stop();
+export const musicToggle = document.addEventListener('DOMContentLoaded', function() {
+	
+    const music = document.getElementById('music');
+
+    music.onclick = () => {
+
+        // if muted
+        if (audioMusic.muted == true) {
+            if (musicInit.stat == false) {
+                audioMusic.load();
+                musicInit.stat = true;
+            }
+            // update music !mute image
+            music.src = "./static/mNote.png";
+            // play music
+            audioMusic.play();
+            audioMusic.muted = false;
+
+        // if playing
+        } else if (audioMusic.muted == false) {
+            // update music mute image
+            music.src = "./static/mNoteRed.png";
+            // pause music
+            audioMusic.pause();
+            audioMusic.muted = true;
+        }
     }
-}
-
-export { Sound };
+});

@@ -16,6 +16,10 @@
                 <div class="stars"></div>
                 <div class="twinkling"></div>
             </div>
+            <!-- music toggle -->
+            <div class="toggle">
+                <img id="music" src="./static/mNoteRed.png" alt="Music Note with Red Slash Through">
+            </div>
         </div>
 
         <div id="overlay"></div>
@@ -26,6 +30,11 @@
                 <button data-close-button class="close-button">&times;</button>
             </div>
             <div class="modal-body">
+                <video id="demo" autoplay muted loop>
+					<source id="source" src="./static/cardDemo.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				</video> 
+                <br>
                 Web-based platform that allows users to search specific and entire sets of cards for the popular TCG "Magic the Gathering."  Real-time search results using the Scryfall API are presented with a Custom Visualizer Display.
                 <br>
                 Javascript

@@ -1,4 +1,4 @@
-import { Sound } from './audio.js';
+import { Sound, audioMusic, musicToggle } from './audio.js';
 import { openModal } from './modal.js';
 import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 /* import explosion from '../static/explosion.gif'; */
@@ -8,11 +8,15 @@ import './yuka.js';
 import './modal.js';
 
 /* initialize audio */
+musicToggle;
 const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
 const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
 // separate sound effects for small rocks to avoid clipping
 const fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
 const fxHit2 = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
+export let musicInit = {
+    stat : false,
+}
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
@@ -90,7 +94,7 @@ const cardMaterial = new THREE.MeshStandardMaterial({
 });
 card = new THREE.Mesh(cardGeometry, cardMaterial);
 scene.add(card);
-card.position.set(-10, 7, -5);
+card.position.set(-10, 7, -7);
 
 // app texture loading
 const appTexture = textureLoader.load("./static/app.png");
@@ -103,7 +107,7 @@ const appMaterial = new THREE.MeshStandardMaterial({
 });
 app = new THREE.Mesh(cardGeometry, appMaterial);
 scene.add(app);
-app.position.set(0, 10, -5);
+app.position.set(0, 10, -7);
 
 // asteroid texture loading
 // geometry initialization 
@@ -118,12 +122,13 @@ const rockMaterial = new THREE.MeshStandardMaterial({
 });
 rock = new THREE.Mesh(Geometry, rockMaterial);
 scene.add(rock);
-rock.position.set(12, 7, -5);
+rock.position.set(12, 7, -7);
 
 // SMALL ROCK TEST ************************************************************************ 
 const Geometry2 = new THREE.PlaneGeometry(3, 3);
 const rockMaterial2 = new THREE.MeshStandardMaterial({
-    color: 0xdddddd,
+   /*  color: 0xdddddd, */
+    color: 0xbbbbbb,
     map: rockTexture,
     transparent: true,
 });
@@ -133,7 +138,7 @@ rockSmall.position.set(12, -5, -5);
 
 // SMALL ROCK 2 TEST ************************************************************************
 const rockMaterial3 = new THREE.MeshStandardMaterial({
-    color: 0xdddddd,
+    color: 0xffffff,
     map: rockTexture,
     transparent: true,
 });
@@ -268,13 +273,21 @@ let laserClick = false;
 
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(img.style.display == 'initial')) {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(img.style.display == 'initial') && !(music.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {
             if(intersects[i].object.name === 'plane') 
                 target.position.set(intersects[i].point.x, intersects[i].point.y, intersects[i].point.z);
                 laserClick = true;
+
+                // audioMusic initialization
+                if (musicInit.stat == false) {
+                    audioMusic.load();
+                    audioMusic.play();
+                    audioMusic.muted = false;
+                    musicInit.stat = true;
+                }
         }
     }
 });
@@ -451,7 +464,7 @@ function animate(t) {
                 img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(-11, 7, -5); */
-                divContainer.position.set(card.position.x, card.position.y - 0.5, -5);
+                divContainer.position.set(card.position.x, card.position.y - 0.5, -7);
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -465,7 +478,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     img.style.display = 'none';
-                    divContainer.position.set(0, 100, -5);
+                    divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
@@ -482,7 +495,7 @@ function animate(t) {
                 img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(0, 10, -5); */
-                divContainer.position.set(app.position.x, app.position.y, -5);
+                divContainer.position.set(app.position.x, app.position.y, -7);
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -496,7 +509,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     img.style.display = 'none';
-                    divContainer.position.set(0, 100, -5);
+                    divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
@@ -510,7 +523,7 @@ function animate(t) {
                 img.src = img.src;
                 img.style.display = 'initial';
                 /* divContainer.position.set(11, 8, -5); */
-                divContainer.position.set(rock.position.x, rock.position.y, -5);
+                divContainer.position.set(rock.position.x, rock.position.y, -7);
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -524,7 +537,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     img.style.display = 'none';
-                    divContainer.position.set(0, 100, -5);
+                    divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {

@@ -7,6 +7,9 @@
   box-sizing: border-box;
 }
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: sans-serif;
   overflow: hidden;
   /* background: url("stars.jpg"); */
@@ -91,4 +94,39 @@ body {
   -o-animation:move-background 35s linear infinite;
   -webkit-animation:move-background 35s linear infinite;
   animation:move-background 35s linear infinite;
+}
+.toggle {
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+  place-items: right;
+  position: sticky;
+  bottom: 02%;
+  left: 94%;
+  height: auto;
+  transition: none;
+  transform-style: none;
+  will-change: none;
+  z-index: 5;
+  margin-bottom: 0.5rem;
+  margin-right: 1.0rem;
+  margin-top: -4.0rem;
+}
+#music {
+  opacity: 0.2;
+  width: 2.6rem; 
+  border-radius: 0rem;
+  box-shadow: none;
+}
+#music:hover {
+  opacity: 0.7;
+}
+#demo {
+  border: solid 0.0rem #6bff5d;
+  left: 50%;
+  top: 50%;
+  border-radius: 0.5rem;
+  box-shadow: none;
+  opacity: 1;
+  width: 100%;
 }
