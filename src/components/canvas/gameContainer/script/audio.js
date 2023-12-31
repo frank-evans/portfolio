@@ -1,4 +1,4 @@
-import { musicInit } from './main.js';
+import { musicInit } from './musicInit.js';
 
 // set up sound effects
 export function Sound(src, maxStreams = 1, vol = 1.0) {

@@ -107,16 +107,18 @@ body {
   transition: none;
   transform-style: none;
   will-change: none;
-  z-index: 5;
+  z-index: 11;
   margin-bottom: 0.5rem;
   margin-right: 1.0rem;
   margin-top: -4.0rem;
+  pointer-events: none;
 }
 #music {
   opacity: 0.2;
   width: 2.6rem; 
   border-radius: 0rem;
   box-shadow: none;
+  pointer-events: auto;
 }
 #music:hover {
   opacity: 0.7;

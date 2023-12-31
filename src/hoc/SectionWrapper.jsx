@@ -14,7 +14,7 @@ function HOC() {
             viewport={{ once: true, amount: 0.25 }}
             className={`${styles.padding} max-w-7xl mx-auto relative z-0`}
         >
-            <span className="hash-span" id={idName}>
+            <span className="mt-0 pb-0 " id={idName}>
                 &nbsp;
             </span>
             <Component />

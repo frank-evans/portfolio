@@ -1,22 +1,20 @@
+import { musicInit } from './musicInit.js';
 import { Sound, audioMusic, musicToggle } from './audio.js';
 import { openModal } from './modal.js';
 import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 /* import explosion from '../static/explosion.gif'; */
+import './audio.js';
 import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
 import './modal.js';
 
 /* initialize audio */
-musicToggle;
 const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
 const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
 // separate sound effects for small rocks to avoid clipping
 const fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
 const fxHit2 = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
-export let musicInit = {
-    stat : false,
-}
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
@@ -255,6 +253,7 @@ window.addEventListener('mousemove', function(e) {
     mousePosition.z = 1;
 });
 
+/* const planeGeo = new THREE.PlaneGeometry(60, 25, 10, 10); */
 const planeGeo = new THREE.PlaneGeometry(60, 25, 10, 10);
 const planeMat = new THREE.MeshBasicMaterial({
     visible: false,
@@ -283,6 +282,7 @@ window.addEventListener('mousedown', function() {
 
                 // audioMusic initialization
                 if (musicInit.stat == false) {
+                    music.src = "./static/mNote.png";
                     audioMusic.load();
                     audioMusic.play();
                     audioMusic.muted = false;
@@ -654,4 +654,6 @@ window.addEventListener('resize', function() {
     // CSS2DRenderer resize (explosion gif)
     /* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
     img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    img2.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    img3.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
 });
