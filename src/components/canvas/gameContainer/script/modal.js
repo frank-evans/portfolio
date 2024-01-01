@@ -22,14 +22,14 @@ overlay.addEventListener('click', () => {
 
 export function openModal(modal) {
     if (modal == null) return;
-    modal.classList.add('active');
+    /* gameContainer.style.pointerEvents = "none"; */
     overlay.classList.add('active');
-    gameContainer.style.pointerEvents = "none";
+    modal.classList.add('active');
 }
 
 function closeModal(modal) {
     if (modal == null) return;
-    modal.classList.remove('active');
+    /* gameContainer.style.pointerEvents = "auto"; */
     overlay.classList.remove('active');
-    gameContainer.style.pointerEvents = "auto";
+    modal.classList.remove('active');
 }

@@ -1,4 +1,26 @@
+#overlay {
+    aspect-ratio: 16 / 9;
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: 4;
+    pointer-events: none;
+}
+#overlay.active {
+    opacity: 1;
+    z-index: 4;
+    pointer-events: auto;
+}
+/* #overlay.active:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+} */
 .modal {
+    aspect-ratio: 16 / 9;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -8,16 +30,17 @@
     border-radius: 10px;
     z-index: 10;
     background-color: white;
-    /* width: 500px; */
-    width: 700px;
-    max-width: 80%;
+    width: 75%;
+    max-width: 700px;
+    /* max-height: 80%; */
+    /* overflow: auto; */
 }
 #modal1{
     top: 20%;
     left: 28%;
 }
 #modal1.active{
-    top: 50%;
+    top: 40%;
     left: 50%;
 }
 #modal2{
@@ -25,7 +48,7 @@
     left: 50%;
 }
 #modal2.active{
-    top: 50%;
+    top: 40%;
     left: 50%;
 }
 #modal3{
@@ -33,14 +56,18 @@
     left: 72%;
 }
 #modal3.active{
-    top: 50%;
+    top: 40%;
     left: 50%;
 }
 .modal.active {
     transform: translate(-50%, -50%) scale(1);
+    z-index: 10;
 }
+/* .modal.active:hover {
+    background-color: rgba(0, 255, 255, 0.5);
+} */
 .modal-header {
-    padding: 10px 15px;
+    padding: 0.625rem 0.625rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -55,37 +82,17 @@
     border: none;
     outline: none;
     background: none;
-    font-size: 1.25rem;
+    font-size: 2.0rem;
+    color: #cc0000;
     font-weight: bold;
-}
-.modal-body {
-    padding: 10px 15px;
-    pointer-events: none;
-    z-index: 5;
-}
-#overlay {
-    position: fixed;
-    opacity: 0;
-    transition: 200ms ease-in-out;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, .5);
-    pointer-events: none;
-    z-index: 4;
-}
-#overlay.active {
-    opacity: 1;
-    pointer-events: auto;
-}
-.close-button {
+
     position: relative;
     right: 0%;
     top: 0%;
-    align-items: center; 
-}
-#game-container {
-    z-index: -1;
+    align-items: center;
     pointer-events: auto;
+}
+.modal-body {
+    padding: 0.625rem 0.625rem;
+    z-index: 10;
 }

@@ -1,5 +1,5 @@
 import { musicInit } from './musicInit.js';
-import { Sound, audioMusic, musicToggle } from './audio.js';
+import { Sound, audioMusic } from './audio.js';
 import { openModal } from './modal.js';
 import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 /* import explosion from '../static/explosion.gif'; */
@@ -151,7 +151,7 @@ const div = document.createElement('div');
 div.appendChild(img);
 const divContainer = new CSS2DObject(div);
 scene.add(divContainer);
-divContainer.position.set(0, 10, -5);
+divContainer.position.set(0, 100, -5);
 // Set initial size
 const widthPercentage = 50; // 45% of window width
 /* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
@@ -167,7 +167,7 @@ const div2 = document.createElement('div');
 div2.appendChild(img2);
 const divContainer2 = new CSS2DObject(div2);
 scene.add(divContainer2);
-divContainer2.position.set(0, 10, -5);
+divContainer2.position.set(0, 100, -5);
 // Set initial size
 const widthPercentage2 = 45; // 45% of window width
 img2.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';

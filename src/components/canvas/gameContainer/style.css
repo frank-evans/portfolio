@@ -15,6 +15,7 @@ body {
   /* background: url("stars.jpg"); */
 }
 .gameWrapper {
+  aspect-ratio: 16 / 9;
   position: fixed;
 	top: 0;
 	left:0;
@@ -23,15 +24,13 @@ body {
   background: black;
   width: 100%;
   height: 100%;
-  overflow: hidden;
   z-index: -99;
 }
 #game-container {
   aspect-ratio: 16 / 9;
   width: 100%;
-  /* border-style: solid;
-  border-color: red; */
-  overflow: hidden;
+  border-style: solid;
+  /* border-color: red; */
   z-index: -1;
 }
 @keyframes move-background {
@@ -107,7 +106,7 @@ body {
   transition: none;
   transform-style: none;
   will-change: none;
-  z-index: 11;
+  z-index: 10;
   margin-bottom: 0.5rem;
   margin-right: 1.0rem;
   margin-top: -4.0rem;
@@ -123,12 +122,15 @@ body {
 #music:hover {
   opacity: 0.7;
 }
-#demo {
-  border: solid 0.0rem #6bff5d;
-  left: 50%;
-  top: 50%;
+.demo {
+  /* position: absolute; */
+  /* top: 40%;
+  left: 50%; */
+  /* border: solid 0.3rem #6bff5d; */
   border-radius: 0.5rem;
   box-shadow: none;
   opacity: 1;
   width: 100%;
+  z-index: 5;
+  /* height: 50%; */
 }
