@@ -10,11 +10,11 @@ const Hero = () => {
       {/* <ComputersCanvas /> */}
       {/* <GameCanvas /> */}
       <iframe 
-      className="pt-14"
+      className="pt-16"
       /* src="https://thefrank86.github.io/Card_Visualizer/index.html" */ 
       src="http://localhost:5173/src/components/canvas/gameContainer/index.html" 
       width="100%" 
-      height="100%"
+      height="110%"
       />
 
       {/* className="max-w-7xl" */}
