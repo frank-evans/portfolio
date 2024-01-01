@@ -122,15 +122,3 @@ body {
 #music:hover {
   opacity: 0.7;
 }
-.demo {
-  /* position: absolute; */
-  /* top: 40%;
-  left: 50%; */
-  /* border: solid 0.3rem #6bff5d; */
-  border-radius: 0.5rem;
-  box-shadow: none;
-  opacity: 1;
-  width: 100%;
-  z-index: 5;
-  /* height: 50%; */
-}

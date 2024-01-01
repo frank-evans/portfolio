@@ -19,21 +19,45 @@
 /* #overlay.active:hover {
     background-color: rgba(255, 0, 0, 0.5);
 } */
+.modal-container {
+    /* position: relative; */
+    position: absolute;
+    width: 100%;
+    padding-top: 56.25%; /* 9 / 16 = 0.5625 */
+    /* overflow: auto; */
+    z-index: 5;
+    pointer-events: none;
+}
 .modal {
-    aspect-ratio: 16 / 9;
-    position: fixed;
-    top: 50%;
-    left: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 66%;
+    height: 66%;
+
+    /* aspect-ratio: 16 / 9; */
+    /* position: fixed; */
+    /* top: 50%;
+    left: 50%; */
     transform: translate(-50%, -50%) scale(0);
     transition: 350ms ease-in-out;
     border: 1px solid black;
     border-radius: 10px;
     z-index: 10;
     background-color: white;
+    overflow: auto;
+    pointer-events: auto;
+}
+.demo {
+    /* position: absolute; */
+    /* top: 40%; */
+    /* left: 50%; */
+    /* border: solid 0.3rem #6bff5d; */
+    border-radius: 0.5rem;
+    box-shadow: none;
+    opacity: 1;
     width: 75%;
-    max-width: 700px;
-    /* max-height: 80%; */
-    /* overflow: auto; */
+    z-index: 10;
 }
 #modal1{
     top: 20%;
@@ -95,4 +119,8 @@
 .modal-body {
     padding: 0.625rem 0.625rem;
     z-index: 10;
+    justify-content: center;
+    align-items: center;
+    display: inline-block;
+    text-align: center;
 }
