@@ -206,7 +206,7 @@ import {
       testimonial:
         "I needed some help outside our normal scope of work.  When I was having trouble finding a solution, Frank took it upon himself to get involved and helped me find a good solution.",
       name: "Scott S.",
-      designation: "Member",
+      designation: "Team Member",
       company: "Whole Foods",
       image: "https://randomuser.me/api/portraits/men/68.jpg",
     },

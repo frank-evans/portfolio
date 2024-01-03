@@ -191,6 +191,7 @@ const vehicle = new YUKA.Vehicle();
 
 vehicle.scale.set(0.60, 0.60, 0.60);
 vehicle.position.set(-11, 20, 0);
+/* vehicle.position.set(0, 0, 0); */
 
 vehicle.forward.set(0, -1, 0);
 vehicle.up.set(1, 0, 0);
