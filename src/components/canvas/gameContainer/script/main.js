@@ -470,7 +470,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     openModal(modal1);
-                }, 1.0 * 1000); 
+                }, 1.5 * 1000); 
 
                 setTimeout(() => {
                     scene.remove(card);
@@ -501,7 +501,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     openModal(modal2);
-                }, 1.0 * 1000); 
+                }, 1.5 * 1000); 
 
                 setTimeout(() => {
                     scene.remove(app);
@@ -529,7 +529,7 @@ function animate(t) {
 
                 setTimeout(() => {
                     openModal(modal3);
-                }, 1.0 * 1000); 
+                }, 1.5 * 1000); 
 
                 setTimeout(() => {
                     scene.remove(rock);
