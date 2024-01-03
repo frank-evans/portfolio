@@ -30,6 +30,7 @@
     pointer-events: none;
 }
 .modal {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     position: absolute;
     top: 0;
     left: 0;
@@ -96,7 +97,7 @@
     background-color: white;
 }
 .modal-header .title {
-    font-size: 1.25rem;
+    font-size: 1.0rem;
     font-weight: bold;
 }
 .modal-header .close-button {
@@ -106,13 +107,18 @@
     background: none;
     font-size: 2.0rem;
     color: #cc0000;
-    font-weight: bold;
+    font-weight: 700;
+    transition: 250ms ease-in-out;
 
     position: relative;
     right: 0%;
     top: 0%;
     align-items: center;
     pointer-events: auto;
+}
+.modal-header .close-button:hover {
+    color: #ff0000;
+    transform: scale(1.2);
 }
 .modal-body {
     font-size: 1.0rem;
@@ -136,7 +142,7 @@
     place-items: right;
     width: 04%;
 
-    transition: 200ms ease-in-out;
+    transition: 250ms ease-in-out;
     /* object-fit: contain; */
 }
 .sourceLink:hover {
@@ -153,9 +159,34 @@
 
     margin-left: 05%;
 
-    transition: 200ms ease-in-out;
+    transition: 250ms ease-in-out;
     /* object-fit: contain; */
 }
 .liveLink:hover {
     width: 04.5%;
+}
+span#green {
+    color: #6bff5d;
+}
+span#pink {
+    color: #ff00ff;
+}
+span#blue {
+    color: #00ffff;
+}
+span#orange {
+    color: #ff9900;
+}
+@media (min-width: 768px) {
+    .modal-header .title {
+        font-size: 1.25rem;
+    }
+    .modal-body {
+        font-size: 1.25rem;
+    }
+}
+@media (min-width: 1280px) {
+    .modal-header .title {
+        font-size: 1.5rem;
+    }
 }
