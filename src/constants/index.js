@@ -237,7 +237,7 @@ import {
       ],
       image: cardsite,
       source_code_link: "https://github.com/",
-      live_link: "https://thefrank86.github.io/Card_Visualizer/index.html",
+      live_link: "https://thefrank86.github.io/Portfolio-Base/src/Card_Visualizer/index.html",
     },
     {
       name: "Tech Team Up",

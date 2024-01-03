@@ -1,0 +1,124 @@
+*::after, *::before {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  overflow: hidden;
+  /* background: url("stars.jpg"); */
+}
+.gameWrapper {
+  aspect-ratio: 16 / 9;
+  position: fixed;
+	top: 0;
+	left:0;
+	bottom: 0;
+	right: 0;
+  background: black;
+  width: 100%;
+  height: 100%;
+  z-index: -99;
+}
+#game-container {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border-style: solid;
+  /* border-color: red; */
+  z-index: -1;
+}
+@keyframes move-background {
+  from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+		/* -webkit-transform: translateX(0%); */
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+    /* -webkit-transform: translateX(100%); */
+	}
+}
+@-moz-keyframes move-background {    
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+    /* -webkit-transform: translateX(0%); */
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+    /* -webkit-transform: translateX(100%); */
+	}
+}
+
+@-webkit-keyframes move-background {
+	from {
+		-webkit-transform: translate3d(0px, 0px, 0px);
+    /* -webkit-transform: translateX(0%); */
+	}
+	to { 
+		-webkit-transform: translate3d(1000px, 0px, 0px);
+    /* -webkit-transform: translateX(100%); */
+	}
+}
+.stars {
+  aspect-ratio: 16 / 9;
+ background: black url("./static/stars.png") repeat;
+ position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: block;
+  z-index: -95;
+}
+.twinkling{
+  aspect-ratio: 16 / 9;
+	width:10000px;
+	/* height: 100%; */
+	background: transparent url("./static/twinkling.png") repeat-x;
+  overflow: hidden;
+	/* background-size: 1000px 1000px; */
+    position: fixed;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -90;
+    
+  -moz-animation:move-background 35s linear infinite;
+  -ms-animation:move-background 35s linear infinite;
+  -o-animation:move-background 35s linear infinite;
+  -webkit-animation:move-background 35s linear infinite;
+  animation:move-background 35s linear infinite;
+}
+.toggle {
+  justify-content: right;
+  align-items: right;
+  text-align: right;
+  place-items: right;
+  position: sticky;
+  bottom: 02%;
+  left: 94%;
+  height: auto;
+  transition: none;
+  transform-style: none;
+  will-change: none;
+  z-index: 10;
+  margin-bottom: 0.5rem;
+  margin-right: 1.0rem;
+  margin-top: -4.0rem;
+  pointer-events: none;
+}
+#music {
+  opacity: 0.2;
+  width: 2.6rem; 
+  border-radius: 0rem;
+  box-shadow: none;
+  pointer-events: auto;
+}
+#music:hover {
+  opacity: 0.7;
+}
