@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion';
 
 import { styles } from '../styles';
-import { GameCanvas } from './canvas';
 
 const Hero = () => {
   return (
     /* w-full h-screen */
     <section className="relative mx-auto aspect-video">
-      {/* <ComputersCanvas /> */}
-      {/* <GameCanvas /> */}
       <iframe 
       className="pt-16"
       src="https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html"  
