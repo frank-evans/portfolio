@@ -236,7 +236,7 @@ import {
         },
       ],
       image: cardsite,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/TheFrank86/thefrank86.github.io",
       live_link: "https://thefrank86.github.io/Portfolio-Base/src/Card_Visualizer/index.html",
     },
     {
@@ -262,7 +262,7 @@ import {
         },
       ],
       image: jobit,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/TheFrank86/React-Navtive-Jobs",
       live_link: "",
     },
     {
@@ -288,7 +288,7 @@ import {
         },
       ],
       image: tripguide,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/TheFrank86/Portfolio-Base",
       live_link: "",
     },
   ];
