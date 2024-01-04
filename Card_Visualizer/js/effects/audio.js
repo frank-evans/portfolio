@@ -1,4 +1,4 @@
-let url  = "../../Card_Visualizer/static/audio/sun5.mp3";
+let url  = "./static/audio/sun5.mp3";
 export let audioSun;
 export let gainNode;
 
@@ -39,26 +39,26 @@ export function audioSunInit() {
 }
 
 //export const audioYellow = new Audio("../../static/audio/NexusEdit.ogg");
-export const audioYellow = new Audio("../../Card_Visualizer/static/audio/AnimaEdit.mp3");
+export const audioYellow = new Audio("./static/audio/AnimaEdit.mp3");
 	audioYellow.volume = (0.3);
 	audioYellow.autoplay = true;
 	audioYellow.muted = true;
 	audioYellow.loop = true;
 
-export const audioBlue = new Audio("../../Card_Visualizer/static/audio/LightsEdit.mp3");
+export const audioBlue = new Audio("./static/audio/LightsEdit.mp3");
 	audioBlue.volume = (0.4);
 	audioBlue.autoplay = true;
 	audioBlue.muted = true;
 	audioBlue.loop = true;
 
-export const audioGreen = new Audio("../../Card_Visualizer/static/audio/PlasmaEdit.mp3");
+export const audioGreen = new Audio("./static/audio/PlasmaEdit.mp3");
 	audioGreen.volume = (0.3);
 	audioGreen.autoplay = true;
 	audioGreen.muted = true;
 	audioGreen.loop = true;
 
 // testing song, remove before release
-export const audioE = new Audio("../../Card_Visualizer/static/audio/E-edit.mp3");
+export const audioE = new Audio("./static/audio/E-edit.mp3");
 	audioE.volume = (0.3);
 	audioE.autoplay = true;
 	audioE.muted = true;

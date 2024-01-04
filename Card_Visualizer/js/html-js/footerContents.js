@@ -1,7 +1,7 @@
 export const footer = /* html */ `
 <footer class="footer">
     <div id="dis">
-        <span class="foot">Cardboard in Space Code/Design &copy; 2023 Frank Alarcon.</span>
+        <span class="foot">Cardboard in Space Code/Design &copy; 2024 Frank Evans.</span>
         <br>	
         Cardboard in Space is unofficial Fan Content permitted under the Fan Content Policy.
         <br> 

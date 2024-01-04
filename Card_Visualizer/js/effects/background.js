@@ -6,18 +6,18 @@ export const backgroundToggle = document.addEventListener('DOMContentLoaded', fu
     document.getElementById('hide').onclick = () => {
             // hide/unhide canvas
             let x = document.getElementById("bg");
-            //let y = document.getElementById("body");
-            let y = document.getElementById("background-image");
-            //let z = document.getElementById("background3js");
-            if (y.style.content == "none") {
+            
+            /* let y = document.getElementById("background-image"); */
+            
+            if (x.style.display == "none") {
                 x.style.display = "block";
-                y.style.content = 'url("static/stars.jpg")';
+                /* y.style.content = 'url("static/stars.jpg")'; */
 
                 //audioSun.play();
                 audioSun.resume();
             } else {
                 x.style.display = "none";
-                y.style.content = "none";
+                /* y.style.content = "none"; */
 
                 audioSunInit();
                 //audioSun.pause();

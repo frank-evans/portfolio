@@ -12,15 +12,18 @@ export const singleSearch = document.addEventListener('DOMContentLoaded', functi
             event.preventDefault();
             //  check if no music is playing or paused to start audioYellow
             if (audioGreen.muted == true && audioYellow.muted == true && audioBlue.muted == true && lastPlayed.song == undefined) {
-                audioYellow.load(); 
-                audioYellow.play();
-                audioYellow.muted = false;
+                lastPlayed.song = audioYellow;
+                lastPlayed.song.load();
+                // select last played song and load
+                lastPlayed.song.play();
+                lastPlayed.song.muted = false;
+                
                 // play star effect audio
                 audioSunInit();
                 //audioSun.play(); 
                 audioSun.resume();
                 // update music mute image
-                document.getElementById('music').src = "../../Card_Visualizer/static/star/mNote.png";
+                document.getElementById('music').src = "./static/star/mNote.png";
             }
 
             // Retrieve selected value from search field
