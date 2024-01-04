@@ -11,7 +11,6 @@ const Hero = () => {
       {/* <GameCanvas /> */}
       <iframe 
       className="pt-16"
-      /* src="https://thefrank86.github.io/Card_Visualizer/index.html" */ 
       src="https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html"  
       width="100%" 
       height="110%"
