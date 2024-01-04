@@ -16,7 +16,7 @@ export const musicToggle = document.addEventListener('DOMContentLoaded', functio
                 lastPlayed.song.load();
             }
             // update music !mute image
-            music.src = "../../Card_Visualizer/static/star/mNote.png";
+            music.src = "./static/star/mNote.png";
             // select last played song and load
             lastPlayed.song.play();
             lastPlayed.song.muted = false;
@@ -25,17 +25,17 @@ export const musicToggle = document.addEventListener('DOMContentLoaded', functio
 
           // else mute music
         } else if (audioYellow.muted == false) {
-            music.src = "../../Card_Visualizer/static/star/mNoteRed.png";
+            music.src = "./static/star/mNoteRed.png";
             audioYellow.pause();
             audioYellow.muted = true;
             audioSun.suspend();
         } else if (audioBlue.muted == false) {
-            music.src = "../../Card_Visualizer/static/star/mNoteRed.png";
+            music.src = "./static/star/mNoteRed.png";
             audioBlue.pause();
             audioBlue.muted = true;
             audioSun.suspend();
         } else if (audioGreen.muted == false) {
-            music.src = "../../Card_Visualizer/static/star/mNoteRed.png";
+            music.src = "./static/star/mNoteRed.png";
             audioGreen.pause();
             audioGreen.muted = true;
             audioSun.suspend();

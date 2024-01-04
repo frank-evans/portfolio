@@ -237,7 +237,7 @@ import {
       ],
       image: cardsite,
       source_code_link: "https://github.com/TheFrank86/thefrank86.github.io",
-      live_link: "https://thefrank86.github.io/Portfolio-Base/src/Card_Visualizer/index.html",
+      live_link: "https://thefrank86.github.io/Portfolio-Base/Card_Visualizer/index.html",
     },
     {
       name: "Tech Team Up",
@@ -289,7 +289,7 @@ import {
       ],
       image: tripguide,
       source_code_link: "https://github.com/TheFrank86/Portfolio-Base",
-      live_link: "",
+      /* live_link: "https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html", */
     },
   ];
   
