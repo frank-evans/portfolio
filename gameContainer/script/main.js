@@ -14,13 +14,13 @@ const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
 const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
 // separate sound effects for small rocks to avoid clipping
 const fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
-const fxHit2 = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
+const fxHit2 = new Sound("./sounds/explosion-low.mp3", 4, 0.15);
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
 let modal3 = document.getElementById('modal3');
 
-let model, rock, card, app, rockSmall, rockSmall2;
+let model, rock, card, app, rockSmall, rockSmall2, rockSmall3, rockSmall4;
 
 const renderer = new THREE.WebGLRenderer({
     antialias: true,
@@ -144,47 +144,91 @@ rockSmall2 = new THREE.Mesh(Geometry2, rockMaterial3);
 scene.add(rockSmall2);
 rockSmall2.position.set(-12, -5, -5);
 
+// SMALL ROCK 3 TEST ************************************************************************
+const rockMaterial4 = new THREE.MeshStandardMaterial({
+    color: 0xdddddd,
+    map: rockTexture,
+    transparent: true,
+});
+rockSmall3 = new THREE.Mesh(Geometry2, rockMaterial4);
+scene.add(rockSmall3);
+rockSmall3.position.set(20, 2, -5);
+
+// SMALL ROCK 4 TEST ************************************************************************
+const rockMaterial5 = new THREE.MeshStandardMaterial({
+    color: 0xbbbbbb,
+    map: rockTexture,
+    transparent: true,
+});
+rockSmall4 = new THREE.Mesh(Geometry2, rockMaterial5);
+scene.add(rockSmall4);
+rockSmall4.position.set(-20, -2, -5);
+
 // CSS2DRenderer initialization for explosion gif (html)
-const img = document.createElement('img');
-img.src = './static/explosion.gif';
+const imgExplodeLg = document.createElement('img');
+imgExplodeLg.src = './static/explosion.gif';
 const div = document.createElement('div');
-div.appendChild(img);
+div.appendChild(imgExplodeLg);
 const divContainer = new CSS2DObject(div);
 scene.add(divContainer);
-divContainer.position.set(0, 100, -5);
+divContainer.position.set(0, 100, -7);
 // Set initial size
 const widthPercentage = 50; // 45% of window width
-/* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
-img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-/* img.style.height = (window.innerHeight * (window.innerWidth * 0.56) / 100) + 'px'; */
-img.style.display = 'none';
-/* img.style.display = 'initial'; */
+/* imgExplodeLg.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
+imgExplodeLg.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+/* imgExplodeLg.style.height = (window.innerHeight * (window.innerWidth * 0.56) / 100) + 'px'; */
+imgExplodeLg.style.display = 'none';
+/* imgExplodeLg.style.display = 'initial'; */
 
 // CSS2DRenderer initialization for explosionSMALL gif (html) 
-const img2 = document.createElement('img');
-img2.src = './static/lowExplosionShort.gif';
+const imgExplodeSm1 = document.createElement('img');
+imgExplodeSm1.src = './static/lowExplosionShort.gif';
 const div2 = document.createElement('div');
-div2.appendChild(img2);
+div2.appendChild(imgExplodeSm1);
 const divContainer2 = new CSS2DObject(div2);
 scene.add(divContainer2);
 divContainer2.position.set(0, 100, -5);
 // Set initial size
 const widthPercentage2 = 45; // 45% of window width
-img2.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
-img2.style.display = 'none';
-img2.style.opacity = 1.0;
+imgExplodeSm1.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+imgExplodeSm1.style.display = 'none';
+imgExplodeSm1.style.opacity = 1.0;
 
-// force different gif loop                          *******************************************
-const img3 = document.createElement('img');
-img3.src = './static/lowExplosionShort.gif?'+ Math.random();
+// force different gif loop for rockSmall2                    *******************************************
+const imgExplodeSm2 = document.createElement('img');
+imgExplodeSm2.src = './static/lowExplosionShort.gif?'+ Math.random();
 const div3 = document.createElement('div');
-div3.appendChild(img3);
+div3.appendChild(imgExplodeSm2);
 const divContainer3 = new CSS2DObject(div3);
 scene.add(divContainer3);
 divContainer3.position.set(0, 10, -5);
-img3.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
-img3.style.display = 'none';
-img3.style.opacity = 1.0;
+imgExplodeSm2.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+imgExplodeSm2.style.display = 'none';
+imgExplodeSm2.style.opacity = 1.0;
+
+// force different gif loop for rockSmall3                    *******************************************
+const imgExplodeSm3 = document.createElement('img');
+imgExplodeSm3.src = './static/lowExplosionShort.gif?'+ Math.random();
+const div4 = document.createElement('div');
+div4.appendChild(imgExplodeSm3);
+const divContainer4 = new CSS2DObject(div4);
+scene.add(divContainer4);
+divContainer4.position.set(0, 10, -5);
+imgExplodeSm3.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+imgExplodeSm3.style.display = 'none';
+imgExplodeSm3.style.opacity = 1.0;
+
+// force different gif loop for rockSmall3                    *******************************************
+const imgExplodeSm4 = document.createElement('img');
+imgExplodeSm4.src = './static/lowExplosionShort.gif?'+ Math.random();
+const div5 = document.createElement('div');
+div5.appendChild(imgExplodeSm4);
+const divContainer5 = new CSS2DObject(div5);
+scene.add(divContainer5);
+divContainer5.position.set(0, 10, -5);
+imgExplodeSm4.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
+imgExplodeSm4.style.display = 'none';
+imgExplodeSm4.style.opacity = 1.0;
 
 // Yuka AI vehicle initialization 
 const vehicle = new YUKA.Vehicle();
@@ -273,7 +317,7 @@ let laserClick = false;
 
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(img.style.display == 'initial') && !(music.matches(":hover"))) {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {
@@ -299,16 +343,16 @@ function fade(r) {
     } 
 }
 
-function respawn(r, y) {
+function respawn(r, y, t) {
     if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
         setTimeout (() => {
             scene.add(r);
             r.material.opacity = 0.0;
             r.position.y = y;
-        }, 7.0 * 1000);
+        }, t * 1000);
     } else {
         setTimeout (() => {  
-            respawn(r, y);
+            respawn(r, y, t);
         }, 1000);
     }
 }
@@ -358,16 +402,28 @@ function animate(t) {
     rock.position.y += Math.sin(t / 1400) * 0.002;
 
     // rockSMALL default animation
-    rockSmall.rotation.z += Math.sin(t / 3600) * 0.01;
+    rockSmall.rotation.z += Math.sin(t / 3600) * 0.005;
     rockSmall.position.z += Math.sin(t / 400) * 0.0008;
     rockSmall.position.x -= Math.sin(t / 6400) * 0.01;
     rockSmall.position.y += Math.sin(t / 5600) * 0.01;
     
-    // rockSMALL2 default animation
-    rockSmall2.rotation.z -= Math.sin(t / 4800) * 0.01;
+    // rockSMALL2 default animation 
+    rockSmall2.rotation.z -= Math.sin(t / 4800) * 0.005;
     rockSmall2.position.z += Math.sin(t / 400) * 0.0008;
     rockSmall2.position.x += Math.sin(t / 7200) * 0.01;
     rockSmall2.position.y -= Math.sin(t / 6800) * 0.01;
+
+    // rockSMALL3 default animation * speed , * tolerance
+    rockSmall3.rotation.z -= Math.sin(t / 4800) * 0.0025;
+    rockSmall3.position.z += Math.sin(t / 400) * 0.0008;
+    rockSmall3.position.x += Math.sin(t / 8000) * 0.001;
+    rockSmall3.position.y -= Math.sin(t / 8400) * 0.01;
+
+    // rockSMALL4 default animation
+    rockSmall4.rotation.z += Math.sin(t / 3600) * 0.0025;
+    rockSmall4.position.z += Math.sin(t / 400) * 0.0008;
+    rockSmall4.position.x -= Math.sin(t / 7200) * 0.001;
+    rockSmall4.position.y += Math.sin(t / 7400) * 0.01;
 
     // laser array updates
     for(let index = 0; index < bullets.length; index += 1){
@@ -460,10 +516,10 @@ function animate(t) {
     // this goes in Animate, as laser gets in proximity of button **********************************************************************
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
-        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(img.style.display == 'initial') && card.material.opacity >= 1.0){
+        if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(imgExplodeLg.style.display == 'initial') && card.material.opacity >= 1.0){
             if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = img.src;
-                img.style.display = 'initial';
+                imgExplodeLg.src = imgExplodeLg.src;
+                imgExplodeLg.style.display = 'initial';
                 /* divContainer.position.set(-11, 7, -5); */
                 divContainer.position.set(card.position.x, card.position.y - 0.5, -7);
                 fxExplode.play();
@@ -478,7 +534,7 @@ function animate(t) {
                 }, 2.0 * 1000); 
 
                 setTimeout(() => {
-                    img.style.display = 'none';
+                    imgExplodeLg.style.display = 'none';
                     divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
@@ -486,15 +542,15 @@ function animate(t) {
                     /* scene.add(card);
                     card.material.opacity = 0.0;
                     card.position.y = 7; */
-                    respawn(card, 7);
+                    respawn(card, 7, 7.0);
                 }, 4.0 * 1000); 
             }    
         } 
         // app hitbox
-        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(img.style.display == 'initial') && app.material.opacity >= 1.0){
+        if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(imgExplodeLg.style.display == 'initial') && app.material.opacity >= 1.0){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = img.src;
-                img.style.display = 'initial';
+                imgExplodeLg.src = imgExplodeLg.src;
+                imgExplodeLg.style.display = 'initial';
                 /* divContainer.position.set(0, 10, -5); */
                 divContainer.position.set(app.position.x, app.position.y, -7);
                 fxExplode.play();
@@ -509,20 +565,20 @@ function animate(t) {
                 }, 2.0 * 1000); 
 
                 setTimeout(() => {
-                    img.style.display = 'none';
+                    imgExplodeLg.style.display = 'none';
                     divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    respawn(app, 10);
+                    respawn(app, 10, 7.0);
                 }, 4.0 * 1000);
             }    
         } 
         // rock hitbox
-        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(img.style.display == 'initial') && rock.material.opacity >= 1.0){
+        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(imgExplodeLg.style.display == 'initial') && rock.material.opacity >= 1.0){
             if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 3.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img.src = img.src;
-                img.style.display = 'initial';
+                imgExplodeLg.src = imgExplodeLg.src;
+                imgExplodeLg.style.display = 'initial';
                 /* divContainer.position.set(11, 8, -5); */
                 divContainer.position.set(rock.position.x, rock.position.y, -7);
                 fxExplode.play();
@@ -537,20 +593,20 @@ function animate(t) {
                 }, 2.0 * 1000); 
 
                 setTimeout(() => {
-                    img.style.display = 'none';
+                    imgExplodeLg.style.display = 'none';
                     divContainer.position.set(0, 100, -7);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    respawn(rock, 8);
+                    respawn(rock, 8, 7.0);
                 }, 4.0 * 1000);
             }    
         } 
         // rockSMALL hitbox **************************************************** 
-        if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(img2.style.display == 'initial')){
+        if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(imgExplodeSm1.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall.position.y - 0.5) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img2.src = img2.src;
-                img2.style.display = 'initial';
+                imgExplodeSm1.src = imgExplodeSm1.src;
+                imgExplodeSm1.style.display = 'initial';
                 /* divContainer2.position.set(11.5, -4.5, -5); */
                 divContainer2.position.set(rockSmall.position.x, rockSmall.position.y, -5);
                 fxHit.play();
@@ -561,25 +617,25 @@ function animate(t) {
                 }, 0.3 * 1000); 
 
                 setTimeout(() => {
-                    fade(img2);
+                    fade(imgExplodeSm1);
                 }, 2.0 * 1000);
 
                 setTimeout(() => {
-                    img2.style.display = 'none';
-                    img2.style.opacity = 1.0;
+                    imgExplodeSm1.style.display = 'none';
+                    imgExplodeSm1.style.opacity = 1.0;
                     divContainer2.position.set(0, 100, -5);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    respawn(rockSmall, -5);
+                    respawn(rockSmall, -5, 3.0);
                 }, 4.0 * 1000);
             }    
         } 
         // rockSMALL2 hitbox **************************************************** 
-        if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(img3.style.display == 'initial')){
+        if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(imgExplodeSm2.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall2.position.y - 0.5) && bullets[index].position.y < (rockSmall2.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                img3.src = img3.src;
-                img3.style.display = 'initial';
+                imgExplodeSm2.src = imgExplodeSm2.src;
+                imgExplodeSm2.style.display = 'initial';
                 /* divContainer3.position.set(-11.5, -4.5, -5); */
                 divContainer3.position.set(rockSmall2.position.x, rockSmall2.position.y, -5);
                 fxHit2.play();
@@ -590,17 +646,75 @@ function animate(t) {
                 }, 0.3 * 1000); 
 
                 setTimeout(() => {
-                    fade(img3);
+                    fade(imgExplodeSm2);
                 }, 2.0 * 1000);
 
                 setTimeout(() => {
-                    img3.style.display = 'none';
-                    img3.style.opacity = 1.0;
+                    imgExplodeSm2.style.display = 'none';
+                    imgExplodeSm2.style.opacity = 1.0;
                     divContainer3.position.set(0, 100, -5);
                 }, 3.5 * 1000);
 
                 setTimeout(() => {
-                    respawn(rockSmall2, -5);
+                    respawn(rockSmall2, -5, 3.0);
+                }, 4.0 * 1000);
+            }    
+        } 
+        // rockSMALL3 hitbox **************************************************** 
+        if (bullets[index].position.x > (rockSmall3.position.x - 4.3) && bullets[index].position.x < (rockSmall3.position.x - 1.5) && rockSmall3.material.opacity >= 1.0  && !(imgExplodeSm3.style.display == 'initial')){
+            if (bullets[index].position.y > (rockSmall3.position.y - 0.5) && bullets[index].position.y < (rockSmall3.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                imgExplodeSm3.src = imgExplodeSm3.src;
+                imgExplodeSm3.style.display = 'initial';
+                /* divContainer4.position.set(-11.5, -4.5, -5); */
+                divContainer4.position.set(rockSmall3.position.x, rockSmall3.position.y, -5);
+                fxHit2.play();
+
+                setTimeout(() => {
+                    scene.remove(rockSmall3);
+                    rockSmall3.position.y = 300;
+                }, 0.3 * 1000); 
+
+                setTimeout(() => {
+                    fade(imgExplodeSm3);
+                }, 2.0 * 1000);
+
+                setTimeout(() => {
+                    imgExplodeSm3.style.display = 'none';
+                    imgExplodeSm3.style.opacity = 1.0;
+                    divContainer4.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    respawn(rockSmall3, 2, 3.0);
+                }, 4.0 * 1000);
+            }    
+        } 
+        // rockSMALL4 hitbox **************************************************** 
+        if (bullets[index].position.x > (rockSmall4.position.x + 0.7) && bullets[index].position.x < (rockSmall4.position.x + 3.5) && rockSmall4.material.opacity >= 1.0  && !(imgExplodeSm4.style.display == 'initial')){
+            if (bullets[index].position.y > (rockSmall4.position.y - 1.0) && bullets[index].position.y < (rockSmall4.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+                imgExplodeSm4.src = imgExplodeSm4.src;
+                imgExplodeSm4.style.display = 'initial';
+                /* divContainer5.position.set(-11.5, -4.5, -5); */
+                divContainer5.position.set(rockSmall4.position.x, rockSmall4.position.y, -5);
+                fxHit2.play();
+
+                setTimeout(() => {
+                    scene.remove(rockSmall4);
+                    rockSmall4.position.y = 300;
+                }, 0.3 * 1000); 
+
+                setTimeout(() => {
+                    fade(imgExplodeSm4);
+                }, 2.0 * 1000);
+
+                setTimeout(() => {
+                    imgExplodeSm4.style.display = 'none';
+                    imgExplodeSm4.style.opacity = 1.0;
+                    divContainer5.position.set(0, 100, -5);
+                }, 3.5 * 1000);
+
+                setTimeout(() => {
+                    respawn(rockSmall4, -2, 3.0);
                 }, 4.0 * 1000);
             }    
         } 
@@ -623,12 +737,25 @@ function animate(t) {
         if (rockSmall2.material.opacity < 1.0) {
             rockSmall2.material.opacity += 0.01;
         }
-        if (img2.style.opacity < 1.0) {
-            img2.style.opacity -= 0.01;
+        if (rockSmall3.material.opacity < 1.0) {
+            rockSmall3.material.opacity += 0.01;
         }
-        if (img3.style.opacity < 1.0) {
-            img3.style.opacity -= 0.01;
+        if (rockSmall4.material.opacity < 1.0) {
+            rockSmall4.material.opacity += 0.01;
         }
+    }
+
+    if (imgExplodeSm1.style.opacity < 1.0) {
+        imgExplodeSm1.style.opacity -= 0.01;
+    }
+    if (imgExplodeSm2.style.opacity < 1.0) {
+        imgExplodeSm2.style.opacity -= 0.01;
+    }
+    if (imgExplodeSm3.style.opacity < 1.0) {
+        imgExplodeSm3.style.opacity -= 0.01;
+    }
+    if (imgExplodeSm4.style.opacity < 1.0) {
+        imgExplodeSm4.style.opacity -= 0.01;
     }
 
     // timer for laser intervals
@@ -653,8 +780,10 @@ window.addEventListener('resize', function() {
     labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
 
     // CSS2DRenderer resize (explosion gif)
-    /* img.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
-    img.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    img2.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    img3.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    /* imgExplodeLg.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
+    imgExplodeLg.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    imgExplodeSm1.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    imgExplodeSm2.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    imgExplodeSm3.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    imgExplodeSm4.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
 });
