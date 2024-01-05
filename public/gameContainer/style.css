@@ -27,6 +27,7 @@ body {
   z-index: -99;
 }
 #game-container {
+  position: relative;
   aspect-ratio: 16 / 9;
   width: 100%;
   border-style: solid;
@@ -121,4 +122,64 @@ body {
 }
 #music:hover {
   opacity: 0.7;
+}
+.click-container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 60%;
+  left: 35%;
+  transform: translate(-50%, -50%) scale(0.05);
+}
+.click1 {
+  color: white;
+  font-size: 30vw;
+  letter-spacing: 0.2em;
+  line-height: 2.0;
+  font-family: Verdana, sans-serif;
+  
+  width: 100%;
+}
+.click-container2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.05);
+}
+.click2 {
+  color: white;
+  font-size: 30vw;
+  letter-spacing: 0.2em;
+  line-height: 2.0;
+  font-family: Verdana, sans-serif;
+  
+  width: 100%;
+}
+.click-container3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 60%;
+  left: 65%;
+  transform: translate(-50%, -50%) scale(0.05);
+}
+.click3 {
+  color: white;
+  font-size: 30vw;
+  letter-spacing: 0.2em;
+  line-height: 2.0;
+  font-family: Verdana, sans-serif;
+
+  width: 100%;
 }
