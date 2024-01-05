@@ -1,16 +1,21 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react'; // import useState
 
 import { styles } from '../styles';
 
 const Hero = () => {
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false); // add this state
+
   return (
     /* w-full h-screen */
     <section className="relative mx-auto aspect-video">
       <iframe 
-      className="pt-16"
+      /* className="pt-16" */
+      className={`pt-16 ${isIframeLoaded ? '' : 'pointer-events-none'}`} // add this line
       src="https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html"  
       width="100%" 
       height="110%"
+      onLoad={() => setIsIframeLoaded(true)} // add this line
       />
 
       {/* className="max-w-7xl" */}
