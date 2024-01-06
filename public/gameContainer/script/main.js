@@ -315,8 +315,14 @@ const raycaster = new THREE.Raycaster();
 // mousedown variable for lasers
 let laserClick = false;
 
+const tutorial = document.getElementById('tutorial');
+
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
+    if (!(tutorial.style.display == 'none')) {
+        tutorial.style.display = 'none';
+    }
+
     if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
