@@ -315,8 +315,14 @@ const raycaster = new THREE.Raycaster();
 // mousedown variable for lasers
 let laserClick = false;
 
+const tutorial = document.getElementById('tutorial');
+
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
+    if (!(tutorial.style.display == 'none')) {
+        tutorial.style.display = 'none';
+    }
+
     if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
@@ -604,7 +610,7 @@ function animate(t) {
         } 
         // rockSMALL hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(imgExplodeSm1.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall.position.y - 0.5) && bullets[index].position.y < (rockSmall.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall.position.y - 1.0) && bullets[index].position.y < (rockSmall.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm1.src = imgExplodeSm1.src;
                 imgExplodeSm1.style.display = 'initial';
                 /* divContainer2.position.set(11.5, -4.5, -5); */
@@ -633,7 +639,7 @@ function animate(t) {
         } 
         // rockSMALL2 hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(imgExplodeSm2.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall2.position.y - 0.5) && bullets[index].position.y < (rockSmall2.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall2.position.y - 0.0) && bullets[index].position.y < (rockSmall2.position.y + 2.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm2.src = imgExplodeSm2.src;
                 imgExplodeSm2.style.display = 'initial';
                 /* divContainer3.position.set(-11.5, -4.5, -5); */
@@ -662,7 +668,7 @@ function animate(t) {
         } 
         // rockSMALL3 hitbox **************************************************** 
         if (bullets[index].position.x > (rockSmall3.position.x - 4.3) && bullets[index].position.x < (rockSmall3.position.x - 1.5) && rockSmall3.material.opacity >= 1.0  && !(imgExplodeSm3.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall3.position.y - 0.5) && bullets[index].position.y < (rockSmall3.position.y + 2.2) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall3.position.y - 1.0) && bullets[index].position.y < (rockSmall3.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm3.src = imgExplodeSm3.src;
                 imgExplodeSm3.style.display = 'initial';
                 /* divContainer4.position.set(-11.5, -4.5, -5); */
