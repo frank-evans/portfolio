@@ -12,13 +12,11 @@
   scroll-behavior: smooth;
   color-scheme: dark;
 }
-
 .hash-span {
   margin-top: -100px;
   padding-bottom: 100px;
   display: block;
 }
-
 .black-gradient {
   background: #000000; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -32,7 +30,6 @@
     #000000
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
-
 .violet-gradient {
   background: #804dee;
   background: linear-gradient(-90deg, #804dee 0%, rgba(60, 51, 80, 0) 100%);
@@ -42,13 +39,11 @@
     rgba(60, 51, 80, 0) 100%
   );
 }
-
 .green-pink-gradient {
   background: "#00cea8";
   background: linear-gradient(90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
   background: -webkit-linear-gradient(-90.13deg, #00cea8 1.9%, #bf61ff 97.5%);
 }
-
 .orange-text-gradient {
   background: #f12711; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -64,7 +59,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .green-text-gradient {
   background: #11998e; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -80,7 +74,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .blue-text-gradient {
   /* background: -webkit-linear-gradient(#eee, #333); */
   background: #56ccf2; /* fallback for old browsers */
@@ -97,7 +90,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 .pink-text-gradient {
   background: #ec008c; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -113,7 +105,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
 /* canvas- styles */
 .canvas-loader {
   font-size: 10px;
@@ -125,7 +116,6 @@
   animation: mulShdSpin 1.1s infinite ease;
   transform: translateZ(0);
 }
-
 @keyframes mulShdSpin {
   0%,
   100% {
@@ -202,7 +192,6 @@
       -2.6em 0em 0 0em rgba(255, 255, 255, 0.7), -1.8em -1.8em 0 0em #ffffff;
   }
 }
-
 /* Float style */
 .tech {
   position: relative;
@@ -211,16 +200,13 @@
   animation: float 5s ease-in-out infinite; 
   transition: all ease-in-out;
 }
-
 .tech div:nth-of-type(n) img:hover, .tech div:nth-of-type(n) img:active {
   animation: rotateAnimation 1 linear;
 }
-
 .tech div:nth-of-type(4n) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7.5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
 .tech div:nth-of-type(4n + 1) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
 .tech div:nth-of-type(4n + 2) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 7s linear 1.8s; animation-iteration-count: infinite, infinite; } 
 .tech div:nth-of-type(4n + 3) img:not(:hover) { animation: rotateAnimation linear 0.9s, float 5.5s linear 1.8s; animation-iteration-count: infinite, infinite; } 
-
 @keyframes float {
   0% {
     transform: translatey(0px) rotate(0deg);
@@ -238,8 +224,14 @@
     transform: translatey(0px) rotate(0deg);
   }
 }
-
 @keyframes rotateAnimation {
 	from {transform: rotateY(0deg);}
 	to {transform: rotateY(-360deg);}
+}
+.Navbar {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+.Navbar.visible {
+  opacity: 1;
 }

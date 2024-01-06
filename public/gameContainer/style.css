@@ -126,6 +126,7 @@ body {
 img {
   width: 100%;
   height: auto;
+  z-index: 10;
 }
 #tutorial {
   z-index: 10;
@@ -140,11 +141,11 @@ img {
   top: 60%;
   left: 35%;
   transform: translate(-50%, -50%) scale(0.05);
-  animation:tutorial 2s linear infinite 0s;
-  -moz-animation:tutorial 2s linear infinite 0s;
-  -ms-animation:tutorial 2s linear infinite 0s;
-  -o-animation:tutorial 2s linear infinite 0s;
-  -webkit-animation:tutorial 2s linear infinite 0s;
+  animation:tutorial 1.75s linear infinite 0s;
+  -moz-animation:tutorial 1.75s linear infinite 0s;
+  -ms-animation:tutorial 1.75s linear infinite 0s;
+  -o-animation:tutorial 1.75s linear infinite 0s;
+  -webkit-animation:tutorial 1.75s linear infinite 0s;
 }
 .click1 {
   color: white;
@@ -165,11 +166,11 @@ img {
   top: 75%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.05);
-  animation:tutorial 2s linear infinite 0.25s;
-  -moz-animation:tutorial 2s linear infinite 0.25s;
-  -ms-animation:tutorial 2s linear infinite 0.25s;
-  -o-animation:tutorial 2s linear infinite 0.25s;
-  -webkit-animation:tutorial 2s linear infinite 0.25s;
+  animation:tutorial 1.75s linear infinite 0.25s;
+  -moz-animation:tutorial 1.75s linear infinite 0.25s;
+  -ms-animation:tutorial 1.75s linear infinite 0.25s;
+  -o-animation:tutorial 1.75s linear infinite 0.25s;
+  -webkit-animation:tutorial 1.75s linear infinite 0.25s;
 }
 .click2 {
   color: white;
@@ -190,11 +191,11 @@ img {
   top: 60%;
   left: 65%;
   transform: translate(-50%, -50%) scale(0.05);
-  animation:tutorial 2s linear infinite 0.5s;
-  -moz-animation:tutorial 2s linear infinite 0.5s;
-  -ms-animation:tutorial 2s linear infinite 0.5s;
-  -o-animation:tutorial 2s linear infinite 0.5s;
-  -webkit-animation:tutorial 2s linear infinite 0.5s;
+  animation:tutorial 1.75s linear infinite 0.5s;
+  -moz-animation:tutorial 1.75s linear infinite 0.5s;
+  -ms-animation:tutorial 1.75s linear infinite 0.5s;
+  -o-animation:tutorial 1.75s linear infinite 0.5s;
+  -webkit-animation:tutorial 1.75s linear infinite 0.5s;
 }
 .click3 {
   color: white;
@@ -215,11 +216,11 @@ img {
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.05);
-  animation:tutorial 2s linear infinite 1s;
-  -moz-animation:tutorial 2s linear infinite 1s;
-  -ms-animation:tutorial 2s linear infinite 1s;
-  -o-animation:tutorial 2s linear infinite 1s;
-  -webkit-animation:tutorial 2s linear infinite 1s;
+  animation:tutorial 1.75s linear infinite 0.75s;
+  -moz-animation:tutorial 1.75s linear infinite 0.75s;
+  -ms-animation:tutorial 1.75s linear infinite 0.75s;
+  -o-animation:tutorial 1.75s linear infinite 0.75s;
+  -webkit-animation:tutorial 1.75s linear infinite 0.75s;
 }
 .click4 {
   color: white;
@@ -232,16 +233,16 @@ img {
 }
 @keyframes tutorial {
   0% {opacity: 1;}
-  50% {opacity: 0;}
+  40% {opacity: 0;}
   100% {opacity: 0;}
 }
 @-webkit-keyframes tutorial {
   0% {opacity: 1;}
-  50% {opacity: 0;}
+  40% {opacity: 0;}
   100% {opacity: 0;}
 }
 @-moz-keyframes tutorial {
   0% {opacity: 1;}
-  50% {opacity: 0;}
+  40% {opacity: 0;}
   100% {opacity: 0;}
 }

@@ -11,16 +11,17 @@ const Hero = () => {
     <section className="relative mx-auto aspect-video">
       <iframe 
       /* className="pt-16" */
-      className={`pt-16 ${isIframeLoaded ? '' : 'pointer-events-none'}`} // add this line
+      className={`pt-0 ${isIframeLoaded ? '' : 'pointer-events-none'}`} // add this line
       src="https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html"  
       width="100%" 
-      height="110%"
+      /* height="110%" */
+      height="100%"
       onLoad={() => setIsIframeLoaded(true)} // add this line
       />
 
-      {/* className="max-w-7xl" */}
+      {/* className="max-w-7xl   top-[80px]   " */}
       <div className={`sm:px-8 px-3 absolute
-      inset-0 top-[80px] mx-auto flex
+      inset-0 mx-auto flex
       flex-row items-start gap-3 pointer-events-none`}>
         <div className="flex flex-col justify-center items-center mt-3 sm:mt-5 pointer-events-none">
           <div className="w-3 h-3 lg:w-5 lg:h-5 rounded-full bg-[#315eff] pointer-events-none" />

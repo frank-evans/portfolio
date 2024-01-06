@@ -1,9 +1,24 @@
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
 import { About, Contact, Experience, Feedbacks, 
 Hero, Navbar, Tech, Works, StarsCanvas } from './components'; 
 
 const App = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="relative z-0 bg-primary">
@@ -11,7 +26,7 @@ const App = () => {
         bg-no-repeat bg-center">*/}
         <div className="bg-hero-pattern bg-cover 
         bg-no-repeat bg-center">
-          <Navbar />
+          <Navbar className={isScrolled ? "visible" : ""} />
           <Hero />
         </div>
           <About />
