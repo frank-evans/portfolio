@@ -379,6 +379,53 @@ let z = 1;
 // flipMatrix to correct Yuka steering behavior mesh flip on -x values
 const flipMatrix = new THREE.Matrix4().makeScale(1, 1, -1);
 
+// window blur/focus event listeners to correct vehicle position on return
+let savedPositionV, savedPositionT, savedMatrix;
+
+// from Navbar.jsx
+/* window.addEventListener('message', function(event) {
+    if (event.data === 'observeOn') {
+        time.start();
+        vehicle.position.copy(savedPositionV);
+        vehicle.matrix.copy(savedMatrix);
+        target.position.copy(savedPositionT);
+        
+        renderer.setAnimationLoop(animate);
+        console.log('observerOn');
+    } else if (event.data === 'observeOff') {
+        time.stop();
+        savedPositionV = vehicle.position.clone();
+        savedMatrix = vehicle.matrix.clone();
+        savedPositionT = target.position.clone();
+        
+        renderer.setAnimationLoop(null);
+        console.log('observerOff');
+      }
+  }, false); */
+
+let observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+        // The iframe is visible, resume updates
+        time.start();
+        vehicle.position.copy(savedPositionV);
+        vehicle.matrix.copy(savedMatrix);
+        target.position.copy(savedPositionT);
+        
+        renderer.setAnimationLoop(animate); // Resume the animation loop
+    } else {
+        // The iframe is not visible, pause updates
+        time.stop();
+        savedPositionV = vehicle.position.clone();
+        savedMatrix = vehicle.matrix.clone();
+        savedPositionT = target.position.clone();
+        
+        renderer.setAnimationLoop(null); // Stop the animation loop
+    }
+}, { threshold: 0.1 });
+
+// Start observing the iframe
+observer.observe(document.querySelector('iframe'));
+
 function animate(t) {
     const delta = time.update().getDelta();
 
@@ -776,20 +823,20 @@ function animate(t) {
     renderer.render(scene, camera);
 }
 
+// Start the animation loop
 renderer.setAnimationLoop(animate);
 
-// window blur/focus event listeners to correct vehicle position on return
-let savedPosition;
-let savedMatrix;
-
-window.addEventListener('blur', function() {
-    savedPosition = vehicle.position.clone();
+document.addEventListener('blur', function() {
+    savedPositionV = vehicle.position.clone();
     savedMatrix = vehicle.matrix.clone();
-});
-window.addEventListener('focus', function() {
-    vehicle.position.copy(savedPosition);
+    savedPositionT = target.position.clone();
+}, true); // Use capture phase to catch the event as it bubbles up
+
+document.addEventListener('focus', function() {
+    vehicle.position.copy(savedPositionV);
     vehicle.matrix.copy(savedMatrix);
-});
+    target.position.copy(savedPositionT);
+}, true); // Use capture phase to catch the event as it bubbles up
 
 let resizeTimeout;
 window.addEventListener('resize', function() {
