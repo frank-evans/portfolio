@@ -9,6 +9,17 @@ import { logo, menu, close } from '../assets';
 const Navbar = ({ className }) => {
   const [active, setActive] = useState('');
   const [toggle, setToggle] = useState(false);
+  const [iframe, setIframe] = useState(null);
+
+  useEffect(() => {
+    const iframeElement = document.querySelector('iframe');
+    if (iframeElement) {
+      iframeElement.addEventListener('load', function() {
+        // The iframe and all of its contents have finished loading
+        setIframe(iframeElement);
+      });
+    }
+  }, []);
 
   return (
     <nav 
@@ -23,6 +34,9 @@ const Navbar = ({ className }) => {
           onClick={() => {
             setActive("");
             window.scrollTo(0, 0);
+            if (iframe) {
+              iframe.contentWindow.postMessage('observeOn', '*');
+            } // Notify the IntersectionObserver of the change
           }}
         >
             <img src={logo} alt="logo" className="w-9
@@ -43,7 +57,11 @@ const Navbar = ({ className }) => {
                   : "text-secondary"
               } hover:text-white text-[18px]
               font-medium cursor-pointer`}
-              onClick={() => setActive(link.title)}
+              onClick={() => {
+                setActive(link.title);
+                if (iframe) {
+                  iframe.contentWindow.postMessage('observeOff', '*');
+                } }}
             > 
               <a href={`/Portfolio-Base/#${link.id}`}>{link.title}</a>
             </li>
@@ -77,6 +95,9 @@ const Navbar = ({ className }) => {
                   onClick={() => {
                     setToggle(!toggle);
                     setActive(link.title);
+                    if (iframe) {
+                      iframe.contentWindow.postMessage('observeOff', '*');
+                    }
                   }}
                 > 
                   <a href={`/Portfolio-Base/#${link.id}`}>{link.title}</a>
