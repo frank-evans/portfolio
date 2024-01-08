@@ -388,11 +388,12 @@ let savedPositionV, savedPositionT, savedMatrix;
 window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         /* time.start(); */
-        vehicle.position.copy(savedPositionV);
-        if (vehicle.matrix) {
+        /* vehicle.position.copy(savedPositionV); */
+        vehicle.position.set(0, 0, 0);
+        /* if (vehicle.matrix) {
             vehicle.matrix.copy(savedMatrix);
-        }
-        target.position.copy(savedPositionT);
+        } */
+        /* target.position.copy(savedPositionT); */
         
         /* renderer.setAnimationLoop(animate); */
         console.log("on");
@@ -402,7 +403,7 @@ window.addEventListener('message', function(event) {
         if (vehicle.matrix) {
             savedMatrix = vehicle.matrix.clone();
         }
-        /* savedPositionT = target.position.clone(); */
+        savedPositionT = target.position.clone();
         
         /* renderer.setAnimationLoop(null); */
         console.log("off");
@@ -822,7 +823,7 @@ document.addEventListener('focus', function() {
     if (vehicle.matrix) {
         vehicle.matrix.copy(savedMatrix);
     }
-    /* target.position.copy(savedPositionT); */
+    target.position.copy(savedPositionT);
 }, true); // Use capture phase to catch the event as it bubbles up
 
 let resizeTimeout;
