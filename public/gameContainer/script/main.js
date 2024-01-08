@@ -7,6 +7,8 @@ import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
 
+const tutorial = document.getElementById('tutorial');
+
 let fxLaser, fxExplode, fxHit, fxHit2;
 
 window.onload = function() {
@@ -16,6 +18,8 @@ window.onload = function() {
     // separate sound effects for small rocks to avoid clipping
     fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
     fxHit2 = new Sound("./sounds/explosion-low.mp3", 4, 0.15);
+
+    tutorial.style.display = 'initial';
 };
 
 let modal1 = document.getElementById('modal1');
@@ -317,8 +321,6 @@ const raycaster = new THREE.Raycaster();
 // mousedown variable for lasers
 let laserClick = false;
 
-const tutorial = document.getElementById('tutorial');
-
 // test with 'click' and mousedown
 window.addEventListener('mousedown', function() {
     if (!(tutorial.style.display == 'none')) {
@@ -385,21 +387,21 @@ let savedPositionV, savedPositionT, savedMatrix;
 // from Navbar.jsx
 window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
-        time.start();
+        /* time.start(); */
         vehicle.position.copy(savedPositionV);
         vehicle.matrix.copy(savedMatrix);
         target.position.copy(savedPositionT);
         
         renderer.setAnimationLoop(animate);
-        console.log('observerOn');
+        console.log("on");
     } else if (event.data === 'observeOff') {
-        time.stop();
+        /* time.stop(); */
         savedPositionV = vehicle.position.clone();
         savedMatrix = vehicle.matrix.clone();
         savedPositionT = target.position.clone();
         
         renderer.setAnimationLoop(null);
-        console.log('observerOff');
+        console.log("off");
       }
   }, false);
 
@@ -805,13 +807,17 @@ renderer.setAnimationLoop(animate);
 
 document.addEventListener('blur', function() {
     savedPositionV = vehicle.position.clone();
-    savedMatrix = vehicle.matrix.clone();
+    if (vehicle.matrix) {
+        savedMatrix = vehicle.matrix.clone();
+    }
     savedPositionT = target.position.clone();
 }, true); // Use capture phase to catch the event as it bubbles up
 
 document.addEventListener('focus', function() {
     vehicle.position.copy(savedPositionV);
-    vehicle.matrix.copy(savedMatrix);
+    if (vehicle.matrix) {
+        vehicle.matrix.copy(savedMatrix);
+    }
     target.position.copy(savedPositionT);
 }, true); // Use capture phase to catch the event as it bubbles up
 
