@@ -240,8 +240,8 @@ imgExplodeSm4.style.opacity = 1.0;
 const vehicle = new YUKA.Vehicle();
 
 vehicle.scale.set(0.60, 0.60, 0.60);
-vehicle.position.set(-11, 20, 0);
-/* vehicle.position.set(0, 0, 0); */
+/* vehicle.position.set(-11, 20, 0); */
+vehicle.position.set(0, 0, 0);
 
 vehicle.forward.set(0, -1, 0);
 vehicle.up.set(1, 0, 0);
@@ -389,18 +389,24 @@ window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         /* time.start(); */
         vehicle.position.copy(savedPositionV);
-        vehicle.matrix.copy(savedMatrix);
+        /* vehicle.position.set(0, 0, 0);
+        target.position.set(0, 0, 0); */
+        if (vehicle.matrix) {
+            vehicle.matrix.copy(savedMatrix);
+        }
         target.position.copy(savedPositionT);
         
-        renderer.setAnimationLoop(animate);
+        /* renderer.setAnimationLoop(animate); */
         console.log("on");
     } else if (event.data === 'observeOff') {
         /* time.stop(); */
         savedPositionV = vehicle.position.clone();
-        savedMatrix = vehicle.matrix.clone();
+        if (vehicle.matrix) {
+            savedMatrix = vehicle.matrix.clone();
+        }
         savedPositionT = target.position.clone();
         
-        renderer.setAnimationLoop(null);
+        /* renderer.setAnimationLoop(null); */
         console.log("off");
       }
   }, false);
