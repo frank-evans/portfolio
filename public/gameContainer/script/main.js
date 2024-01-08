@@ -383,7 +383,7 @@ const flipMatrix = new THREE.Matrix4().makeScale(1, 1, -1);
 let savedPositionV, savedPositionT, savedMatrix;
 
 // from Navbar.jsx
-/* window.addEventListener('message', function(event) {
+window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         time.start();
         vehicle.position.copy(savedPositionV);
@@ -401,30 +401,7 @@ let savedPositionV, savedPositionT, savedMatrix;
         renderer.setAnimationLoop(null);
         console.log('observerOff');
       }
-  }, false); */
-
-let observer = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-        // The iframe is visible, resume updates
-        time.start();
-        vehicle.position.copy(savedPositionV);
-        vehicle.matrix.copy(savedMatrix);
-        target.position.copy(savedPositionT);
-        
-        renderer.setAnimationLoop(animate); // Resume the animation loop
-    } else {
-        // The iframe is not visible, pause updates
-        time.stop();
-        savedPositionV = vehicle.position.clone();
-        savedMatrix = vehicle.matrix.clone();
-        savedPositionT = target.position.clone();
-        
-        renderer.setAnimationLoop(null); // Stop the animation loop
-    }
-}, { threshold: 0.1 });
-
-// Start observing the iframe
-observer.observe(document.querySelector('iframe'));
+  }, false);
 
 function animate(t) {
     const delta = time.update().getDelta();
