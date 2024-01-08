@@ -822,7 +822,7 @@ document.addEventListener('focus', function() {
     if (vehicle.matrix) {
         vehicle.matrix.copy(savedMatrix);
     }
-    target.position.copy(savedPositionT);
+    /* target.position.copy(savedPositionT); */
 }, true); // Use capture phase to catch the event as it bubbles up
 
 let resizeTimeout;
