@@ -389,18 +389,22 @@ window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         /* time.start(); */
         vehicle.position.copy(savedPositionV);
-        vehicle.matrix.copy(savedMatrix);
+        if (vehicle.matrix) {
+            vehicle.matrix.copy(savedMatrix);
+        }
         target.position.copy(savedPositionT);
         
-        renderer.setAnimationLoop(animate);
+        /* renderer.setAnimationLoop(animate); */
         console.log("on");
     } else if (event.data === 'observeOff') {
         /* time.stop(); */
         savedPositionV = vehicle.position.clone();
-        savedMatrix = vehicle.matrix.clone();
+        if (vehicle.matrix) {
+            savedMatrix = vehicle.matrix.clone();
+        }
         savedPositionT = target.position.clone();
         
-        renderer.setAnimationLoop(null);
+        /* renderer.setAnimationLoop(null); */
         console.log("off");
       }
   }, false);
