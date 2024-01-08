@@ -374,26 +374,10 @@ let canShoot = 0;
 // sync with AI time (YUKA)
 const time = new YUKA.Time();
 
-let m = new THREE.Matrix4();
-
 let z = 1;
 
 // flipMatrix to correct Yuka steering behavior mesh flip on -x values
 const flipMatrix = new THREE.Matrix4().makeScale(1, 1, -1);
-
-// window blur/focus event listeners to correct vehicle position on return
-let savedPosition;
-let savedMatrix;
-
-window.addEventListener('blur', function() {
-    savedPosition = vehicle.position.clone();
-    savedMatrix = vehicle.matrix.clone();
-});
-
-window.addEventListener('focus', function() {
-    vehicle.position.copy(savedPosition);
-    vehicle.matrix.copy(savedMatrix);
-});
 
 function animate(t) {
     const delta = time.update().getDelta();
@@ -793,6 +777,19 @@ function animate(t) {
 }
 
 renderer.setAnimationLoop(animate);
+
+// window blur/focus event listeners to correct vehicle position on return
+let savedPosition;
+let savedMatrix;
+
+window.addEventListener('blur', function() {
+    savedPosition = vehicle.position.clone();
+    savedMatrix = vehicle.matrix.clone();
+});
+window.addEventListener('focus', function() {
+    vehicle.position.copy(savedPosition);
+    vehicle.matrix.copy(savedMatrix);
+});
 
 let resizeTimeout;
 window.addEventListener('resize', function() {
