@@ -402,7 +402,7 @@ window.addEventListener('message', function(event) {
         if (vehicle.matrix) {
             savedMatrix = vehicle.matrix.clone();
         }
-        savedPositionT = target.position.clone();
+        /* savedPositionT = target.position.clone(); */
         
         /* renderer.setAnimationLoop(null); */
         console.log("off");
