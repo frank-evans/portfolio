@@ -3,18 +3,20 @@ import { Sound, audioMusic } from './audio.js';
 import { openModal } from './modal.js';
 import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 /* import explosion from '../static/explosion.gif'; */
-import './audio.js';
 import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
-import './modal.js';
 
-/* initialize audio */
-const fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
-const fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
-// separate sound effects for small rocks to avoid clipping
-const fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
-const fxHit2 = new Sound("./sounds/explosion-low.mp3", 4, 0.15);
+let fxLaser, fxExplode, fxHit, fxHit2;
+
+window.onload = function() {
+    /* initialize audio */
+    fxLaser = new Sound("./sounds/laser-retro.mp3", 5, 0.13);
+    fxExplode = new Sound("./sounds/explosion-low.mp3", 1, 0.3);
+    // separate sound effects for small rocks to avoid clipping
+    fxHit = new Sound("./sounds/explosion-low.mp3", 1, 0.15);
+    fxHit2 = new Sound("./sounds/explosion-low.mp3", 4, 0.15);
+};
 
 let modal1 = document.getElementById('modal1');
 let modal2 = document.getElementById('modal2');
@@ -376,6 +378,23 @@ let m = new THREE.Matrix4();
 
 let z = 1;
 
+// flipMatrix to correct Yuka steering behavior mesh flip on -x values
+const flipMatrix = new THREE.Matrix4().makeScale(1, 1, -1);
+
+// window blur/focus event listeners to correct vehicle position on return
+let savedPosition;
+let savedMatrix;
+
+window.addEventListener('blur', function() {
+    savedPosition = vehicle.position.clone();
+    savedMatrix = vehicle.matrix.clone();
+});
+
+window.addEventListener('focus', function() {
+    vehicle.position.copy(savedPosition);
+    vehicle.matrix.copy(savedMatrix);
+});
+
 function animate(t) {
     const delta = time.update().getDelta();
 
@@ -469,11 +488,10 @@ function animate(t) {
         // convert to mornal vector as volocity is constant in this direction
         local.position.normalize();
 
-        // correct yuka steering behavior mesh flip on -x values
         if(z != Math.sign(local.position.x)){
-            ship.applyMatrix(new THREE.Matrix4().makeScale(1, 1, -1));
-            ship.updateMatrix();
+            ship.applyMatrix(flipMatrix);
             z = Math.sign(local.position.x);
+            ship.updateMatrix();
         }
 
         let bullet = new THREE.Mesh(
@@ -518,7 +536,7 @@ function animate(t) {
 
         fxLaser.play();
     }
-
+    
     // this goes in Animate, as laser gets in proximity of button **********************************************************************
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
@@ -751,22 +769,22 @@ function animate(t) {
         }
     }
 
-    if (imgExplodeSm1.style.opacity < 1.0) {
+    if (parseFloat(imgExplodeSm1.style.opacity) < 1.0 && parseFloat(imgExplodeSm1.style.opacity) > 0.0) {
         imgExplodeSm1.style.opacity -= 0.01;
     }
-    if (imgExplodeSm2.style.opacity < 1.0) {
+    if (parseFloat(imgExplodeSm2.style.opacity) < 1.0 && parseFloat(imgExplodeSm2.style.opacity) > 0.0) {
         imgExplodeSm2.style.opacity -= 0.01;
     }
-    if (imgExplodeSm3.style.opacity < 1.0) {
+    if (parseFloat(imgExplodeSm3.style.opacity) < 1.0 && parseFloat(imgExplodeSm3.style.opacity) > 0.0) {
         imgExplodeSm3.style.opacity -= 0.01;
     }
-    if (imgExplodeSm4.style.opacity < 1.0) {
+    if (parseFloat(imgExplodeSm4.style.opacity) < 1.0 && parseFloat(imgExplodeSm4.style.opacity) > 0.0) {
         imgExplodeSm4.style.opacity -= 0.01;
     }
 
     // timer for laser intervals
     if(canShoot > 0) canShoot -= 1;
-
+    
     entityManager.update(delta);
     
     labelRenderer.render(scene, camera);
@@ -776,20 +794,24 @@ function animate(t) {
 
 renderer.setAnimationLoop(animate);
 
+let resizeTimeout;
 window.addEventListener('resize', function() {
-    /* camera.aspect = window.innerWidth / window.innerHeight; */
-    camera.aspect = window.innerWidth / (window.innerWidth * 0.56);
-    camera.updateProjectionMatrix();
-   /*  renderer.setSize(window.innerWidth, window.innerHeight); */
-    renderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
-    /* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
-    labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(function() {
+        /* camera.aspect = window.innerWidth / window.innerHeight; */
+        camera.aspect = window.innerWidth / (window.innerWidth * 0.56);
+        camera.updateProjectionMatrix();
+    /*  renderer.setSize(window.innerWidth, window.innerHeight); */
+        renderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
+        /* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
+        labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
 
-    // CSS2DRenderer resize (explosion gif)
-    /* imgExplodeLg.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
-    imgExplodeLg.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    imgExplodeSm1.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    imgExplodeSm2.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    imgExplodeSm3.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
-    imgExplodeSm4.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+        // CSS2DRenderer resize (explosion gif)
+        /* imgExplodeLg.style.height = (window.innerHeight * heightPercentage / 100) + 'px'; */
+        imgExplodeLg.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+        imgExplodeSm1.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+        imgExplodeSm2.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+        imgExplodeSm3.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+        imgExplodeSm4.style.width = (window.innerWidth * widthPercentage / 100) + 'px';
+    }, 250);
 });

@@ -1,16 +1,13 @@
-const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
 const gameContainer = document.getElementById('game-container');
 
-closeModalButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        /* const modal = button.closest('.modal');
-        closeModal(modal); */
+gameContainer.addEventListener('click', event => {
+    if (event.target.matches('[data-close-button]')) {
         const modals = document.querySelectorAll('.modal.active');
         modals.forEach(modal => {
             closeModal(modal);
-        })
-    })
+        });
+    }
 });
 
 overlay.addEventListener('click', () => {
