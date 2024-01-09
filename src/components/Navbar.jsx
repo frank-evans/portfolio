@@ -35,7 +35,7 @@ const Navbar = ({ className }) => {
             setActive("");
             window.scrollTo(0, 0);
             if (iframe) {
-              iframe.contentWindow.postMessage('observeOn', '*');
+              iframe.contentWindow.postMessage('navOn', '*');
             } // Notify the IntersectionObserver of the change
           }}
         >
@@ -60,7 +60,7 @@ const Navbar = ({ className }) => {
               onClick={() => {
                 setActive(link.title);
                 if (iframe) {
-                  iframe.contentWindow.postMessage('observeOff', '*');
+                  iframe.contentWindow.postMessage('navOff', '*');
                 } }}
             > 
               <a href={`/Portfolio-Base/#${link.id}`}>{link.title}</a>
@@ -96,7 +96,7 @@ const Navbar = ({ className }) => {
                     setToggle(!toggle);
                     setActive(link.title);
                     if (iframe) {
-                      iframe.contentWindow.postMessage('observeOff', '*');
+                      iframe.contentWindow.postMessage('navOff', '*');
                     }
                   }}
                 > 

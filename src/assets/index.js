@@ -42,6 +42,7 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import cardsite from "./cardsite.png";
+import game from "./PortfolioGame.png";
 
 export {
   logo,
@@ -85,4 +86,5 @@ export {
   humorElse,
   stackOverflow,
   wholeFoods,
+  game,
 };

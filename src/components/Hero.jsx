@@ -1,18 +1,52 @@
 import { motion } from 'framer-motion';
-import { useState } from 'react'; // import useState
+import { useState, useEffect, useRef } from 'react'; // import useState
 
 import { styles } from '../styles';
 
 const Hero = () => {
   const [isIframeLoaded, setIsIframeLoaded] = useState(false); // add this state
+  const heroRef = useRef(null); // define heroRef
+
+  useEffect(() => {
+    const iframeElement = document.querySelector('iframe'); // replace with the actual selector of your iframe
+    let observer;
+  
+    if (iframeElement) {
+      iframeElement.addEventListener('load', function() {
+        // The iframe and all of its contents have finished loading
+  
+        if (heroRef.current) {
+          observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // The Hero component is visible, send a postMessage to the iframe
+                iframeElement.contentWindow.postMessage('observeOn', '*');
+              } else {
+                iframeElement.contentWindow.postMessage('observeOff', '*');
+              }
+            });
+          });
+          // Start observing the Hero component
+          observer.observe(heroRef.current);
+        }
+      });
+    }
+  
+    return () => {
+      if (observer) {
+        observer.disconnect();
+      }
+    };
+  }, []);
 
   return (
     /* w-full h-screen */
-    <section className="relative mx-auto aspect-video">
+    <section ref={heroRef} className="relative mx-auto aspect-video">
       <iframe 
       /* className="pt-16" */
       className={`pt-0 ${isIframeLoaded ? '' : 'pointer-events-none'}`} // add this line
       src="https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html"  
+      /* src="http://localhost:5173/Portfolio-Base/gameContainer/index.html" */  
       width="100%" 
       /* height="110%" */
       height="100%"
@@ -44,7 +78,18 @@ const Hero = () => {
 
       <div className="absolute xs:bottom-10 bottom-32 
       w-full hidden xl:flex justify-center items-center pointer-events-none">
-          <a href="#about" className="pointer-events-none">
+          <a href="#about" onClick={() => {
+              /* e.preventDefault();
+              const aboutSection = document.querySelector('#about');
+              if (aboutSection) {
+                aboutSection.scrollIntoView({ behavior: 'smooth' });
+              } */
+              const iframeElement = document.querySelector('iframe');
+              if (iframeElement) {
+                iframeElement.contentWindow.postMessage('navOff', '*');
+              } 
+            }}
+            className="pointer-events-none">
             {/* w-[35px] h-[64px]   sm:px-8  */}
             <div className="w-[20px] h-[40px] md:w-[35px] md:h-[64px] 
             rounded-3xl border-4 border-secondary

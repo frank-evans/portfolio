@@ -35,6 +35,7 @@ import {
     humorElse,
     stackOverflow,
     wholeFoods,
+    game,
   } from "../assets";
   
   export const navLinks = [
@@ -287,9 +288,9 @@ import {
           color: "orange-text-gradient",
         },
       ],
-      image: tripguide,
+      image: game,
       source_code_link: "https://github.com/TheFrank86/Portfolio-Base",
-      /* live_link: "https://thefrank86.github.io/Portfolio-Base/gameContainer/index.html", */
+      live_link: "https://thefrank86.github.io/Portfolio-Base/",
     },
   ];
   

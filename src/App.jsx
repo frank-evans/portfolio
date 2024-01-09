@@ -6,8 +6,8 @@ Hero, Navbar, Tech, Works, StarsCanvas } from './components';
 
 const App = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const heroRef = useRef(null);
-  const [iframe, setIframe] = useState(null);
+  /* const heroRef = useRef(null);
+  const [iframe, setIframe] = useState(null); */
 
   useEffect(() => {
     const onScroll = () => {
@@ -21,7 +21,7 @@ const App = () => {
     };
   }, []);
 
-  useEffect(() => {
+  /* useEffect(() => {
     const iframeElement = document.querySelector('iframe'); // replace with the actual selector of your iframe
     let observer;
   
@@ -30,18 +30,20 @@ const App = () => {
         // The iframe and all of its contents have finished loading
         setIframe(iframeElement);
   
-        observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // The Hero component is visible, send a postMessage to the iframe
-              iframe.contentWindow.postMessage('observeOn', '*');
-            } else {
-              iframe.contentWindow.postMessage('observeOff', '*');
-            }
+        if (heroRef.current) {
+          observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // The Hero component is visible, send a postMessage to the iframe
+                iframe.contentWindow.postMessage('observeOn', '*');
+              } else {
+                iframe.contentWindow.postMessage('observeOff', '*');
+              }
+            });
           });
-        });
-        // Start observing the Hero component
-        observer.observe(heroRef.current);
+          // Start observing the Hero component
+          observer.observe(heroRef.current);
+        }
       });
     }
   
@@ -50,7 +52,7 @@ const App = () => {
         observer.disconnect();
       }
     };
-  }, []);
+  }, []); */
  
   return (
     <BrowserRouter>
@@ -60,7 +62,8 @@ const App = () => {
         <div className="bg-hero-pattern bg-cover 
         bg-no-repeat bg-center">
           <Navbar className={isScrolled ? "visible" : ""} />
-          <Hero ref={heroRef} />
+          {/* <Hero ref={heroRef} /> */}
+          <Hero />
         </div>
           <About />
           <Experience />
