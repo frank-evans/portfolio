@@ -389,25 +389,35 @@ window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         /* time.start(); */
         vehicle.position.copy(savedPositionV);
+        target.position.copy(savedPositionT);
         /* vehicle.position.set(0, 0, 0);
         target.position.set(0, 0, 0); */
-        if (vehicle.matrix) {
-            vehicle.matrix.copy(savedMatrix);
-        }
-        target.position.copy(savedPositionT);
         
         /* renderer.setAnimationLoop(animate); */
         console.log("on");
     } else if (event.data === 'observeOff') {
         /* time.stop(); */
         savedPositionV = vehicle.position.clone();
-        if (vehicle.matrix) {
-            savedMatrix = vehicle.matrix.clone();
-        }
         savedPositionT = target.position.clone();
         
+        /* vehicle.position.set(0, 0, 0);
+        target.position.set(0, 0, 0); */
         /* renderer.setAnimationLoop(null); */
         console.log("off");
+      } else if (event.data === 'navOn') {
+        /* vehicle.position.set(0, 0, 0);
+        target.position.set(0, 0, 0); */
+
+        vehicle.position.copy(savedPositionV);
+        target.position.copy(savedPositionT);
+
+        /* savedPositionV = vehicle.position.clone();
+        savedPositionT = target.position.clone(); */
+        console.log("navOn");
+      } else if (event.data === 'navOff') {
+        vehicle.position.set(0, 0, 0);
+        target.position.set(0, 0, 0);
+        console.log("navOff");
       }
   }, false);
 
@@ -813,17 +823,11 @@ renderer.setAnimationLoop(animate);
 
 document.addEventListener('blur', function() {
     savedPositionV = vehicle.position.clone();
-    if (vehicle.matrix) {
-        savedMatrix = vehicle.matrix.clone();
-    }
     savedPositionT = target.position.clone();
 }, true); // Use capture phase to catch the event as it bubbles up
 
 document.addEventListener('focus', function() {
     vehicle.position.copy(savedPositionV);
-    if (vehicle.matrix) {
-        vehicle.matrix.copy(savedMatrix);
-    }
     target.position.copy(savedPositionT);
 }, true); // Use capture phase to catch the event as it bubbles up
 
