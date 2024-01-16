@@ -243,7 +243,7 @@ import {
     {
       name: "Tech Team Up",
       description:
-        "Web application with Mobile in mind that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+        "Mobile application with cross-platform code for desktop that enables users to do an advanced search for company team openings, view detailed position information, and locate available positions based on their current location.",
       tags: [
         {
           name: "React Native",
