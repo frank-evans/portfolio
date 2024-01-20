@@ -247,3 +247,27 @@ img {
   40% {opacity: 0;}
   100% {opacity: 0;}
 }
+
+#qr {
+  position: absolute;
+  transform: translate(-50%, -50%) scale(1.0);
+  top: 50%;
+  left: 50%;
+  width: 30%;
+  /* background: rgba(0, 0, 0, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#expo {
+  font-size: 1.0rem;
+  color: black;
+  padding: 0.625rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  display: inline-block;
+  text-align: center;
+
+  border-radius: 0rem 0rem 0.625rem 0.625rem;
+  border: 0.25rem solid white;
+}
