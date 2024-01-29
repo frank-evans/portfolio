@@ -63,7 +63,7 @@ const Navbar = ({ className }) => {
                   iframe.contentWindow.postMessage('navOff', '*');
                 } }}
             > 
-              <a href={`/Portfolio-Base/#${link.id}`}>{link.title}</a>
+              <a href={`/Portfolio/#${link.id}`}>{link.title}</a>
             </li>
           ))}
         </ul>
@@ -100,7 +100,7 @@ const Navbar = ({ className }) => {
                     }
                   }}
                 > 
-                  <a href={`/Portfolio-Base/#${link.id}`}>{link.title}</a>
+                  <a href={`/Portfolio/#${link.id}`}>{link.title}</a>
                 </li>
               ))}
             </ul>

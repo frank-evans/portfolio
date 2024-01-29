@@ -1,8 +1,15 @@
-# React + Vite
+# Portfolio with Starship Game Project Showcase
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+I love space themes, real-time interactive software, and 3D visuals, so I incorperated them all into my portfolio.
+This interactive portfolio has a fun starship game where you can navigate through space by clicking/tapping to move and shoot.
+For users that have less interest in the specific interactivity, I have also made it a more traditional portfolio if they scroll down or jump to specific sections.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## View Live Here
+
+[Live Interactive Portfolio](https://thefrank86.github.io/Portfolio/)
+
+## Usage
+
+To play the Interactive Space portion of the Portfolio, just click/tap in space to navigate the starship and shoot the objects.  Special objects will showcase top projects. Scroll down the page for a more traditional Portfolio experience.
