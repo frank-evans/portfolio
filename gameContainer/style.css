@@ -233,6 +233,31 @@ img {
   
   width: 100%;
 }
+.mute-container1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  top: 90%;
+  left: 93%;
+  transform: translate(-50%, -50%) scale(0.05);
+  animation:tutorial 1.75s linear infinite 1.0s;
+  -moz-animation:tutorial 1.75s linear infinite 1.0s;
+  -ms-animation:tutorial 1.75s linear infinite 1.0s;
+  -o-animation:tutorial 1.75s linear infinite 1.0s;
+  -webkit-animation:tutorial 1.75s linear infinite 1.0s;
+}
+.mute1 {
+  color: white;
+  font-size: 20vw;
+  letter-spacing: 0.2em;
+  line-height: 2.0;
+  font-family: Verdana, sans-serif;
+
+  width: 100%;
+}
 @keyframes tutorial {
   0% {opacity: 1;}
   40% {opacity: 0;}
