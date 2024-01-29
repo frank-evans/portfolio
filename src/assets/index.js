@@ -43,6 +43,7 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 import cardsite from "./cardsite.png";
 import game from "./PortfolioGame.png";
+import teamUp from "./teamUp.png";
 
 export {
   logo,
@@ -87,4 +88,5 @@ export {
   stackOverflow,
   wholeFoods,
   game,
+  teamUp,
 };

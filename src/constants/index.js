@@ -36,6 +36,7 @@ import {
     stackOverflow,
     wholeFoods,
     game,
+    teamUp,
   } from "../assets";
   
   export const navLinks = [
@@ -238,7 +239,7 @@ import {
       ],
       image: cardsite,
       source_code_link: "https://github.com/TheFrank86/thefrank86.github.io",
-      live_link: "https://thefrank86.github.io/Portfolio-Base/Card_Visualizer/index.html",
+      live_link: "https://thefrank86.github.io/Portfolio/Card_Visualizer/index.html",
     },
     {
       name: "Tech Team Up",
@@ -262,9 +263,9 @@ import {
           color: "orange-text-gradient",
         },
       ],
-      image: jobit,
+      image: teamUp,
       source_code_link: "https://github.com/TheFrank86/React-Navtive-Jobs",
-      live_link: "",
+      live_link: "https://thefrank86.github.io/Portfolio/gameContainer/static/app.html",
     },
     {
       name: "Portfolio Website",
@@ -289,8 +290,8 @@ import {
         },
       ],
       image: game,
-      source_code_link: "https://github.com/TheFrank86/Portfolio-Base",
-      live_link: "https://thefrank86.github.io/Portfolio-Base/",
+      source_code_link: "https://github.com/TheFrank86/Portfolio",
+      live_link: "https://thefrank86.github.io/Portfolio/gameContainer/index.html",
     },
   ];
   
