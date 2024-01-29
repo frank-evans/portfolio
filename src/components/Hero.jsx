@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from 'react'; // import useState
 import { styles } from '../styles';
 
 const Hero = () => {
-  const [isIframeLoaded, setIsIframeLoaded] = useState(false); // add this state
+  const [isLeft, setIsLeft] = useState(false); // for the left side of the Hero component
+  const [isIframeLoaded, setIsIframeLoaded] = useState(false); // allow the iframe to be clickable after it's loaded
   const heroRef = useRef(null); // define heroRef
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const Hero = () => {
 
   return (
     /* w-full h-screen */
-    <section ref={heroRef} className="relative mx-auto aspect-video">
+    <section ref={heroRef} className={`relative aspect-video ${isLeft ? '' : 'mx-auto'}`}>
       <iframe 
       /* className="pt-16" */
       className={`pt-0 ${isIframeLoaded ? '' : 'pointer-events-none'}`} // add this line
@@ -54,9 +55,9 @@ const Hero = () => {
       />
 
       {/* className="max-w-7xl   top-[80px]   " */}
-      <div className={`sm:px-8 px-3 absolute
-      inset-0 mx-auto flex
-      flex-row items-start gap-3 pointer-events-none`}>
+      <div className={`absolute sm:px-8 px-3
+      inset-0 flex
+      flex-row items-start gap-3 pointer-events-none transform transition-all duration-500 ${isLeft ? '-translate-x-[20%]' : 'mx-auto'}`}>
         <div className="flex flex-col justify-center items-center mt-3 sm:mt-5 pointer-events-none">
           <div className="w-3 h-3 lg:w-5 lg:h-5 rounded-full bg-[#315eff] pointer-events-none" />
           <div className="w-0.5 lg:w-1 h-20 lg:h-40 bg-gradient-to-b from-[#315eff] from-05% pointer-events-none" />
@@ -64,15 +65,20 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText}
-           text-white pointer-events-none drop-shadow-[0_3px_2px_rgba(0,0,0,1.0)]`}>Hi, I'm <span 
+           text-[#BBEEFF] pointer-events-none drop-shadow-[0_3px_2px_rgba(0,0,0,1.0)]`}>Hi, I'm <span 
            className="text-[#315eff] pointer-events-none">
-            Frank</span></h1>
-            <p className={`${styles.heroSubText} mt-2
+            Frank &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <button className={`font-mono pointer-events-auto lg:text-3xl sm:text-xl text-sm text-[#6699FF] absolute ${isLeft ? '' : ''}`} onClick={() => setIsLeft(!isLeft)}>
+              {isLeft ? '>' : '<'}
+            </button>
+            </h1>
+            <p className={`${styles.heroSubText} mt-2 text-[#BBEEFF]
             text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex`}>
-              I Develop 3D Scenes using Assets and libraries, <br 
-              className="sm:block hidden pointer-events-none" />
-              UI's, and variable Web Applications.<br/>
-              I'm currently studying Machine Learning techniques.
+              I Develop 3D Scenes using Assets and libraries, 
+              <br className="sm:block hidden pointer-events-none" />
+              UI's, and variable Web Applications.
+              <br/>
+              I'm currently studying Machine Learning.
             </p>
         </div>
       </div>
