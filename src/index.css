@@ -231,7 +231,9 @@
 .Navbar {
   transition: opacity 0.5s ease-in-out;
   opacity: 0;
+  pointer-events: none;
 }
 .Navbar.visible {
   opacity: 1;
+  pointer-events: auto;
 }
