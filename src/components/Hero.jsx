@@ -83,7 +83,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute xs:bottom-10 bottom-32 
+      <div className="text-[#6699FF] absolute xs:bottom-10 bottom-32 
       w-full hidden xl:flex justify-center items-center pointer-events-none">
           <a href="#about" onClick={() => {
               /* e.preventDefault();
@@ -99,7 +99,7 @@ const Hero = () => {
             className="pointer-events-none">
             {/* w-[35px] h-[64px]   sm:px-8  */}
             <div className="w-[20px] h-[40px] md:w-[35px] md:h-[64px] 
-            rounded-3xl border-4 border-secondary
+            rounded-3xl border-4 border-light-blue
             flex justify-center items-start p-2 pointer-events-auto">
               <motion.div 
                 animate={{
@@ -111,7 +111,7 @@ const Hero = () => {
                   repeatType: 'loop',
                 }}
                 className="w-[3px] h-[3px] md:w-[12px] md:h-[12px] rounded-full
-                bg-secondary mb-1"
+                bg-light-blue mb-1"
               />
             </div>
           </a>
