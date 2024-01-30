@@ -8,7 +8,7 @@ For users that have less interest in the specific interactivity, I have also mad
 
 ## View Live Here
 
-[Live Interactive Portfolio](https://thefrank86.github.io/Portfolio/)
+<a href="https://thefrank86.github.io/Portfolio/" target="_blank">Live Interactive Portfolio</a>
 
 ## Usage
 
