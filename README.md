@@ -2,7 +2,7 @@
 
 ## Description
 
-I love space themes, real-time interactive software, and 3D visuals, so I incorperated them all into my portfolio.
+I love real-time interactive software, space themes, and 3D visuals.  After a few attempts, I decided incorporated them all into my portfolio.
 This interactive portfolio has a fun starship game where you can navigate through space by clicking/tapping to move and shoot.
 For users that have less interest in the specific interactivity, I have also made it a more traditional portfolio if they scroll down or jump to specific sections.
 
