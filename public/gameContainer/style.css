@@ -132,6 +132,7 @@ img {
 #tutorial {
   display: none;
   z-index: 10;
+  color: #88BBFF;
 }
 .click-container1 {
   display: flex;
@@ -150,7 +151,6 @@ img {
   -webkit-animation:tutorial 1.75s linear infinite 0s;
 }
 .click1 {
-  color: white;
   font-size: 20vw;
   letter-spacing: 0.2em;
   line-height: 2.0;
@@ -175,7 +175,6 @@ img {
   -webkit-animation:tutorial 1.75s linear infinite 0.25s;
 }
 .click2 {
-  color: white;
   font-size: 20vw;
   letter-spacing: 0.2em;
   line-height: 2.0;
@@ -200,7 +199,6 @@ img {
   -webkit-animation:tutorial 1.75s linear infinite 0.5s;
 }
 .click3 {
-  color: white;
   font-size: 20vw;
   letter-spacing: 0.2em;
   line-height: 2.0;
@@ -225,7 +223,6 @@ img {
   -webkit-animation:tutorial 1.75s linear infinite 0.75s;
 }
 .click4 {
-  color: white;
   font-size: 20vw;
   letter-spacing: 0.2em;
   line-height: 2.0;
@@ -250,7 +247,7 @@ img {
   -webkit-animation:tutorial 1.75s linear infinite 1.0s;
 }
 .mute1 {
-  color: white;
+  color: yellow;
   font-size: 20vw;
   letter-spacing: 0.2em;
   line-height: 2.0;
@@ -260,26 +257,23 @@ img {
 }
 @keyframes tutorial {
   0% {opacity: 1;}
-  40% {opacity: 0;}
+  50% {opacity: 0;}
   100% {opacity: 0;}
 }
 @-webkit-keyframes tutorial {
   0% {opacity: 1;}
-  40% {opacity: 0;}
+  50% {opacity: 0;}
   100% {opacity: 0;}
 }
 @-moz-keyframes tutorial {
   0% {opacity: 1;}
-  40% {opacity: 0;}
+  50% {opacity: 0;}
   100% {opacity: 0;}
 }
 #expo-container {
-  /* position: relative; */
   position: absolute;
   width: 100%;
-  /* padding-top: 56.25%; */ /* 9 / 16 = 0.5625 */
   padding-top: 66%;
-  /* overflow: auto; */
   z-index: 5;
   pointer-events: none;
   background-color: black;
@@ -301,20 +295,13 @@ img {
   color: black;
   overflow: auto;
   pointer-events: auto;
-  /* border: 0.25rem solid white; */
 
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 #qr {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(1.0); */
   width: 30%;
-  /* background: rgba(0, 0, 0, 0.5); */
-  /* display: flex; */
   justify-content: center;
   align-items: center;
 }

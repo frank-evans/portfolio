@@ -68,7 +68,7 @@ import {
       icon: mobile,
     },
     {
-      title: "Asset Content Creator",
+      title: "Content Asset Creator",
       icon: creator,
     },
   ];
