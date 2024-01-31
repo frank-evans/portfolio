@@ -99,7 +99,7 @@ const Hero = () => {
             {/* w-[35px] h-[64px]   sm:px-8  */}
             <div className="w-[20px] h-[40px] md:w-[35px] md:h-[64px] 
             rounded-3xl border-4 border-light-blue
-            flex justify-center items-start p-2 pointer-events-auto">
+            flex justify-center items-start p-2 pointer-events-auto opacity-50">
               <motion.div 
                 animate={{
                   y: [0, 24, 0]
