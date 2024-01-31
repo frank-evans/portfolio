@@ -29,7 +29,7 @@ const Navbar = ({ className }) => {
       <div className="w-full flex justify-between 
       items-center max-w-7xl mx-auto">
         <Link 
-          to="/Portfolio/"
+          to="/portfolio/"
           className="flex items-center gap-2"
           onClick={() => {
             setActive("");
@@ -63,7 +63,7 @@ const Navbar = ({ className }) => {
                   iframe.contentWindow.postMessage('navOff', '*');
                 } }}
             > 
-              <a href={`/Portfolio/#${link.id}`}>{link.title}</a>
+              <a href={`/portfolio/#${link.id}`}>{link.title}</a>
             </li>
           ))}
         </ul>
@@ -100,7 +100,7 @@ const Navbar = ({ className }) => {
                     }
                   }}
                 > 
-                  <a href={`/Portfolio/#${link.id}`}>{link.title}</a>
+                  <a href={`/portfolio/#${link.id}`}>{link.title}</a>
                 </li>
               ))}
             </ul>
