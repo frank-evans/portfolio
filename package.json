@@ -2,7 +2,7 @@
   "name": "portfolio",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://TheFrank86.github.io/Portfolio",
+  "homepage": "https://TheFrank86.github.io/portfolio",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
