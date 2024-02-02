@@ -388,7 +388,11 @@ let savedPositionV, savedPositionT, savedMatrix;
 window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
         /* time.start(); */
+        if (vehicle.position) {
         vehicle.position.copy(savedPositionV);
+        } else {
+            vehicle.position.set(0, 0, 0);
+        }
         target.position.copy(savedPositionT);
         /* vehicle.position.set(0, 0, 0);
         target.position.set(0, 0, 0); */
