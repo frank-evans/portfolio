@@ -70,7 +70,7 @@ scene.add(directionalLight);
 const helper = new THREE.DirectionalLightHelper( directionalLight, 0.3);
 scene.add( helper );
 
-// CSS2DRenderer initialization ************************************************
+// CSS2DRenderer initialization *****************************************
 const labelRenderer = new CSS2DRenderer();
 /* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
 labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
@@ -128,7 +128,7 @@ rock = new THREE.Mesh(Geometry, rockMaterial);
 scene.add(rock);
 rock.position.set(12, 7, -7);
 
-// SMALL ROCK TEST ************************************************************************ 
+// SMALL ROCK 
 const Geometry2 = new THREE.PlaneGeometry(3, 3);
 const rockMaterial2 = new THREE.MeshStandardMaterial({
    /*  color: 0xdddddd, */
@@ -140,7 +140,7 @@ rockSmall = new THREE.Mesh(Geometry2, rockMaterial2);
 scene.add(rockSmall);
 rockSmall.position.set(12, -5, -5);
 
-// SMALL ROCK 2 TEST ************************************************************************
+// SMALL ROCK 2 
 const rockMaterial3 = new THREE.MeshStandardMaterial({
     color: 0xffffff,
     map: rockTexture,
@@ -150,7 +150,7 @@ rockSmall2 = new THREE.Mesh(Geometry2, rockMaterial3);
 scene.add(rockSmall2);
 rockSmall2.position.set(-12, -5, -5);
 
-// SMALL ROCK 3 TEST ************************************************************************
+// SMALL ROCK 3 
 const rockMaterial4 = new THREE.MeshStandardMaterial({
     color: 0xdddddd,
     map: rockTexture,
@@ -160,7 +160,7 @@ rockSmall3 = new THREE.Mesh(Geometry2, rockMaterial4);
 scene.add(rockSmall3);
 rockSmall3.position.set(20, 2, -5);
 
-// SMALL ROCK 4 TEST ************************************************************************
+// SMALL ROCK 4 
 const rockMaterial5 = new THREE.MeshStandardMaterial({
     color: 0xbbbbbb,
     map: rockTexture,
@@ -200,7 +200,7 @@ imgExplodeSm1.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
 imgExplodeSm1.style.display = 'none';
 imgExplodeSm1.style.opacity = 1.0;
 
-// force different gif loop for rockSmall2                    *******************************************
+// force different gif loop for rockSmall2          
 const imgExplodeSm2 = document.createElement('img');
 imgExplodeSm2.src = './static/lowExplosionShort.gif?'+ Math.random();
 const div3 = document.createElement('div');
@@ -212,7 +212,7 @@ imgExplodeSm2.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
 imgExplodeSm2.style.display = 'none';
 imgExplodeSm2.style.opacity = 1.0;
 
-// force different gif loop for rockSmall3                    *******************************************
+// force different gif loop for rockSmall3          
 const imgExplodeSm3 = document.createElement('img');
 imgExplodeSm3.src = './static/lowExplosionShort.gif?'+ Math.random();
 const div4 = document.createElement('div');
@@ -224,7 +224,7 @@ imgExplodeSm3.style.width = (window.innerWidth * widthPercentage2 / 100) + 'px';
 imgExplodeSm3.style.display = 'none';
 imgExplodeSm3.style.opacity = 1.0;
 
-// force different gif loop for rockSmall3                    *******************************************
+// force different gif loop for rockSmall3             
 const imgExplodeSm4 = document.createElement('img');
 imgExplodeSm4.src = './static/lowExplosionShort.gif?'+ Math.random();
 const div5 = document.createElement('div');
@@ -387,37 +387,28 @@ let savedPositionV, savedPositionT, savedMatrix;
 // from Navbar.jsx
 window.addEventListener('message', function(event) {
     if (event.data === 'observeOn') {
-        /* time.start(); */
+        if (vehicle.position) {
         vehicle.position.copy(savedPositionV);
-        target.position.copy(savedPositionT);
-        /* vehicle.position.set(0, 0, 0);
-        target.position.set(0, 0, 0); */
-        
-        /* renderer.setAnimationLoop(animate); */
-        console.log("on");
+        } else {
+            vehicle.position.set(0, 0, 0);
+        }
+        if (target.position) {
+            target.position.copy(savedPositionT);
+        } else {
+            target.position.set(0, 0, 0);
+        }
+
     } else if (event.data === 'observeOff') {
-        /* time.stop(); */
         savedPositionV = vehicle.position.clone();
         savedPositionT = target.position.clone();
-        
-        /* vehicle.position.set(0, 0, 0);
-        target.position.set(0, 0, 0); */
-        /* renderer.setAnimationLoop(null); */
-        console.log("off");
+    
       } else if (event.data === 'navOn') {
-        /* vehicle.position.set(0, 0, 0);
-        target.position.set(0, 0, 0); */
-
         vehicle.position.copy(savedPositionV);
         target.position.copy(savedPositionT);
 
-        /* savedPositionV = vehicle.position.clone();
-        savedPositionT = target.position.clone(); */
-        console.log("navOn");
       } else if (event.data === 'navOff') {
         vehicle.position.set(0, 0, 0);
         target.position.set(0, 0, 0);
-        console.log("navOff");
       }
   }, false);
 
@@ -528,10 +519,6 @@ function animate(t) {
             new THREE.MeshBasicMaterial({color:0xff0000}),
             /* new THREE.MeshBasicMaterial({color:0xFFEF1A}), */
         ); 
-    
-        /* bullet.applyMatrix4(local.position); */
-        /* bullet.rotateX(180); */
-        /* bullet.rotateY(local.position.y); */
 
         // position lasers to come from ship
         bullet.position.set(
@@ -563,7 +550,7 @@ function animate(t) {
         fxLaser.play();
     }
     
-    // this goes in Animate, as laser gets in proximity of button **********************************************************************
+    // this goes in Animate, as laser gets in proximity of object 
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
         if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(imgExplodeLg.style.display == 'initial') && card.material.opacity >= 1.0){
@@ -652,7 +639,7 @@ function animate(t) {
                 }, 4.0 * 1000);
             }    
         } 
-        // rockSMALL hitbox **************************************************** 
+        // rockSMALL hitbox
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(imgExplodeSm1.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall.position.y - 1.0) && bullets[index].position.y < (rockSmall.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm1.src = imgExplodeSm1.src;
@@ -681,7 +668,7 @@ function animate(t) {
                 }, 4.0 * 1000);
             }    
         } 
-        // rockSMALL2 hitbox **************************************************** 
+        // rockSMALL2 hitbox 
         if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(imgExplodeSm2.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall2.position.y - 0.0) && bullets[index].position.y < (rockSmall2.position.y + 2.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm2.src = imgExplodeSm2.src;
@@ -710,7 +697,7 @@ function animate(t) {
                 }, 4.0 * 1000);
             }    
         } 
-        // rockSMALL3 hitbox **************************************************** 
+        // rockSMALL3 hitbox 
         if (bullets[index].position.x > (rockSmall3.position.x - 4.3) && bullets[index].position.x < (rockSmall3.position.x - 1.5) && rockSmall3.material.opacity >= 1.0  && !(imgExplodeSm3.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall3.position.y - 1.0) && bullets[index].position.y < (rockSmall3.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm3.src = imgExplodeSm3.src;
@@ -739,7 +726,7 @@ function animate(t) {
                 }, 4.0 * 1000);
             }    
         } 
-        // rockSMALL4 hitbox **************************************************** 
+        // rockSMALL4 hitbox 
         if (bullets[index].position.x > (rockSmall4.position.x + 0.7) && bullets[index].position.x < (rockSmall4.position.x + 3.5) && rockSmall4.material.opacity >= 1.0  && !(imgExplodeSm4.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall4.position.y - 1.0) && bullets[index].position.y < (rockSmall4.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 imgExplodeSm4.src = imgExplodeSm4.src;
@@ -822,13 +809,21 @@ function animate(t) {
 renderer.setAnimationLoop(animate);
 
 document.addEventListener('blur', function() {
-    savedPositionV = vehicle.position.clone();
-    savedPositionT = target.position.clone();
+    if (vehicle.position) {
+        savedPositionV = vehicle.position.clone();
+    }
+    if (target.position) {
+        savedPositionT = target.position.clone();
+    }
 }, true); // Use capture phase to catch the event as it bubbles up
 
 document.addEventListener('focus', function() {
-    vehicle.position.copy(savedPositionV);
-    target.position.copy(savedPositionT);
+    if (vehicle.position) {
+        vehicle.position.copy(savedPositionV);
+    }
+    if (target.position) {
+        target.position.copy(savedPositionT);
+    }
 }, true); // Use capture phase to catch the event as it bubbles up
 
 let resizeTimeout;
