@@ -70,7 +70,7 @@ scene.add(directionalLight);
 const helper = new THREE.DirectionalLightHelper( directionalLight, 0.3);
 scene.add( helper );
 
-// CSS2DRenderer initialization *****************************************
+// CSS2DRenderer initialization ***
 const labelRenderer = new CSS2DRenderer();
 /* labelRenderer.setSize(window.innerWidth, window.innerHeight); */
 labelRenderer.setSize(window.innerWidth, (window.innerWidth * 0.56));
