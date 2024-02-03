@@ -10,7 +10,6 @@ import { slideIn } from '../utils/motion';
 // service_spzzy1p
 // template_h6va8ls
 // TnUb7TDxGt2Z4I4l3
-
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({ 
@@ -115,13 +114,6 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
-
-      {/* <motion.div
-        variants={slideIn('right', 'tween', 0.2, 1)}
-        className="xl:flex-1 xl:h-auto md:h-[550px] h-[350px]"
-      >
-        <EarthCanvas />
-      </motion.div> */}
     </div>
   )
 }

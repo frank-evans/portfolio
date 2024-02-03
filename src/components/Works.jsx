@@ -22,8 +22,6 @@ const ProjectCard = ({index, name, description, tags, image, source_code_link, l
         className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full"
       >
         <div className="relative w-full h-[230px]">
-        {/* <video src={video} width="750" height="500" controls>
-        </video> */}
           <img 
             src={image}
             alt={name}

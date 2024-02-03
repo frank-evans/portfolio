@@ -85,11 +85,6 @@ const Hero = () => {
       <div className="text-[#6699FF] absolute xs:bottom-10 bottom-32 
       w-full hidden xl:flex justify-center items-center pointer-events-none">
           <a href="#about" onClick={() => {
-              /* e.preventDefault();
-              const aboutSection = document.querySelector('#about');
-              if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' });
-              } */
               const iframeElement = document.querySelector('iframe');
               if (iframeElement) {
                 iframeElement.contentWindow.postMessage('navOff', '*');

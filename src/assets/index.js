@@ -9,38 +9,26 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 
 import css from "./tech/css.png";
-import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
-import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
-import redux from "./tech/redux.png";
 import tailwind from "./tech/tailwind.png";
-import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.png";
 import python from "./tech/Python.png";
 import gitHub from "./tech/GitHub.png";
-import framerMotion from "./tech/FramerMotion.png";
 import django from "./tech/Django.png";
 import gimp from "./tech/gimp.png";
 import c from "./tech/c.png";
 import sqlite from "./tech/sqlite.png";
 
-import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 import adon from "./company/adon.png";
 import humorElse from "./company/humorElse.png";
 import stackOverflow from './company/stackOverflow.png';
 import wholeFoods from "./company/wholeFoods.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
-import tripguide from "./tripguide.png";
 import cardsite from "./cardsite.png";
 import game from "./PortfolioGame.png";
 import teamUp from "./teamUp.png";
@@ -56,29 +44,17 @@ export {
   menu,
   close,
   css,
-  docker,
-  figma,
   git,
   html,
   javascript,
-  mongodb,
   nodejs,
   reactjs,
-  redux,
   tailwind,
-  typescript,
   threejs,
-  meta,
   shopify,
-  starbucks,
-  tesla,
-  carrent,
-  jobit,
-  tripguide,
   cardsite,
   python,
   gitHub,
-  framerMotion,
   django,
   gimp,
   c,
