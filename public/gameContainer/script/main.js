@@ -555,10 +555,12 @@ function animate(t) {
         // card hitbox
         if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(imgExplodeLg.style.display == 'initial') && card.material.opacity >= 1.0){
             if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeLg.src = imgExplodeLg.src;
-                imgExplodeLg.style.display = 'initial';
+                var originalSrc = imgExplodeLg.src.split('?')[0]; // Save the original src
+                imgExplodeLg.src = ''; // Clear the current image
+                imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); // Set the src to the new URL
                 /* divContainer.position.set(-11, 7, -5); */
                 divContainer.position.set(card.position.x, card.position.y - 0.5, -7);
+                imgExplodeLg.style.display = 'initial';
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -586,10 +588,12 @@ function animate(t) {
         // app hitbox
         if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(imgExplodeLg.style.display == 'initial') && app.material.opacity >= 1.0){
             if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeLg.src = imgExplodeLg.src;
-                imgExplodeLg.style.display = 'initial';
+                var originalSrc = imgExplodeLg.src.split('?')[0];
+                imgExplodeLg.src = ''; 
+                imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); 
                 /* divContainer.position.set(0, 10, -5); */
                 divContainer.position.set(app.position.x, app.position.y, -7);
+                imgExplodeLg.style.display = 'initial';
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -614,10 +618,12 @@ function animate(t) {
         // rock hitbox
         if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(imgExplodeLg.style.display == 'initial') && rock.material.opacity >= 1.0){
             if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 3.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeLg.src = imgExplodeLg.src;
-                imgExplodeLg.style.display = 'initial';
+                var originalSrc = imgExplodeLg.src.split('?')[0]; 
+                imgExplodeLg.src = ''; 
+                imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); 
                 /* divContainer.position.set(11, 8, -5); */
                 divContainer.position.set(rock.position.x, rock.position.y, -7);
+                imgExplodeLg.style.display = 'initial';
                 fxExplode.play();
 
                 setTimeout(() => {
@@ -642,10 +648,13 @@ function animate(t) {
         // rockSMALL hitbox
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(imgExplodeSm1.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall.position.y - 1.0) && bullets[index].position.y < (rockSmall.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeSm1.src = imgExplodeSm1.src;
-                imgExplodeSm1.style.display = 'initial';
+                /* imgExplodeSm1.src = imgExplodeSm1.src; */
+                var originalSrc = imgExplodeSm1.src.split('?')[0]; // Save the original src
+                imgExplodeSm1.src = ''; // Clear the current image
+                imgExplodeSm1.src = originalSrc + '?t=' + new Date().getTime(); // Set the src to the new URL
                 /* divContainer2.position.set(11.5, -4.5, -5); */
                 divContainer2.position.set(rockSmall.position.x, rockSmall.position.y, -5);
+                imgExplodeSm1.style.display = 'initial';
                 fxHit.play();
 
                 setTimeout(() => {
@@ -671,10 +680,12 @@ function animate(t) {
         // rockSMALL2 hitbox 
         if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(imgExplodeSm2.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall2.position.y - 0.0) && bullets[index].position.y < (rockSmall2.position.y + 2.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeSm2.src = imgExplodeSm2.src;
-                imgExplodeSm2.style.display = 'initial';
+                var originalSrc = imgExplodeSm2.src.split('?')[0];
+                imgExplodeSm2.src = '';
+                imgExplodeSm2.src = originalSrc + '?t=' + new Date().getTime();
                 /* divContainer3.position.set(-11.5, -4.5, -5); */
                 divContainer3.position.set(rockSmall2.position.x, rockSmall2.position.y, -5);
+                imgExplodeSm2.style.display = 'initial';
                 fxHit2.play();
 
                 setTimeout(() => {
@@ -700,10 +711,12 @@ function animate(t) {
         // rockSMALL3 hitbox 
         if (bullets[index].position.x > (rockSmall3.position.x - 4.3) && bullets[index].position.x < (rockSmall3.position.x - 1.5) && rockSmall3.material.opacity >= 1.0  && !(imgExplodeSm3.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall3.position.y - 1.0) && bullets[index].position.y < (rockSmall3.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeSm3.src = imgExplodeSm3.src;
-                imgExplodeSm3.style.display = 'initial';
+                var originalSrc = imgExplodeSm3.src.split('?')[0];
+                imgExplodeSm3.src = '';
+                imgExplodeSm3.src = originalSrc + '?t=' + new Date().getTime(); 
                 /* divContainer4.position.set(-11.5, -4.5, -5); */
                 divContainer4.position.set(rockSmall3.position.x, rockSmall3.position.y, -5);
+                imgExplodeSm3.style.display = 'initial';
                 fxHit2.play();
 
                 setTimeout(() => {
@@ -729,10 +742,12 @@ function animate(t) {
         // rockSMALL4 hitbox 
         if (bullets[index].position.x > (rockSmall4.position.x + 0.7) && bullets[index].position.x < (rockSmall4.position.x + 3.5) && rockSmall4.material.opacity >= 1.0  && !(imgExplodeSm4.style.display == 'initial')){
             if (bullets[index].position.y > (rockSmall4.position.y - 1.0) && bullets[index].position.y < (rockSmall4.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
-                imgExplodeSm4.src = imgExplodeSm4.src;
-                imgExplodeSm4.style.display = 'initial';
+                var originalSrc = imgExplodeSm4.src.split('?')[0];
+                imgExplodeSm4.src = '';
+                imgExplodeSm4.src = originalSrc + '?t=' + new Date().getTime();
                 /* divContainer5.position.set(-11.5, -4.5, -5); */
                 divContainer5.position.set(rockSmall4.position.x, rockSmall4.position.y, -5);
+                imgExplodeSm4.style.display = 'initial';
                 fxHit2.play();
 
                 setTimeout(() => {
