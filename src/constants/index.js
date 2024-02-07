@@ -131,6 +131,7 @@ import {
         "Developing and maintaining web applications using Django, React.js, and other related technologies depicted below.",
         "Participating in code reviews and implementing constructive feedback from senior developers.",
         "Implementing responsive design and ensuring cross-browser compatibility.",
+        "Problem-solving in design, build, bug fixing, and refactoring for various technologies.",
       ],
     },
     {

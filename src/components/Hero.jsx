@@ -73,11 +73,11 @@ const Hero = () => {
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-[#BBEEFF]
             text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex`}>
-              I Develop 3D Scenes using Assets and libraries, 
+              I Develop 3D Scenes using Libraries and Assets, 
               <br className="sm:block hidden pointer-events-none" />
-              UI's, and variable Web Applications.
+              UI's, and Variable Web Applications.
               <br/>
-              I'm currently studying Machine Learning.
+              I'm currently studying Machine Learning Algorithms.
             </p>
         </div>
       </div>
