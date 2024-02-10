@@ -77,7 +77,7 @@ const Hero = () => {
               <br className="sm:block hidden pointer-events-none" />
               UI's, and Variable Web Applications.
               <br/>
-              I'm currently studying Machine Learning Algorithms.
+              I'm currently studying supervised Machine Learning.
             </p>
         </div>
       </div>
