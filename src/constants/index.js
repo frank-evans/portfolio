@@ -178,7 +178,7 @@ import {
   const testimonials = [
     {
       testimonial:
-        "Projects are usually either pretty smooth or a big headache.  Frank's communication and attention to detail ensured our project went smoothly. It was nice working with him.",
+        "Projects usually go pretty smoothly or are a big headache.  Frank's communication and attention to detail ensured our project went smoothly. It was nice working with him.",
       name: "Alex R.",
       designation: "Graphic Artist",
       company: "Independent",
