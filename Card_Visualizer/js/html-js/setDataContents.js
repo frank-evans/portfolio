@@ -309,6 +309,7 @@ export const cardData = /* html */ `
     <option data-svg-code="v09" value="v09">From the Vault: Exiled (V09)</option>
     <option data-svg-code="drb" value="drb">From the Vault: Dragons (DRB)</option></optgroup>
     <optgroup label="Funny">
+    <option data-svg-code="ph22" value="ph22">2022 Heroes of the Realm (PH22)</option>
     <option data-svg-code="uplist" value="uplist">The List (Unfinity Foil Edition) (UPLIST)</option>
     <option data-svg-code="sunf" value="sunf">Unfinity Sticker Sheets (SUNF)</option>
     <option data-svg-code="unf" value="unf">Unfinity (UNF)</option>
@@ -347,6 +348,8 @@ export const cardData = /* html */ `
     <option data-svg-code="mps" value="mps">Kaladesh Inventions (MPS)</option>
     <option data-svg-code="exp" value="exp">Zendikar Expeditions (EXP)</option></optgroup>
     <optgroup label="Memorabilia">
+    <option data-svg-code="fclu" value="fclu">Ravnica: Clue Edition Front Cards (FCLU)</option>
+    <option data-svg-code="alci" value="alci">The Lost Caverns of Ixalan Art Series (ALCI)</option>
     <option data-svg-code="awoe" value="awoe">Wilds of Eldraine Art Series (AWOE)</option>
     <option data-svg-code="acmm" value="acmm">Commander Masters Art Series (ACMM)</option>
     <option data-svg-code="fltr" value="fltr">Tales of Middle-earth Front Cards (FLTR)</option>
@@ -434,8 +437,11 @@ export const cardData = /* html */ `
     <option data-svg-code="pd2" value="pd2">Premium Deck Series: Fire and Lightning (PD2)</option>
     <option data-svg-code="h09" value="h09">Premium Deck Series: Slivers (H09)</option></optgroup>
     <optgroup label="Promo">
-    <option data-svg-code="pf24" value="pf24">MagicFest 2024 (PF24)</option>
+    <option data-svg-code="pss4" value="pss4">MKM Standard Showdown (PSS4)</option>
+    <option data-svg-code="pmkm" value="pmkm">Murders at Karlov Manor Promos (PMKM)</option>
+    <option data-svg-code="pl24" value="pl24">Year of the Dragon 2024 (PL24)</option>
     <option data-svg-code="pw24" value="pw24">Wizards Play Network 2024 (PW24)</option>
+    <option data-svg-code="pf24" value="pf24">MagicFest 2024 (PF24)</option>  
     <option data-svg-code="plci" value="plci">The Lost Caverns of Ixalan Promos (PLCI)</option>
     <option data-svg-code="pwoe" value="pwoe">Wilds of Eldraine Promos (PWOE)</option>
     <option data-svg-code="pmda" value="pmda">Magic x Duel Masters Promos (PMDA)</option>
@@ -726,6 +732,10 @@ export const cardData = /* html */ `
     <option data-svg-code="x2ps" value="itp">Introductory Two-Player Set (ITP)</option></optgroup>
     <optgroup label="Token">
     <option data-svg-code="tpip" value="tpip">Fallout Tokens (TPIP)</option>
+    <option data-svg-code="tmkc" value="tmkc">Murders at Karlov Manor Commander Tokens (TMKC)</option>
+    <option data-svg-code="tmkm" value="tmkm">Murders at Karlov Manor Tokens (TMKM)</option>
+    <option data-svg-code="wmkm" value="wmkm">MKM Japanese Promo Tokens (WMKM)</option>
+    <option data-svg-code="trvr" value="trvr">Ravnica Remastered Tokens (TRVR)</option>
     <option data-svg-code="alci" value="alci">The Lost Caverns of Ixalan Art Series (ALCI)</option>
     <option data-svg-code="tlcc" value="tlcc">The Lost Caverns of Ixalan Commander Tokens (TLCC)</option>
     <option data-svg-code="slci" value="slci">The Lost Caverns of Ixalan Substitute Cards (SLCI)</option>
