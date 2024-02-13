@@ -141,8 +141,8 @@ import {
       iconBg: "#FFFFFF",
       date: "December 2021 - January 2023",
       points: [
-        "Developed custom content, products, and marketing for independent business.",
-        "Content included writing and video for niche humor market including gaming and stand-up.",
+        "Developed custom content, products, and marketing for independent businesses.",
+        "Content included writing and video for the niche humor market including gaming and stand-up.",
         "Products included custom graphics for goods directly associated with video content.",
         "Marketing included promotional video (Youtube) and website (Shopify) for products associated with content.",
       ],
@@ -168,7 +168,7 @@ import {
       date: "February 2017 - October 2019",
       points: [
         "Grocery department supervisor of teams up to 8.",
-        "Daily communication with Team Manager on performance, schedule, rollouts, feedback, and issues.",
+        "Daily communication with Team/Department Manager on performance, scheduling, feedback, issues, and solutions.",
         "Refined SOP for direct team during company updates/changes.",
         "Continued to train members on all processes and expectations.",
       ],
@@ -206,7 +206,7 @@ import {
     {
       name: "Dynamic TCG Visualizer",
       description:
-        `Web-based platform that allows users to search sets and pieces to the popular TCG 'Magic the Gathering.' \xa0 Real-time search results using the Scryfall API are displayed with a Custom Visualizer Display.`,
+        `Web-based platform that allows users to display searched sets and pieces to the popular TCG 'Magic the Gathering.' \xa0 Real-time search results using the Scryfall API are displayed with a Custom Visualizer Display.`,
       tags: [
         {
           name: "Javascript",
