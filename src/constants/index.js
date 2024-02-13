@@ -178,7 +178,7 @@ import {
   const testimonials = [
     {
       testimonial:
-        "Projects usually go pretty smoothly or are a big headache.  Frank's communication and attention to detail ensured our project went smoothly. It was nice working with him.",
+        "Projects usually go smoothly or they're a big headache.  Frank's communication and attention to detail ensured our project went smoothly. It was nice working with him.",
       name: "Alex R.",
       designation: "Graphic Artist",
       company: "Independent",
@@ -186,7 +186,7 @@ import {
     },
     {
       testimonial:
-        "Frank always does his best to take care of clients.  He is one of my favorite people to work with.",
+        "Frank always does his best to take care of clients.  He is one of my favorite people to work alongside.",
       name: "Clarence M.",
       designation: "Lead Technician",
       company: "Adon Complete",
