@@ -115,21 +115,22 @@ app.position.set(0, 10, -7);
 
 // asteroid texture loading
 // geometry initialization 
-const Geometry = new THREE.PlaneGeometry(8, 8);
-const rockTexture = textureLoader.load("./static/asteroid2.png");
-rockTexture.rotation = 0.3;
+const boxGeometry = new THREE.PlaneGeometry(7.5, 5.5);
+const boxTexture = textureLoader.load("./static/GameBox.png");
 const rockMaterial = new THREE.MeshStandardMaterial({
     //size: 2.0,
-    color: 0xdddddd,
-    map: rockTexture,
+    color: 0x777777,
+    map: boxTexture,
     transparent: true,
 });
-rock = new THREE.Mesh(Geometry, rockMaterial);
+rock = new THREE.Mesh(boxGeometry, rockMaterial);
 scene.add(rock);
 rock.position.set(12, 7, -7);
 
 // SMALL ROCK 
 const Geometry2 = new THREE.PlaneGeometry(3, 3);
+const rockTexture = textureLoader.load("./static/asteroid2.png");
+rockTexture.rotation = 0.3;
 const rockMaterial2 = new THREE.MeshStandardMaterial({
    /*  color: 0xdddddd, */
     color: 0xbbbbbb,
@@ -616,8 +617,8 @@ function animate(t) {
             }    
         } 
         // rock hitbox
-        if (bullets[index].position.x > (rock.position.x - 5.0) && bullets[index].position.x < (rock.position.x + 0.0) && !(imgExplodeLg.style.display == 'initial') && rock.material.opacity >= 1.0){
-            if (bullets[index].position.y > (rock.position.y - 2.5) && bullets[index].position.y < (rock.position.y + 3.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+        if (bullets[index].position.x > (rock.position.x - 5.5) && bullets[index].position.x < (rock.position.x + 1.0) && !(imgExplodeLg.style.display == 'initial') && rock.material.opacity >= 1.0){
+            if (bullets[index].position.y > (rock.position.y - 3.5) && bullets[index].position.y < (rock.position.y + 1.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
                 var originalSrc = imgExplodeLg.src.split('?')[0]; 
                 imgExplodeLg.src = ''; 
                 imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); 
