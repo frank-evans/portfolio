@@ -73,7 +73,7 @@ const Hero = () => {
             </button>
             </h1>
             <p className={`${styles.heroSubText} mt-2 
-            text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex transition-colors duration-500 ${isLeft ? 'text-[rgba(255,255,255,0)]' : 'text-[rgba(255,255,255,1)]'}`}>
+             pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex transition-colors duration-500 ${isLeft ? 'text-[rgba(255,255,255,0)]' : 'text-[rgba(255,255,255,1)]'}`}>
               I Develop 3D Scenes using Libraries and Assets, 
               <br className="sm:block hidden pointer-events-none" />
               UI's, and Variable Web Applications.
