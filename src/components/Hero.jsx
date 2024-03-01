@@ -57,22 +57,23 @@ const Hero = () => {
       <div className={`absolute sm:px-8 px-3
       inset-0 flex
       flex-row items-start gap-3 pointer-events-none transform transition-all duration-500 ${isLeft ? '-translate-x-[20%]' : 'mx-auto'}`}>
-        <div className="flex flex-col justify-center items-center mt-3 sm:mt-5 pointer-events-none">
+        <div className={`flex flex-col justify-center items-center mt-3 sm:mt-5 pointer-events-none transition-opacity duration-300 ${isLeft ? 'opacity-0' : ''}`}>
           <div className="w-3 h-3 lg:w-5 lg:h-5 rounded-full bg-[#315eff] pointer-events-none" />
           <div className="w-0.5 lg:w-1 h-20 lg:h-40 bg-gradient-to-b from-[#315eff] from-05% pointer-events-none" />
         </div>
 
         <div>
+          {/* text-[rgba(187,238,255,0)] */}
           <h1 className={`${styles.heroHeadText}
-           text-[#BBEEFF] pointer-events-none drop-shadow-[0_3px_2px_rgba(0,0,0,1.0)]`}>Hi, I'm <span 
-           className="text-[#315eff] pointer-events-none">
+           pointer-events-none drop-shadow-[0_3px_2px_rgba(0,0,0,1.0)] transition-colors duration-500 ${isLeft ? 'text-[rgba(255,255,255,0)]' : ' text-[rgba(255,255,255,1)]'}`}>Hi, I'm <span 
+           className={`pointer-events-none transition-colors duration-500 ${isLeft ? 'text-[rgba(49,94,255,0)]' : 'text-[rgba(49,94,255,1)]'}`}>
             Frank &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-            <button className={`font-mono pointer-events-auto lg:text-3xl sm:text-xl text-sm text-[#6699FF] absolute ${isLeft ? '' : ''}`} onClick={() => setIsLeft(!isLeft)}>
+            <button className={`text-[rgba(102,153,255,1)] font-mono pointer-events-auto lg:text-3xl sm:text-xl text-sm absolute`} onClick={() => setIsLeft(!isLeft)}>
               {isLeft ? '>' : '<'}
             </button>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 text-[#BBEEFF]
-            text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex`}>
+            <p className={`${styles.heroSubText} mt-2 
+            text-white-100 pointer-events-none drop-shadow-[0_2px_1px_rgba(0,0,0,1.0)] hidden lg:flex transition-colors duration-500 ${isLeft ? 'text-[rgba(255,255,255,0)]' : 'text-[rgba(255,255,255,1)]'}`}>
               I Develop 3D Scenes using Libraries and Assets, 
               <br className="sm:block hidden pointer-events-none" />
               UI's, and Variable Web Applications.
