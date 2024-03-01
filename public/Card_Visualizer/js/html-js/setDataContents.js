@@ -1,6 +1,10 @@
 export const cardData = /* html */ `
 <optgroup label="Expansions">
     <option data-svg-code="1" value="1" disabled>'Expansions</option>
+    <option data-svg-code="blb" value="blb">Bloomburrow (BLB)</option>
+    <option data-svg-code="acr" value="acr">Assassin's Creed (ACR)</option>
+    <option data-svg-code="otj" value="otj">Outlaws of Thunder Junction (OTJ)</option>
+    <option data-svg-code="big" value="big">The Big Score (BIG)</option>
     <option data-svg-code="mkm" value="mkm">Murders at Karlov Manor (MKM)</option>
     <option data-svg-code="default" value="lci">Lost Caverns of Ixalan (LCI)</option>
     <option data-svg-code="woe" value="woe">Wilds of Eldraine (WOE)</option>
@@ -163,6 +167,7 @@ export const cardData = /* html */ `
     <option data-svg-code="chr" value="chr">Chronicles (CHR)</option></optgroup>
     <optgroup label="Draft Innovation">
     <option data-svg-code="4" value="4" disabled>.Draft Innovation</option>
+    <option data-svg-code="mh3" value="mh3">Modern Horizons 3 (MH3)</option>
     <option data-svg-code="clu" value="clu">Ravnica: Clue Edition (CLU)</option>
     <option data-svg-code="ltr" value="ltr">Lord of the Rings: Tales of Middle-Earth (LTR)</option>
     <option data-svg-code="j22" value="j22">Jumpstart 2022 (J22)</option>
@@ -264,6 +269,7 @@ export const cardData = /* html */ `
     <option data-svg-code="vis" value="mgb">Multiverse Gift Box (MGB)</option>
     <option data-svg-code="default" value="rqs">Rivals Quick Start Set (RQS)</option></optgroup>
     <optgroup label="Commander">
+    <option data-svg-code="m3c" value="m3c">Modern Horizons 3 Commander (M3C)</option>
     <option data-svg-code="pip" value="pip">Fallout (PIP)</option>
     <option data-svg-code="lcc" value="lcc">Lost Caverns of Ixalan Commander (LCC)</option>
     <option data-svg-code="who" value="who">Doctor Who (WHO)</option>
@@ -334,6 +340,7 @@ export const cardData = /* html */ `
     <option data-svg-code="unh" value="unh">Unhinged (UNH)</option>
     <option data-svg-code="ugl" value="ugl">Unglued (UGL)</option></optgroup>
     <optgroup label="Masterpiece">
+    <option data-svg-code="otp" value="otp">Breaking News (OTP)</option>
     <option data-svg-code="spg" value="spg">Special Guests (SPG)</option>
     <option data-svg-code="rex" value="rex">Jurassic World Collection (REX)</option>
     <option data-svg-code="wot" value="wot">Wilds of Eldraine: Enchangting Tales (WOT)</option>
@@ -349,6 +356,7 @@ export const cardData = /* html */ `
     <option data-svg-code="exp" value="exp">Zendikar Expeditions (EXP)</option></optgroup>
     <optgroup label="Memorabilia">
     <option data-svg-code="fclu" value="fclu">Ravnica: Clue Edition Front Cards (FCLU)</option>
+    <option data-svg-code="amkm" value="amkm">Murders at Karlov Manor Art Series (AMKM)</option>
     <option data-svg-code="alci" value="alci">The Lost Caverns of Ixalan Art Series (ALCI)</option>
     <option data-svg-code="awoe" value="awoe">Wilds of Eldraine Art Series (AWOE)</option>
     <option data-svg-code="acmm" value="acmm">Commander Masters Art Series (ACMM)</option>
@@ -731,6 +739,7 @@ export const cardData = /* html */ `
     <option data-svg-code="por" value="por">Portal (POR)</option>
     <option data-svg-code="x2ps" value="itp">Introductory Two-Player Set (ITP)</option></optgroup>
     <optgroup label="Token">
+    <option data-svg-code="tblb" value="tblb">Bloomburrow Tokens (TBLB)</option>
     <option data-svg-code="tpip" value="tpip">Fallout Tokens (TPIP)</option>
     <option data-svg-code="tmkc" value="tmkc">Murders at Karlov Manor Commander Tokens (TMKC)</option>
     <option data-svg-code="tmkm" value="tmkm">Murders at Karlov Manor Tokens (TMKM)</option>
