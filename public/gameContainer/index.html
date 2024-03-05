@@ -16,6 +16,17 @@
                 <div class="stars"></div>
                 <div class="twinkling"></div>
 
+                <div>
+                    <img id="galaxy" src="./static/galaxy.png" alt="animated galaxy">
+                    <svg>
+                        <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                        <feTurbulence id="galaxy-filter" numOctaves="1" seed="2" baseFrequency="0.05 0.05"></feTurbulence>
+                        <feDisplacementMap scale="10" in="SourceGraphic"></feDisplacementMap>
+                        <animate xlink:href="#galaxy-filter" attributeName="baseFrequency" dur="3100s" keyTimes="0;1" values="0.02 0.06;1.0 2.0" repeatCount="indefinite"/>
+                        </filter>
+                    </svg>
+                </div>  
+
                 <div id="overlay"></div>
                 
                 <div class="modal-container">
