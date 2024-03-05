@@ -34,6 +34,7 @@ body {
   border-style: solid;
   /* border-color: red; */
   z-index: -1;
+  overflow: hidden;
 }
 @keyframes move-background {
   from {
@@ -65,6 +66,20 @@ body {
 		-webkit-transform: translate3d(1000px, 0px, 0px);
     /* -webkit-transform: translateX(100%); */
 	}
+}
+#galaxy {
+  aspect-ratio: 16 / 9;
+  position: absolute;
+  width: 100%;
+  top: 45%;
+  right: 40%;
+  z-index: -5;
+  filter: url("#turbulence");
+
+  transform: scaleX(-1);
+}
+svg {
+  position: absolute;
 }
 .stars {
   aspect-ratio: 16 / 9;
