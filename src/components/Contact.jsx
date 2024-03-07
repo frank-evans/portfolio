@@ -59,7 +59,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden justify-center items-center">
+    <div className="xl:mt-12 flex-col flex gap-10 overflow-hidden justify-center items-center w-full mx-auto">
       <motion.div
         variants={slideIn('left', 'spring', 0.2, 1)}
         className="flex-[0.75] bg-black-100 p-8 rounded-2xl"
@@ -114,6 +114,10 @@ const Contact = () => {
           </button>
         </form>
       </motion.div>
+      <div className={`${styles.footer} space-x-8`}>
+        <div>Code/Design &copy; 2024 Frank Evans</div>
+        <div>Song "One Cosmos" distributed by <a href="https://www.youtube.com/watch?v=25LEeXuHclc" target="_blank" className="text-blue-500 underline">Wee Free Music</a></div>
+      </div>
     </div>
   )
 }
