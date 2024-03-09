@@ -7,6 +7,19 @@ import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
 
+const filterToggle = document.getElementById('filter-toggle');
+filterToggle.addEventListener('click', function() {
+    var svgFilter = document.getElementById('svg-filter');
+    var displayStyle = window.getComputedStyle(svgFilter).display;
+    if (displayStyle === 'none') {
+        filterToggle.src = "./static/perf.png";
+        svgFilter.style.display = 'block';
+    } else {
+        filterToggle.src = "./static/perfRed.png";
+        svgFilter.style.display = 'none';
+    }
+});
+
 const tutorial = document.getElementById('tutorial');
 
 let fxLaser, fxExplode, fxHit, fxHit2;
@@ -328,7 +341,7 @@ window.addEventListener('mousedown', function() {
         tutorial.style.display = 'none';
     }
 
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover"))) {
+    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover")) && !(filterToggle.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {

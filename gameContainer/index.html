@@ -18,16 +18,16 @@
 
                 <div>
                     <img id="galaxy" src="./static/galaxy.png" alt="animated galaxy">
-                    <svg>
-                        <filter id="turbulence" x="0" y="0" width="100%" height="100%">
+                    <!-- dur="60s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" -->
+                    <svg id="svg-filter">
+                        <filter id="turbulence" x="0" y="0" width="100%" height="100%" filterUnits="userSpaceOnUse">
                         <feTurbulence id="galaxy-filter" numOctaves="1" seed="2" baseFrequency="0.05 0.05"></feTurbulence>
                         <feDisplacementMap scale="09" in="SourceGraphic" xChannelSelector="G" yChannelSelector="B"></feDisplacementMap>></feDisplacementMap>
-                        <!-- dur="60s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" -->
                         <animate xlink:href="#galaxy-filter" attributeName="baseFrequency" dur="120s" keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
                         </filter>
                     </svg>
                 </div>  
-
+                
                 <div id="overlay"></div>
                 
                 <div class="modal-container">
@@ -139,7 +139,7 @@
                     </div>
 
                     <div class="mute-container1">
-                        <span class="mute1">⚞&nbsp;MUTE&nbsp;MUSIC&nbsp;⚟</span>
+                        <span class="mute1">⚞&nbsp;FX&nbsp;/&nbsp;MUSIC&nbsp;⚟</span>
                     </div>
                 </div>    
 
@@ -147,6 +147,8 @@
 
             <!-- music toggle -->
             <div class="toggle">
+                <!-- <button id="filter-toggle">Toggle Filter</button> -->
+                <img id="filter-toggle" src="./static/perfRed.png" alt="Performance throttle gauge">
                 <img id="music" src="./static/mNoteRed.png" alt="Music Note with Red Slash Through">
             </div>
 

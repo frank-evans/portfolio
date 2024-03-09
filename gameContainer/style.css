@@ -81,6 +81,20 @@ body {
 svg {
   position: absolute;
 }
+#svg-filter {
+  display: none;
+}
+#filter-toggle {
+  opacity: 0.2;
+  width: 2.6rem; 
+  border-radius: 0rem;
+  box-shadow: none;
+  pointer-events: auto;
+  z-index: 10;
+}
+#filter-toggle:hover {
+  opacity: 0.7;
+}
 .stars {
   aspect-ratio: 16 / 9;
  background: black url("./static/stars.png") repeat;
@@ -135,6 +149,7 @@ svg {
   border-radius: 0rem;
   box-shadow: none;
   pointer-events: auto;
+  margin-left: 0.3rem;
 }
 #music:hover {
   opacity: 0.7;
