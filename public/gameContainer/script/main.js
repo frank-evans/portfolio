@@ -6,19 +6,7 @@ import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
-
-const filterToggle = document.getElementById('filter-toggle');
-filterToggle.addEventListener('click', function() {
-    var svgFilter = document.getElementById('svg-filter');
-    var displayStyle = window.getComputedStyle(svgFilter).display;
-    if (displayStyle === 'none') {
-        filterToggle.src = "./static/perf.png";
-        svgFilter.style.display = 'block';
-    } else {
-        filterToggle.src = "./static/perfRed.png";
-        svgFilter.style.display = 'none';
-    }
-});
+import './fx.js';
 
 const tutorial = document.getElementById('tutorial');
 
@@ -340,8 +328,7 @@ window.addEventListener('mousedown', function() {
     if (!(tutorial.style.display == 'none')) {
         tutorial.style.display = 'none';
     }
-
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover")) && !(filterToggle.matches(":hover"))) {
+    if (overlay.classList.length == 0 && !(imgExplodeLg.style.display == 'initial') && !(music.matches(":hover")) && !(filterToggle.matches(":hover"))) {
         raycaster.setFromCamera(mousePosition, camera);
         const intersects = raycaster.intersectObjects(scene.children);
         for(let i = 0; i < intersects.length; i++) {
@@ -368,7 +355,7 @@ function fade(r) {
 }
 
 function respawn(r, y, t) {
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
+    if (overlay.classList.length == 0) {
         setTimeout (() => {
             scene.add(r);
             r.material.opacity = 0.0;
@@ -568,7 +555,7 @@ function animate(t) {
     for(let index = 0; index < bullets.length; index += 1){
         // card hitbox
         if (bullets[index].position.x > (card.position.x - 1.0) && bullets[index].position.x < (card.position.x + 3.5) && !(imgExplodeLg.style.display == 'initial') && card.material.opacity >= 1.0){
-            if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (card.position.y - 3.8) && bullets[index].position.y < (card.position.y + 2.3) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeLg.src.split('?')[0]; // Save the original src
                 imgExplodeLg.src = ''; // Clear the current image
                 imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); // Set the src to the new URL
@@ -601,7 +588,7 @@ function animate(t) {
         } 
         // app hitbox
         if (bullets[index].position.x > (app.position.x - 1.6) && bullets[index].position.x < (app.position.x + 2) && !(imgExplodeLg.style.display == 'initial') && app.material.opacity >= 1.0){
-            if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (app.position.y - 3.8) && bullets[index].position.y < (app.position.y + 1.5) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeLg.src.split('?')[0];
                 imgExplodeLg.src = ''; 
                 imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); 
@@ -631,7 +618,7 @@ function animate(t) {
         } 
         // rock hitbox
         if (bullets[index].position.x > (rock.position.x - 5.5) && bullets[index].position.x < (rock.position.x + 1.0) && !(imgExplodeLg.style.display == 'initial') && rock.material.opacity >= 1.0){
-            if (bullets[index].position.y > (rock.position.y - 3.5) && bullets[index].position.y < (rock.position.y + 1.0) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rock.position.y - 3.5) && bullets[index].position.y < (rock.position.y + 1.0) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeLg.src.split('?')[0]; 
                 imgExplodeLg.src = ''; 
                 imgExplodeLg.src = originalSrc + '?t=' + new Date().getTime(); 
@@ -661,7 +648,7 @@ function animate(t) {
         } 
         // rockSMALL hitbox
         if (bullets[index].position.x > (rockSmall.position.x - 3.0) && bullets[index].position.x < (rockSmall.position.x + 0.0) && rockSmall.material.opacity >= 1.0  && !(imgExplodeSm1.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall.position.y - 1.0) && bullets[index].position.y < (rockSmall.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall.position.y - 1.0) && bullets[index].position.y < (rockSmall.position.y + 1.7) && overlay.classList.length == 0){
                 /* imgExplodeSm1.src = imgExplodeSm1.src; */
                 var originalSrc = imgExplodeSm1.src.split('?')[0]; // Save the original src
                 imgExplodeSm1.src = ''; // Clear the current image
@@ -693,7 +680,7 @@ function animate(t) {
         } 
         // rockSMALL2 hitbox 
         if (bullets[index].position.x > (rockSmall2.position.x - 0.3) && bullets[index].position.x < (rockSmall2.position.x + 2.5) && rockSmall2.material.opacity >= 1.0  && !(imgExplodeSm2.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall2.position.y - 0.0) && bullets[index].position.y < (rockSmall2.position.y + 2.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall2.position.y - 0.0) && bullets[index].position.y < (rockSmall2.position.y + 2.7) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeSm2.src.split('?')[0];
                 imgExplodeSm2.src = '';
                 imgExplodeSm2.src = originalSrc + '?t=' + new Date().getTime();
@@ -724,7 +711,7 @@ function animate(t) {
         } 
         // rockSMALL3 hitbox 
         if (bullets[index].position.x > (rockSmall3.position.x - 4.3) && bullets[index].position.x < (rockSmall3.position.x - 1.5) && rockSmall3.material.opacity >= 1.0  && !(imgExplodeSm3.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall3.position.y - 1.0) && bullets[index].position.y < (rockSmall3.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall3.position.y - 1.0) && bullets[index].position.y < (rockSmall3.position.y + 1.7) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeSm3.src.split('?')[0];
                 imgExplodeSm3.src = '';
                 imgExplodeSm3.src = originalSrc + '?t=' + new Date().getTime(); 
@@ -755,7 +742,7 @@ function animate(t) {
         } 
         // rockSMALL4 hitbox 
         if (bullets[index].position.x > (rockSmall4.position.x + 0.7) && bullets[index].position.x < (rockSmall4.position.x + 3.5) && rockSmall4.material.opacity >= 1.0  && !(imgExplodeSm4.style.display == 'initial')){
-            if (bullets[index].position.y > (rockSmall4.position.y - 1.0) && bullets[index].position.y < (rockSmall4.position.y + 1.7) && modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1){
+            if (bullets[index].position.y > (rockSmall4.position.y - 1.0) && bullets[index].position.y < (rockSmall4.position.y + 1.7) && overlay.classList.length == 0){
                 var originalSrc = imgExplodeSm4.src.split('?')[0];
                 imgExplodeSm4.src = '';
                 imgExplodeSm4.src = originalSrc + '?t=' + new Date().getTime();
@@ -786,7 +773,7 @@ function animate(t) {
         } 
     }
 
-    if (modal1.classList.length == 1 && modal2.classList.length == 1 && modal3.classList.length == 1) {
+    if (overlay.classList.length == 0) {
         // slowly fade in opacity of card, app, and rock
         if (card.material.opacity < 1.0) {
             card.material.opacity += 0.01;

@@ -1,13 +1,13 @@
 const overlay = document.getElementById('overlay');
-const gameContainer = document.getElementById('game-container');
 
-gameContainer.addEventListener('click', event => {
-    if (event.target.matches('[data-close-button]')) {
+document.querySelectorAll('[data-close-button]').forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.stopPropagation();
         const modals = document.querySelectorAll('.modal.active');
         modals.forEach(modal => {
             closeModal(modal);
         });
-    }
+    });
 });
 
 overlay.addEventListener('click', () => {
@@ -19,14 +19,12 @@ overlay.addEventListener('click', () => {
 
 export function openModal(modal) {
     if (modal == null) return;
-    /* gameContainer.style.pointerEvents = "none"; */
     overlay.classList.add('active');
     modal.classList.add('active');
 }
 
 function closeModal(modal) {
     if (modal == null) return;
-    /* gameContainer.style.pointerEvents = "auto"; */
-    overlay.classList.remove('active');
     modal.classList.remove('active');
+    overlay.classList.remove('active');
 }
