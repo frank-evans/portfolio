@@ -6,7 +6,19 @@ import { CSS2DRenderer, CSS2DObject } from './CSS2DRenderer.js';
 import './three.min.js';
 import './GLTFLoader.js';
 import './yuka.js';
-import './fx.js';
+
+const filterToggle = document.getElementById('filter-toggle');
+filterToggle.addEventListener('click', function() {
+    var svgFilter = document.getElementById('svg-filter');
+    var displayStyle = window.getComputedStyle(svgFilter).display;
+    if (displayStyle === 'none') {
+        filterToggle.src = "./static/perf.png";
+        svgFilter.style.display = 'block';
+    } else {
+        filterToggle.src = "./static/perfRed.png";
+        svgFilter.style.display = 'none';
+    }
+});
 
 const tutorial = document.getElementById('tutorial');
 
