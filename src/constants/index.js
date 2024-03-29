@@ -127,11 +127,11 @@ import {
       iconBg: "#FFFFFF",
       date: "April 2022 - Present",
       points: [
-        "Started by completing Harvard's infamous CS50 course, and continued on with many other Computer Science courses by Harvard, Stanford, and more.",
+        "Completed rigorous courses such as CS50X and CS50W by HarvardX, Introduction to Computer Science and Programming Using Python by MITx and many more.",
         "Developing and maintaining web applications using Django, React.js, and other related technologies depicted below.",
-        "Participating in code reviews and implementing constructive feedback from senior developers.",
-        "Implementing responsive design and ensuring cross-browser compatibility.",
-        "Problem-solving in design, build, bug fixing, and refactoring for various technologies.",
+        "Engage in code reviews, incorportaing valuable feedback from senior developers.",
+        "Ensure responsive design and ensuring cross-browser compatibility.",
+        "Apply problem-solving skills in design, build, bug fixing, and refactoring for various technologies.",     
       ],
     },
     {
@@ -142,9 +142,9 @@ import {
       date: "December 2021 - January 2023",
       points: [
         "Developed custom content, products, and marketing for independent businesses.",
-        "Content included writing and video for the niche humor market including gaming and stand-up.",
-        "Products included custom graphics for goods directly associated with video content.",
-        "Marketing included promotional video (Youtube) and website (Shopify) for products associated with content.",
+        "Content included script, video production, graphics, and marketing copy.",
+        "Products included customized goods with manufacturing partner.",
+        "Marketing included promotional videos and website (Shopify) for products associated with content.",
       ],
     },
     {
@@ -154,8 +154,8 @@ import {
       iconBg: "#FFFFFF",
       date: "January 2020 - November 2021",
       points: [
-        "Field technician responding to all service inquiries including diagnostics, repairs, estimates, and sales.",
-        "Install/project lead of teams up to 10 on many installs/projects.",
+        "Field technician responsible for diagnostics, repairs, estimates, and sales.",
+        "Project lead of teams up to 10.",
         "Continued training for technical accuracy, efficiency, and customer satisfaction.",
         "Worked directly with owners on continuous updates/changes to company practices and procedures",
       ],
@@ -167,10 +167,10 @@ import {
       iconBg: "#FFFFFF",
       date: "February 2017 - October 2019",
       points: [
-        "Grocery department supervisor of teams up to 8.",
-        "Daily communication with Team/Department Manager on performance, scheduling, feedback, issues, and solutions.",
+        "Department supervisor of teams up to 8.",
+        "Daily communication with Department Senior Leadership on performance, scheduling, feedback, issues, and solutions.",
         "Refined SOP for direct team during company updates/changes.",
-        "Continued to train members on all processes and expectations.",
+        "Continued to train self/team on all processes and expectations.",
       ],
     },
   ];
