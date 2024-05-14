@@ -9,7 +9,7 @@ For users that have less interest in this specific interactivity, I have also ma
 
 ## View Live Here
 
-<a href="https://thefrank86.github.io/portfolio/" target="_blank">Live Interactive Portfolio</a>
+<a href="https://frank-evans.github.io/portfolio/" target="_blank">Live Interactive Portfolio</a>
 
 ## Usage
 

@@ -226,8 +226,8 @@ import {
         },
       ],
       image: cardsite,
-      source_code_link: "https://github.com/TheFrank86/thefrank86.github.io",
-      live_link: "https://thefrank86.github.io/portfolio/Card_Visualizer/index.html",
+      source_code_link: "https://github.com/frank-evans/thefrank86.github.io",
+      live_link: "https://frank-evans.github.io/portfolio/Card_Visualizer/index.html",
     },
     {
       name: "Tech Team Up",
@@ -252,8 +252,8 @@ import {
         },
       ],
       image: teamUp,
-      source_code_link: "https://github.com/TheFrank86/React-Navtive-Jobs",
-      live_link: "https://thefrank86.github.io/portfolio/gameContainer/static/app.html",
+      source_code_link: "https://github.com/frank-evans/React-Navtive-Jobs",
+      live_link: "https://frank-evans.github.io/portfolio/gameContainer/static/app.html",
     },
     {
       name: "Portfolio Website",
@@ -278,8 +278,8 @@ import {
         },
       ],
       image: game,
-      source_code_link: "https://github.com/TheFrank86/Portfolio",
-      live_link: "https://thefrank86.github.io/portfolio/gameContainer/index.html",
+      source_code_link: "https://github.com/frank-evans/Portfolio",
+      live_link: "https://frank-evans.github.io/portfolio/gameContainer/index.html",
     },
   ];
   
