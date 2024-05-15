@@ -226,7 +226,7 @@ import {
         },
       ],
       image: cardsite,
-      source_code_link: "https://github.com/frank-evans/thefrank86.github.io",
+      source_code_link: "https://github.com/frank-evans/cardsite.io",
       live_link: "https://frank-evans.github.io/portfolio/Card_Visualizer/index.html",
     },
     {
