@@ -2,7 +2,6 @@ export const cardData = /* html */ `
 <optgroup label="Expansions">
     <option data-svg-code="1" value="1" disabled>'Expansions</option>
     <option data-svg-code="blb" value="blb">Bloomburrow (BLB)</option>
-    <option data-svg-code="acr" value="acr">Assassin's Creed (ACR)</option>
     <option data-svg-code="otj" value="otj">Outlaws of Thunder Junction (OTJ)</option>
     <option data-svg-code="big" value="big">The Big Score (BIG)</option>
     <option data-svg-code="mkm" value="mkm">Murders at Karlov Manor (MKM)</option>
@@ -167,6 +166,7 @@ export const cardData = /* html */ `
     <option data-svg-code="chr" value="chr">Chronicles (CHR)</option></optgroup>
     <optgroup label="Draft Innovation">
     <option data-svg-code="4" value="4" disabled>.Draft Innovation</option>
+    <option data-svg-code="acr" value="acr">Assassin's Creed (ACR)</option>
     <option data-svg-code="mh3" value="mh3">Modern Horizons 3 (MH3)</option>
     <option data-svg-code="clu" value="clu">Ravnica: Clue Edition (CLU)</option>
     <option data-svg-code="ltr" value="ltr">Lord of the Rings: Tales of Middle-Earth (LTR)</option>
@@ -211,6 +211,8 @@ export const cardData = /* html */ `
     <option data-svg-code="dd2" value="dd2">Duel Decks: Jace vs. Chandra (DD2)</option>
     <option data-svg-code="dd1" value="dd1">Duel Decks: Elves vs. Goblins (DD1)</option></optgroup>
     <optgroup label="Alchemy">
+    <option data-svg-code="yotj" value="yotj">Alchemy: Outlaws of Thunder Junction (YOTJ)</option>
+    <option data-svg-code="ymkm" value="ymkm">Alchemy: Murders at Karlov Manor (YMKM)</option>
     <option data-svg-code="ylci" value="ylci">Alchemy: Ixalan (YLCI)</option>
     <option data-svg-code="ywoe" value="ywoe">Alchemy: Wilds of Eldraine (YWOE)</option>
     <option data-svg-code="yone" value="yone">Alchemy: Phyrexia (YONE)</option>
@@ -233,6 +235,7 @@ export const cardData = /* html */ `
     <option data-svg-code="ha7" value="ha7">Historic Anthology 7 (HA7)</option>
     <option data-svg-code="ea3" value="ea3">Explorer Anthology 3 (EA3)</option>
     <option data-svg-code="ea2" value="ea2">Explorer Anthology 2 (EA2)</option>
+    <option data-svg-code="slc" value="slc">Secret Lair 30th Anniversary Countdown Kit (SLC)</option>
     <option data-svg-code="q08" value="q08">Pioneer Challenger Decks 2022 (W08)</option>
     <option data-svg-code="gn3" value="gn3">Game Night 2022 (GN3)</option>
     <option data-svg-code="mtga" value="ea1">Explorer Anthology 1 (EA1)</option>
@@ -270,7 +273,9 @@ export const cardData = /* html */ `
     <option data-svg-code="default" value="rqs">Rivals Quick Start Set (RQS)</option></optgroup>
     <optgroup label="Commander">
     <option data-svg-code="m3c" value="m3c">Modern Horizons 3 Commander (M3C)</option>
+    <option data-svg-code="otc" value="otc">Outlaws of Thunder Junction Commander (OTC)</option>
     <option data-svg-code="pip" value="pip">Fallout (PIP)</option>
+    <option data-svg-code="mkc" value="mkc">Murders at Karlov Manor Commander (MKC)</option>
     <option data-svg-code="lcc" value="lcc">Lost Caverns of Ixalan Commander (LCC)</option>
     <option data-svg-code="who" value="who">Doctor Who (WHO)</option>
     <option data-svg-code="woc" value="woc">Wilds of Eldraine Commander (WOC)</option>
@@ -355,6 +360,7 @@ export const cardData = /* html */ `
     <option data-svg-code="mps" value="mps">Kaladesh Inventions (MPS)</option>
     <option data-svg-code="exp" value="exp">Zendikar Expeditions (EXP)</option></optgroup>
     <optgroup label="Memorabilia">
+    <option data-svg-code="aotj" value="aotj">Outlaws of Thunder Junction Art Series (AOTJ)</option>
     <option data-svg-code="fclu" value="fclu">Ravnica: Clue Edition Front Cards (FCLU)</option>
     <option data-svg-code="amkm" value="amkm">Murders at Karlov Manor Art Series (AMKM)</option>
     <option data-svg-code="alci" value="alci">The Lost Caverns of Ixalan Art Series (ALCI)</option>
@@ -445,6 +451,8 @@ export const cardData = /* html */ `
     <option data-svg-code="pd2" value="pd2">Premium Deck Series: Fire and Lightning (PD2)</option>
     <option data-svg-code="h09" value="h09">Premium Deck Series: Slivers (H09)</option></optgroup>
     <optgroup label="Promo">
+    <option data-svg-code="pcbb" value="pcbb">Cowboy Bebop (PCBB)</option>
+    <option data-svg-code="potj" value="potj">Outlaws of Thunder Junction Promos (POTJ)</option>
     <option data-svg-code="pss4" value="pss4">MKM Standard Showdown (PSS4)</option>
     <option data-svg-code="pmkm" value="pmkm">Murders at Karlov Manor Promos (PMKM)</option>
     <option data-svg-code="pl24" value="pl24">Year of the Dragon 2024 (PL24)</option>
@@ -740,6 +748,10 @@ export const cardData = /* html */ `
     <option data-svg-code="x2ps" value="itp">Introductory Two-Player Set (ITP)</option></optgroup>
     <optgroup label="Token">
     <option data-svg-code="tblb" value="tblb">Bloomburrow Tokens (TBLB)</option>
+    <option data-svg-code="totj" value="totj">Outlaws of Thunder Junction Tokens (TOTJ)</option>
+    <option data-svg-code="totp" value="totp">Breaking News Tokens (TOTP)</option>
+    <option data-svg-code="tbig" value="tbig">The Big Score Tokens (TBIG)</option>
+    <option data-svg-code="totc" value="totc">Outlaws of Thunder Junction Commander Tokens (TOTC)</option>
     <option data-svg-code="tpip" value="tpip">Fallout Tokens (TPIP)</option>
     <option data-svg-code="tmkc" value="tmkc">Murders at Karlov Manor Commander Tokens (TMKC)</option>
     <option data-svg-code="tmkm" value="tmkm">Murders at Karlov Manor Tokens (TMKM)</option>
