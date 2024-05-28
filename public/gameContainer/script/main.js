@@ -502,8 +502,14 @@ function animate(t) {
         // Try Math.sign( local x) to apply the matrix to -1 on the Z
         if(target.position.x > vehicle.position.x) {
             posX = Math.abs(target.position.x - vehicle.position.x);
+            if( posX == 0.0) {
+                posX = 0.001;
+            }
         } else {
             posX = Math.abs(vehicle.position.x - target.position.x) * -1;
+            if( posX == 0.0) {
+                posX = 0.001;
+            }
         }
 
         if(target.position.y > vehicle.position.y) {
