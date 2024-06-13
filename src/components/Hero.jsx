@@ -80,7 +80,7 @@ const Hero = () => {
               <br/>
               I'm currently working on
               <br/>
-              supervised Machine Learning.
+              Machine Learning Models.
             </p>
         </div>
       </div>
