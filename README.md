@@ -13,4 +13,4 @@ For users that have less interest in this specific interactivity, I have also ma
 
 ## Usage
 
-To play the Interactive Space portion of the portfolio, just click/tap in space to navigate the spaceship and shoot the objects.  Three special objects will showcase top projects. Scroll down the page for a more traditional portfolio experience.  Projects have links to their codebase and live builds in the top right of their respective windows.
+To play the Interactive Space portion of the portfolio, just click/tap in space to navigate the spaceship and shoot the objects.  Three special objects will showcase top projects. Scroll down the page for a more traditional portfolio experience.  Projects have links to their codebase and live builds in the top right of their respective windows.  I hope you enjoy, thank you.
