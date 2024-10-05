@@ -2,7 +2,7 @@
 
 ## Description
 
-I had the idea of a more interactive scene happening in the background as you navigate a page/application in a very traditional way, like simple clicks/taps on the screen.  This project was a great learning experience to get all the elements working together, and I found ways to achieve the basic idea of my vision in top section of my portfolio.
+I had the idea of a more interactive scene happening in the background as you navigate a page/application in a very traditional way, like simple clicks/taps on the screen.  This project was a great learning experience to get all the elements working together, and I found ways to achieve the basic idea of my vision in the top section of my portfolio.
 
 My portfolio has an interactive spaceship game where you can navigate and shoot by just clicking/tapping around the scene.
 For users that have less interest in this specific interactivity, I have also made a more traditional portfolio if they scroll down or jump to specific sections highlighted in the top navigation bar.
