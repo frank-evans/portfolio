@@ -1,6 +1,7 @@
 export const cardData = /* html */ `
 <optgroup label="Expansions">
     <option data-svg-code="1" value="1" disabled>'Expansions</option>
+    <option data-svg-code="dsk" value="dsk">Duskmourn: House of Horror (DSK)</option>
     <option data-svg-code="blb" value="blb">Bloomburrow (BLB)</option>
     <option data-svg-code="otj" value="otj">Outlaws of Thunder Junction (OTJ)</option>
     <option data-svg-code="big" value="big">The Big Score (BIG)</option>
@@ -107,6 +108,7 @@ export const cardData = /* html */ `
     <option data-svg-code="arn" value="arn">Arabian Nights (ARN)</option></optgroup>
     <optgroup label="Core Sets">
     <option data-svg-code="2" value="2" disabled>.Core Sets</option>
+    <option data-svg-code="fdn" value="fdn">Foundations (FDN)</option>
     <option data-svg-code="m21" value="m21">Core Set 2021 (M21)</option>
     <option data-svg-code="m20" value="m20">Core Set 2020 (M20)</option>
     <option data-svg-code="m19" value="m19">Core Set 2019 (M19)</option>
@@ -133,6 +135,7 @@ export const cardData = /* html */ `
     <option data-svg-code="lea" value="lea">Limited Edition Alpha (LEA)</option></optgroup>
     <optgroup label="Masters">
     <option data-svg-code="3" value="3" disabled>.Masters</option>
+    <option data-svg-code="mb2" value="mb2">Mystery Booster 2 (MB2)</option>
     <option data-svg-code="rvr" value="rvr">Ravnica Remastered (RVR)</option>
     <option data-svg-code="cmm" value="cmm">Commander Masters (CMM)</option>
     <option data-svg-code="sis" value="sis">Shadows of the Past (SIS)</option>
@@ -168,13 +171,14 @@ export const cardData = /* html */ `
     <option data-svg-code="4" value="4" disabled>.Draft Innovation</option>
     <option data-svg-code="acr" value="acr">Assassin's Creed (ACR)</option>
     <option data-svg-code="mh3" value="mh3">Modern Horizons 3 (MH3)</option>
+    <option data-svg-code="m2r" value="h2r">Modern Horizons 2 Timeshifts (H2R)</option>
     <option data-svg-code="clu" value="clu">Ravnica: Clue Edition (CLU)</option>
     <option data-svg-code="ltr" value="ltr">Lord of the Rings: Tales of Middle-Earth (LTR)</option>
     <option data-svg-code="j22" value="j22">Jumpstart 2022 (J22)</option>
     <option data-svg-code="clb" value="clb">Commander Legends: Battle for Baldur&#39;s Gate (CLB)</option>
     <option data-svg-code="star" value="dbl">Innistrad: Double Feature (DBL)</option>
     <option data-svg-code="j21" value="j21">Jumpstart: Historic Horizons (J21)</option>
-    <option data-svg-code="mh1" value="h1r">Modern Horizons 1 Timeshifts (H1R)</option>
+    <option data-svg-code="m1r" value="h1r">Modern Horizons 1 Timeshifts (H1R)</option>
     <option data-svg-code="mh2" value="mh2">Modern Horizons 2 (MH2)</option>
     <option data-svg-code="cmr" value="cmr">Commander Legends (CMR)</option>
     <option data-svg-code="jmp" value="jmp">Jumpstart (JMP)</option>
@@ -211,6 +215,7 @@ export const cardData = /* html */ `
     <option data-svg-code="dd2" value="dd2">Duel Decks: Jace vs. Chandra (DD2)</option>
     <option data-svg-code="dd1" value="dd1">Duel Decks: Elves vs. Goblins (DD1)</option></optgroup>
     <optgroup label="Alchemy">
+    <option data-svg-code="yblb" value="yblb">Alchemy: Bloomburrow (YBLB)</option>
     <option data-svg-code="yotj" value="yotj">Alchemy: Outlaws of Thunder Junction (YOTJ)</option>
     <option data-svg-code="ymkm" value="ymkm">Alchemy: Murders at Karlov Manor (YMKM)</option>
     <option data-svg-code="ylci" value="ylci">Alchemy: Ixalan (YLCI)</option>
@@ -272,6 +277,8 @@ export const cardData = /* html */ `
     <option data-svg-code="vis" value="mgb">Multiverse Gift Box (MGB)</option>
     <option data-svg-code="default" value="rqs">Rivals Quick Start Set (RQS)</option></optgroup>
     <optgroup label="Commander">
+    <option data-svg-code="dsc" value="dsc">Duskmourn: House of Horror Commander (DSC)</option>
+    <option data-svg-code="blc" value="blc">Bloomburrow Commander (BLC)</option>
     <option data-svg-code="m3c" value="m3c">Modern Horizons 3 Commander (M3C)</option>
     <option data-svg-code="otc" value="otc">Outlaws of Thunder Junction Commander (OTC)</option>
     <option data-svg-code="pip" value="pip">Fallout (PIP)</option>
@@ -321,6 +328,7 @@ export const cardData = /* html */ `
     <option data-svg-code="drb" value="drb">From the Vault: Dragons (DRB)</option></optgroup>
     <optgroup label="Funny">
     <option data-svg-code="ph22" value="ph22">2022 Heroes of the Realm (PH22)</option>
+    <option data-svg-code="da1" value="da1">Unknown Event (DA1)</option>
     <option data-svg-code="uplist" value="uplist">The List (Unfinity Foil Edition) (UPLIST)</option>
     <option data-svg-code="sunf" value="sunf">Unfinity Sticker Sheets (SUNF)</option>
     <option data-svg-code="unf" value="unf">Unfinity (UNF)</option>
@@ -360,6 +368,11 @@ export const cardData = /* html */ `
     <option data-svg-code="mps" value="mps">Kaladesh Inventions (MPS)</option>
     <option data-svg-code="exp" value="exp">Zendikar Expeditions (EXP)</option></optgroup>
     <optgroup label="Memorabilia">
+    <option data-svg-code="ffdn" value="ffdn">Foundations Front Cards (FFDN)</option>
+    <option data-svg-code="adsk" value="adsk">Duskmourn: House of Horror Art Series (ADSK)</option>
+    <option data-svg-code="ablb" value="ablb">Bloomburrow Art Series (ABLB)</option>
+    <option data-svg-code="aacr" value="aacr">Assassin's Creed Art Series (AACR)</option>
+    <option data-svg-code="amh3" value="amh3">Modern Horizons 3 Art Series (AMH3)</option>
     <option data-svg-code="aotj" value="aotj">Outlaws of Thunder Junction Art Series (AOTJ)</option>
     <option data-svg-code="fclu" value="fclu">Ravnica: Clue Edition Front Cards (FCLU)</option>
     <option data-svg-code="amkm" value="amkm">Murders at Karlov Manor Art Series (AMKM)</option>
@@ -451,6 +464,10 @@ export const cardData = /* html */ `
     <option data-svg-code="pd2" value="pd2">Premium Deck Series: Fire and Lightning (PD2)</option>
     <option data-svg-code="h09" value="h09">Premium Deck Series: Slivers (H09)</option></optgroup>
     <optgroup label="Promo">
+    <option data-svg-code="pdsk" value="pdsk">Duskmourn: House of Horror Promos (PDSK)</option>
+    <option data-svg-code="plg24" value="plg24">Love Your LGS 2024 (PLG24)</option>
+    <option data-svg-code="pblb" value="pblb">Bloomburrow Promos (PBLB)</option>
+    <option data-svg-code="pmh3" value="pmh3">Modern Horizons 3 Promos (PMH3)</option>
     <option data-svg-code="pcbb" value="pcbb">Cowboy Bebop (PCBB)</option>
     <option data-svg-code="potj" value="potj">Outlaws of Thunder Junction Promos (POTJ)</option>
     <option data-svg-code="pss4" value="pss4">MKM Standard Showdown (PSS4)</option>
@@ -747,7 +764,14 @@ export const cardData = /* html */ `
     <option data-svg-code="por" value="por">Portal (POR)</option>
     <option data-svg-code="x2ps" value="itp">Introductory Two-Player Set (ITP)</option></optgroup>
     <optgroup label="Token">
+    <option data-svg-code="tdsc" value="tdsc">Duskmourn Commander Tokens (TDSC)</option>
+    <option data-svg-code="tdsk" value="tdsk">Duskmourn: House of Horror Tokens (TDSK)</option>
+    <option data-svg-code="tblc" value="tblc">Bloomburrow Commander Tokens (TBLC)</option>
     <option data-svg-code="tblb" value="tblb">Bloomburrow Tokens (TBLB)</option>
+    <option data-svg-code="tacr" value="tacr">Assassin's Creed Tokens (TACR)</option>
+    <option data-svg-code="smh3" value="smh3">Modern Horizons 3 Substitute Cards (SMH3)</option>
+    <option data-svg-code="tm3c" value="tm3c">Modern Horizons 3 Commander Tokens (TM3C)</option>
+    <option data-svg-code="tmh3" value="tmh3">Modern Horizons 3 Tokens (TMH3)</option>
     <option data-svg-code="totj" value="totj">Outlaws of Thunder Junction Tokens (TOTJ)</option>
     <option data-svg-code="totp" value="totp">Breaking News Tokens (TOTP)</option>
     <option data-svg-code="tbig" value="tbig">The Big Score Tokens (TBIG)</option>
