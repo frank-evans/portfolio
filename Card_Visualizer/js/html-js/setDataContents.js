@@ -1,6 +1,10 @@
 export const cardData = /* html */ `
 <optgroup label="Expansions">
     <option data-svg-code="1" value="1" disabled>'Expansions</option>
+    <option data-svg-code="spe" value="spe">Marvel's Spider-Man Eternal (SPE)</option>
+    <option data-svg-code="fin" value="fin">Final Fantasy (FIN)</option>
+    <option data-svg-code="tdm" value="tdm">Tarkir: Dragonstorm (TDM)</option>
+    <option data-svg-code="dft" value="dft">Aetherdrift (DFT)</option>
     <option data-svg-code="dsk" value="dsk">Duskmourn: House of Horror (DSK)</option>
     <option data-svg-code="blb" value="blb">Bloomburrow (BLB)</option>
     <option data-svg-code="otj" value="otj">Outlaws of Thunder Junction (OTJ)</option>
@@ -135,6 +139,7 @@ export const cardData = /* html */ `
     <option data-svg-code="lea" value="lea">Limited Edition Alpha (LEA)</option></optgroup>
     <optgroup label="Masters">
     <option data-svg-code="3" value="3" disabled>.Masters</option>
+    <option data-svg-code="inr" value="inr">Innistrad Remastered (INR)</option>
     <option data-svg-code="mb2" value="mb2">Mystery Booster 2 (MB2)</option>
     <option data-svg-code="rvr" value="rvr">Ravnica Remastered (RVR)</option>
     <option data-svg-code="cmm" value="cmm">Commander Masters (CMM)</option>
@@ -169,6 +174,7 @@ export const cardData = /* html */ `
     <option data-svg-code="chr" value="chr">Chronicles (CHR)</option></optgroup>
     <optgroup label="Draft Innovation">
     <option data-svg-code="4" value="4" disabled>.Draft Innovation</option>
+    <option data-svg-code="j25" value="j25">Foundations Jumpstart (J25)</option>
     <option data-svg-code="acr" value="acr">Assassin's Creed (ACR)</option>
     <option data-svg-code="mh3" value="mh3">Modern Horizons 3 (MH3)</option>
     <option data-svg-code="m2r" value="h2r">Modern Horizons 2 Timeshifts (H2R)</option>
@@ -215,6 +221,8 @@ export const cardData = /* html */ `
     <option data-svg-code="dd2" value="dd2">Duel Decks: Jace vs. Chandra (DD2)</option>
     <option data-svg-code="dd1" value="dd1">Duel Decks: Elves vs. Goblins (DD1)</option></optgroup>
     <optgroup label="Alchemy">
+    <option data-svg-code="ydft" value="ydft">Alchemy: Aetherdrift (YDFT)</option>
+    <option data-svg-code="ydsk" value="ydsk">Alchemy: Duskmourn (YDSK)</option>
     <option data-svg-code="yblb" value="yblb">Alchemy: Bloomburrow (YBLB)</option>
     <option data-svg-code="yotj" value="yotj">Alchemy: Outlaws of Thunder Junction (YOTJ)</option>
     <option data-svg-code="ymkm" value="ymkm">Alchemy: Murders at Karlov Manor (YMKM)</option>
@@ -277,6 +285,10 @@ export const cardData = /* html */ `
     <option data-svg-code="vis" value="mgb">Multiverse Gift Box (MGB)</option>
     <option data-svg-code="default" value="rqs">Rivals Quick Start Set (RQS)</option></optgroup>
     <optgroup label="Commander">
+    <option data-svg-code="fic" value="fic">Final Fantasty Commander (FIC)</option>
+    <option data-svg-code="tdc" value="tdc">Tarkir: Dragonstorm Commander (TDC)</option>
+    <option data-svg-code="drc" value="drc">Aetherdrift Commander (DRC)</option>
+    <option data-svg-code="fdc" value="fdc">Foundations Commander (FDC)</option>
     <option data-svg-code="dsc" value="dsc">Duskmourn: House of Horror Commander (DSC)</option>
     <option data-svg-code="blc" value="blc">Bloomburrow Commander (BLC)</option>
     <option data-svg-code="m3c" value="m3c">Modern Horizons 3 Commander (M3C)</option>
@@ -328,7 +340,7 @@ export const cardData = /* html */ `
     <option data-svg-code="drb" value="drb">From the Vault: Dragons (DRB)</option></optgroup>
     <optgroup label="Funny">
     <option data-svg-code="ph22" value="ph22">2022 Heroes of the Realm (PH22)</option>
-    <option data-svg-code="da1" value="da1">Unknown Event (DA1)</option>
+    <option data-svg-code="unk" value="unk">Unknown Event (UNK)</option>
     <option data-svg-code="uplist" value="uplist">The List (Unfinity Foil Edition) (UPLIST)</option>
     <option data-svg-code="sunf" value="sunf">Unfinity Sticker Sheets (SUNF)</option>
     <option data-svg-code="unf" value="unf">Unfinity (UNF)</option>
@@ -353,6 +365,7 @@ export const cardData = /* html */ `
     <option data-svg-code="unh" value="unh">Unhinged (UNH)</option>
     <option data-svg-code="ugl" value="ugl">Unglued (UGL)</option></optgroup>
     <optgroup label="Masterpiece">
+    <option data-svg-code="fca" value="fca">Final Fantast: Through the Ages (FCA)</option>
     <option data-svg-code="otp" value="otp">Breaking News (OTP)</option>
     <option data-svg-code="spg" value="spg">Special Guests (SPG)</option>
     <option data-svg-code="rex" value="rex">Jurassic World Collection (REX)</option>
@@ -368,7 +381,12 @@ export const cardData = /* html */ `
     <option data-svg-code="mps" value="mps">Kaladesh Inventions (MPS)</option>
     <option data-svg-code="exp" value="exp">Zendikar Expeditions (EXP)</option></optgroup>
     <optgroup label="Memorabilia">
+    <option data-svg-code="pssc" value="pssc">Secret Lair Showcase Planes (PSSC)</option>
+    <option data-svg-code="adft" value="adft">Aetherdrift Art Series (ADFT)</option>
+    <option data-svg-code="ainr" value="ainr">Innistrad Remastard Art Series (AINR)</option>
+    <option data-svg-code="afdn" value="afdn">Foundations Art Series (AFDN)</option>
     <option data-svg-code="ffdn" value="ffdn">Foundations Front Cards (FFDN)</option>
+    <option data-svg-code="fj25" value="fj25">Foundations Jumpstart Front Cards (FJ25)</option>
     <option data-svg-code="adsk" value="adsk">Duskmourn: House of Horror Art Series (ADSK)</option>
     <option data-svg-code="ablb" value="ablb">Bloomburrow Art Series (ABLB)</option>
     <option data-svg-code="aacr" value="aacr">Assassin's Creed Art Series (AACR)</option>
@@ -439,6 +457,7 @@ export const cardData = /* html */ `
     <option data-svg-code="cei" value="cei">Intl. Collectors’ Edition (CEI)</option>
     <option data-svg-code="ced" value="ced">Collectors’ Edition (CED)</option></optgroup>
     <optgroup label="Minigame">
+    <option data-svg-code="macr" value="macr">Assassin's Creed Minigames (MACR)</option>
     <option data-svg-code="mone" value="mone">Phyrexia: All Will Be One Minigames (MONE)</option>
     <option data-svg-code="mbro" value="mbro">The Brother's War Minigames (MBRO)</option>
     <option data-svg-code="mdmu" value="mdmu">Dominaria United Minigames (MDMU)</option>
@@ -464,6 +483,15 @@ export const cardData = /* html */ `
     <option data-svg-code="pd2" value="pd2">Premium Deck Series: Fire and Lightning (PD2)</option>
     <option data-svg-code="h09" value="h09">Premium Deck Series: Slivers (H09)</option></optgroup>
     <optgroup label="Promo">
+    <option data-svg-code="plg25" value="plg25">Love Your LGS 2025 (PLG25)</option>
+    <option data-svg-code="pdft" value="pdft">Aetherdrift Promos (PDFT)</option>
+    <option data-svg-code="pl25" value="pl25">Year of the Snake 2025 (PL25)</option>
+    <option data-svg-code="pjsc" value="pjsc">Japan Standard Cup (PJSC)</option>
+    <option data-svg-code="pf25" value="pf25">MagicFest 2025 (PF25)</option>
+    <option data-svg-code="pspl" value="pspl">Spotlight Series (PSPL)</option>
+    <option data-svg-code="pw25" value="pw25">Wizards Play Network 2025 (PW25)</option>
+    <option data-svg-code="pfdn" value="pfdn">Foundations Promos (PFDN)</option>
+    <option data-svg-code="pltc" value="pltc">Tales of Middle-earth Deluxe Commander Kit (PLTC)</option>
     <option data-svg-code="pdsk" value="pdsk">Duskmourn: House of Horror Promos (PDSK)</option>
     <option data-svg-code="plg24" value="plg24">Love Your LGS 2024 (PLG24)</option>
     <option data-svg-code="pblb" value="pblb">Bloomburrow Promos (PBLB)</option>
@@ -764,6 +792,14 @@ export const cardData = /* html */ `
     <option data-svg-code="por" value="por">Portal (POR)</option>
     <option data-svg-code="x2ps" value="itp">Introductory Two-Player Set (ITP)</option></optgroup>
     <optgroup label="Token">
+    <option data-svg-code="tspm" value="tspm">Marvel's Spider-Man Tokens (TSPM)</option>
+    <option data-svg-code="tfin" value="tfin">Final Fantast Tokens (TFIN)</option>
+    <option data-svg-code="ttdm" value="ttdm">Tarkir: Dragonstorm Tokens (TTDM)</option>
+    <option data-svg-code="ttdc" value="ttdc">Tarkir: Dragonstorm Commander Tokens (TTDC)</option>
+    <option data-svg-code="tdft" value="tdft">Aetherdrift Tokens (TDFT)</option>
+    <option data-svg-code="tdrc" value="tdrc">Aetherdrift Commander Tokens (TDRC)</option>
+    <option data-svg-code="tinr" value="tinr">Innistrad Remastered Tokens (TINR)</option>
+    <option data-svg-code="tfdn" value="tfdn">Foundations Tokens (TFDN)</option>
     <option data-svg-code="tdsc" value="tdsc">Duskmourn Commander Tokens (TDSC)</option>
     <option data-svg-code="tdsk" value="tdsk">Duskmourn: House of Horror Tokens (TDSK)</option>
     <option data-svg-code="tblc" value="tblc">Bloomburrow Commander Tokens (TBLC)</option>
